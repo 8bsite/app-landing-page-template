@@ -1,0 +1,1466 @@
+<!doctype html>
+<!--
+  Free website template by 8B · https://github.com/8bsite/app-landing-page-template
+  MIT License (code) · Photos: Unsplash License, see CREDITS.md · Fonts: Google Fonts (OFL)
+  One HTML file, no build step. Notes for people and AI agents: README.md and AGENTS.md.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free HTML app landing page template with GSAP scroll animations — Linea (live demo)</title>
+<meta name="description" content="Free HTML app landing page template with GSAP scroll animations, for a mobile app or SaaS product with a free plan. One file, no build step, MIT. By 8B.">
+<meta name="generator" content="8B Templates">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free HTML app landing page template with GSAP scroll animations — Linea (live demo)">
+<meta property="og:description" content="Free HTML app landing page template with GSAP scroll animations, for a mobile app or SaaS product with a free plan. One file, no build step, MIT. By 8B.">
+<meta property="og:image" content="https://8bsite.github.io/app-landing-page-template/previews/desktop.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'14'%20fill%3D'%231b1411'%2F%3E%3Ctext%20x%3D'32'%20y%3D'45'%20font-family%3D'Arial%2CHelvetica%2Csans-serif'%20font-size%3D'38'%20font-weight%3D'700'%20text-anchor%3D'middle'%20fill%3D'%2333cc7a'%3EL%3C%2Ftext%3E%3C%2Fsvg%3E" data-8b-placeholder="favicon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/hostgrotesk/v5/co3BmWBnlCJ3U42vbbfdwMjZpFjm.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* latin-ext */
+@font-face {
+  font-family: 'Host Grotesk';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hostgrotesk/v5/co3BmWBnlCJ3U42vbbfdwMjZqljm0U0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Host Grotesk';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hostgrotesk/v5/co3BmWBnlCJ3U42vbbfdwMjZpFjm.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style data-8b-part="layers">@layer tokens, base, atoms, layout, sections, scenes;</style>
+<style data-8b-part="tokens">
+@layer tokens {
+:root {
+  --color-1: #1b1411;
+  --color-2: #faf5f0;
+  --color-3: #eee5dc;
+  --color-4: #33cc7a;
+  --color-5: #66574f;
+  --color-6: #1f3954;
+  --color-7: #bacde0;
+  --color-8: #2e241f;
+  --color-9: #b8aba3;
+  --font-1: "Host Grotesk", "Host Grotesk Fallback", Arial, sans-serif;
+  --radius-1: 3.5rem;
+  --radius-2: 1.75rem;
+  --radius-3: 62.5rem;
+  --radius-4: 1.25rem;
+  --shadow-1: 0 1.5rem 3rem -1.5rem color-mix(in srgb, var(--color-1) 60%, transparent);
+  --shadow-2: 0 0.75rem 1.75rem -0.75rem color-mix(in srgb, var(--color-4) 85%, transparent);
+  --space-1: clamp(1.125rem, 4.2vw, 3.5rem);
+  --space-2: clamp(5rem, 10vw, 9rem);
+}
+}
+</style>
+<style data-8b-part="base">
+@layer base {
+  @font-face { font-family: "Host Grotesk Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"); font-weight: 550 799; size-adjust: 95.7%; ascent-override: 106.6%; descent-override: 33.4%; line-gap-override: 0%; }
+  @font-face { font-family: "Host Grotesk Fallback"; src: local("Arial"), local("ArialMT"), local("Helvetica"); font-weight: 100 549; size-adjust: 103.3%; ascent-override: 98.8%; descent-override: 31%; line-gap-override: 0%; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-1); }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-stopped { overflow: clip; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  body { margin: 0; background: var(--color-2); color: var(--color-1); }
+  img, svg { display: block; max-width: 100%; }
+  img { height: auto; }
+  h1, h2, h3, p, ol, ul, figure, blockquote, dl, dd { margin: 0; }
+  ol, ul { padding: 0; list-style: none; }
+  a { color: inherit; }
+  button, input, textarea, select { font: inherit; color: inherit; }
+  :focus-visible { outline: 0.1875rem solid var(--color-1); outline-offset: 0.1875rem; }
+  .on-dark :focus-visible { outline-color: var(--color-2); }
+  ::selection { background: var(--color-4); color: var(--color-1); }
+  .skip-link { position: fixed; z-index: 100; top: 0.75rem; left: 0.75rem; padding: 0.75rem 1rem; border-radius: var(--radius-3); background: var(--color-2); color: var(--color-1); translate: 0 -200%; }
+  .skip-link:focus-visible { translate: 0 0; }
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+}
+</style>
+<style data-8b-part="system">
+@layer atoms {
+.m-text { font-family: var(--font-1); font-size: 1.0625rem; font-weight: 400; line-height: 1.55; letter-spacing: 0; text-transform: none; font-style: normal; }
+.m-text-2 { font-family: var(--font-1); font-size: clamp(3rem, 6.4vw, 6rem); font-weight: 600; line-height: 0.96; letter-spacing: -0.045em; text-transform: none; font-style: normal; }
+.m-text-3 { font-family: var(--font-1); font-size: clamp(2.25rem, 5.4vw, 5rem); font-weight: 600; line-height: 1; letter-spacing: -0.04em; text-transform: none; font-style: normal; }
+.m-text-4 { font-family: var(--font-1); font-size: clamp(1.125rem, 1.35vw, 1.3125rem); font-weight: 400; line-height: 1.45; letter-spacing: -0.01em; text-transform: none; font-style: normal; }
+.m-text-5 { font-family: var(--font-1); font-size: clamp(1.1875rem, 1.6vw, 1.4375rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; text-transform: none; font-style: normal; }
+.m-text-6 { font-family: var(--font-1); font-size: 0.9375rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; text-transform: none; font-style: normal; }
+.m-text-7 { font-family: var(--font-1); font-size: 0.8125rem; font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; font-style: normal; color: color-mix(in srgb, currentColor 78%, transparent); }
+.m-text-8 { font-family: var(--font-1); font-size: 1rem; font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; font-style: normal; color: color-mix(in srgb, currentColor 76%, transparent); }
+
+.m-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: 0.875rem 1.625rem; border: 0; border-radius: var(--radius-3); background: var(--color-4); color: var(--color-1); font-family: var(--font-1); font-size: 1rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.005em; text-decoration: none; box-shadow: var(--shadow-2); cursor: pointer; }
+.m-btn-2 { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: 0.875rem 1.625rem; border: 0; border-radius: var(--radius-3); background: var(--color-1); color: var(--color-2); font-family: var(--font-1); font-size: 1rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.005em; text-decoration: none; cursor: pointer; }
+.m-btn-3 { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: 0.625rem 1.25rem; border: 0; border-radius: var(--radius-3); background: var(--color-4); color: var(--color-1); font-family: var(--font-1); font-size: 0.9375rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.005em; text-decoration: none; cursor: pointer; }
+.m-btn__label { display: block; transition: translate 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.m-btn__wave { position: absolute; top: 50%; right: 1rem; display: flex; align-items: center; gap: 0.125rem; height: 0.875rem; translate: 0 -50%; opacity: 0; transition: opacity 0.3s; }
+.m-btn__wave i { width: 0.1875rem; height: 100%; border-radius: 0.125rem; background: currentColor; transform-origin: 50% 50%; scale: 1 0.35; }
+@media (hover: hover) {
+  .m-btn:hover .m-btn__label, .m-btn-2:hover .m-btn__label, .m-btn-3:hover .m-btn__label { translate: -0.5rem 0; }
+  .m-btn:hover .m-btn__wave, .m-btn-2:hover .m-btn__wave, .m-btn-3:hover .m-btn__wave { opacity: 1; }
+  .m-btn:hover .m-btn__wave i, .m-btn-2:hover .m-btn__wave i, .m-btn-3:hover .m-btn__wave i { animation: m-btn-talk 0.7s ease-in-out infinite alternate; }
+  .m-btn:hover .m-btn__wave i:nth-child(2), .m-btn-2:hover .m-btn__wave i:nth-child(2), .m-btn-3:hover .m-btn__wave i:nth-child(2) { animation-delay: -0.35s; }
+  .m-btn:hover .m-btn__wave i:nth-child(3), .m-btn-2:hover .m-btn__wave i:nth-child(3), .m-btn-3:hover .m-btn__wave i:nth-child(3) { animation-delay: -0.6s; }
+}
+@keyframes m-btn-talk { from { scale: 1 0.3; } to { scale: 1 1; } }
+
+.m-link { color: inherit; font-weight: 600; text-decoration: none; background-image: linear-gradient(currentColor, currentColor), linear-gradient(color-mix(in srgb, currentColor 34%, transparent), color-mix(in srgb, currentColor 34%, transparent)); background-repeat: no-repeat; background-position: 0 100%, 0 100%; background-size: 0% 0.125rem, 100% 0.0625rem; padding-bottom: 0.125rem; transition: background-size 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.m-link-2 { color: inherit; font-weight: 500; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 0.125rem; padding-bottom: 0.125rem; transition: background-size 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+@media (hover: hover) {
+  .m-link:hover { background-size: 100% 0.125rem, 100% 0.0625rem; }
+  .m-link-2:hover { background-size: 100% 0.125rem; }
+}
+
+.m-icon-btn { position: relative; display: inline-grid; place-items: center; width: 3rem; height: 3rem; padding: 0; border: 0.0625rem solid color-mix(in srgb, var(--color-2) 22%, transparent); border-radius: var(--radius-3); background: transparent; color: var(--color-2); cursor: pointer; overflow: hidden; isolation: isolate; }
+.m-icon-btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--color-4); transform-origin: 50% 100%; scale: 1 0; transition: scale 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.m-icon-btn svg { width: 1.375rem; height: 1.375rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+@media (hover: hover) {
+  .m-icon-btn:hover { color: var(--color-1); }
+  .m-icon-btn:hover::before { scale: 1 1; }
+}
+
+.m-caption { display: inline-flex; align-items: center; gap: 0.625rem; max-width: 100%; padding: 0.625rem 1rem 0.625rem 0.8125rem; border-radius: var(--radius-4) var(--radius-4) var(--radius-4) 0.3125rem; background: var(--color-2); color: var(--color-1); font-family: var(--font-1); font-size: 0.9375rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.005em; box-shadow: var(--shadow-1); }
+.m-caption-2 { display: inline-flex; align-items: center; gap: 0.625rem; max-width: 100%; padding: 0.625rem 1rem 0.625rem 0.8125rem; border-radius: var(--radius-4) var(--radius-4) 0.3125rem var(--radius-4); background: var(--color-4); color: var(--color-1); font-family: var(--font-1); font-size: 0.9375rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.005em; box-shadow: var(--shadow-1); }
+.m-caption__wave { display: inline-flex; flex: none; align-items: center; gap: 0.125rem; height: 0.875rem; }
+.m-caption__wave i { width: 0.1875rem; height: 45%; border-radius: 0.125rem; background: var(--color-4); }
+.m-caption__wave i:nth-child(2) { height: 100%; }
+.m-caption__wave i:nth-child(3) { height: 65%; }
+.m-caption__wave i:nth-child(4) { height: 85%; }
+.m-caption-2 .m-caption__wave i { background: var(--color-1); }
+.m-caption__text { min-width: 0; }
+
+.m-card { display: grid; gap: 0.875rem; align-content: start; padding: 1.5rem 1.5rem 1.375rem; border-radius: var(--radius-2); background: var(--color-3); color: var(--color-1); }
+.m-field { display: grid; gap: 0.5rem; }
+.m-field__label { font-family: var(--font-1); font-size: 0.9375rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; }
+.m-field__input { width: 100%; min-height: 3.25rem; padding: 0.875rem 1rem; border: 0.0625rem solid color-mix(in srgb, var(--color-1) 55%, transparent); border-radius: 0.875rem; background: var(--color-2); color: var(--color-1); font-family: var(--font-1); font-size: 1rem; line-height: 1.4; resize: vertical; }
+.m-field__input:focus-visible { border-color: var(--color-1); }
+.m-field__input:user-invalid { border-color: var(--color-4); outline: 0.0625rem solid var(--color-4); outline-offset: -0.125rem; }
+
+.m-band { position: absolute; z-index: 0; top: 0; left: 0; right: 0; bottom: calc(-1 * var(--radius-1)); background: var(--color-2); clip-path: inset(0% 0% 0% 0% round var(--radius-1) var(--radius-1) 0 0); pointer-events: none; }
+.m-band-2 { position: absolute; z-index: 0; top: 0; left: 0; right: 0; bottom: calc(-1 * var(--radius-1)); background: var(--color-3); clip-path: inset(0% 0% 0% 0% round var(--radius-1) var(--radius-1) 0 0); pointer-events: none; }
+.m-band-3 { position: absolute; z-index: 0; top: 0; left: 0; right: 0; bottom: calc(-1 * var(--radius-1)); background: var(--color-6); clip-path: inset(0% 0% 0% 0% round var(--radius-1) var(--radius-1) 0 0); pointer-events: none; }
+.m-band-4 { position: absolute; z-index: 0; top: 0; left: 0; right: 0; bottom: calc(-1 * var(--radius-1)); background: var(--color-1); clip-path: inset(0% 0% 0% 0% round var(--radius-1) var(--radius-1) 0 0); pointer-events: none; }
+}
+</style>
+<style data-8b-part="layout">
+@layer layout {
+  .l-wrap { width: 100%; max-width: 88rem; margin-inline: auto; padding-inline: var(--space-1); }
+}
+</style>
+<style data-8b-part="section:nav">
+@layer sections {
+  #nav { position: fixed; z-index: 50; top: 0.875rem; left: 0; right: 0; padding-inline: var(--space-1); color: var(--color-2); pointer-events: none; }
+  #nav .nav__bar { display: flex; align-items: center; gap: 1.75rem; max-width: 84rem; margin-inline: auto; padding: 0.4375rem 0.4375rem 0.4375rem 1.25rem; border: 0.0625rem solid color-mix(in srgb, var(--color-2) 12%, transparent); border-radius: var(--radius-3); background: color-mix(in srgb, var(--color-1) 80%, transparent); backdrop-filter: blur(0.875rem) saturate(1.3); pointer-events: auto; }
+  #nav .nav__brand { display: inline-flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+  #nav .nav__mark { width: 2.25rem; height: 1.5rem; fill: none; stroke-width: 3; stroke-linecap: round; }
+  #nav .nav__mark-a { stroke: var(--color-4); }
+  #nav .nav__mark-b { stroke: var(--color-2); }
+  #nav .nav__word { font-size: 1.375rem; }
+  #nav .nav__links { display: flex; gap: 1.75rem; margin-left: auto; }
+  #nav .nav__toggle { display: none; margin-left: auto; }
+  #nav .menu { position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column; gap: 2.5rem; padding: 6.5rem var(--space-1) 2.5rem; overflow-y: auto; background: var(--color-1); color: var(--color-2); pointer-events: auto; }
+  #nav .menu[hidden] { display: none; }
+  #nav .menu__close { position: absolute; top: 1.3125rem; right: var(--space-1); }
+  #nav .menu__links { display: grid; gap: 1rem; }
+  #nav .menu__links a { font-size: clamp(2rem, 9vw, 3rem); letter-spacing: -0.03em; }
+  @media (max-width: 63.99rem) {
+    #nav .nav__links, #nav .nav__cta { display: none; }
+    #nav .nav__toggle { display: inline-grid; }
+  }
+}
+</style>
+<style data-8b-part="section:hero">
+@layer sections {
+  #hero { position: relative; isolation: isolate; overflow-x: clip; display: flex; flex-direction: column; min-height: max(100svh, 40rem); background: var(--color-6); color: var(--color-2); }
+  #hero::after { content: ""; position: absolute; z-index: -1; top: 100%; left: 0; right: 0; height: 100vh; background: var(--color-6); }
+  #hero .hero__media { position: absolute; z-index: 0; top: 0; bottom: -4rem; left: 16%; right: 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, var(--color-1) 30%); }
+  #hero .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+  #hero .hero__shade { position: absolute; z-index: 0; inset: 0 0 -4rem; background: linear-gradient(180deg, color-mix(in srgb, var(--color-6) 50%, transparent), transparent 24%), linear-gradient(90deg, color-mix(in srgb, var(--color-6) 78%, transparent), color-mix(in srgb, var(--color-6) 42%, transparent) 34%, transparent 56%); pointer-events: none; }
+  #hero .hero__talk { position: absolute; z-index: 1; inset: 0; overflow: clip; pointer-events: none; }
+  #hero .hero__draw { position: absolute; inset: 0; }
+  #hero .hero__lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  #hero .hero__arc, #hero .hero__flow { fill: none; vector-effect: non-scaling-stroke; }
+  #hero .hero__arc { stroke: color-mix(in srgb, var(--color-2) 62%, transparent); stroke-width: 1.5; }
+  #hero .hero__flow { stroke: var(--color-4); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.012 0.088; }
+  #hero .hero__arc--a, #hero .hero__flow--a { cx: 78%; cy: 136%; rx: 40%; ry: 64%; }
+  #hero .hero__arc--b, #hero .hero__flow--b { cx: 52%; cy: 176%; rx: 78%; ry: 96%; }
+  #hero .hero__chip { position: absolute; top: 0; left: 0; offset-rotate: 0deg; offset-anchor: 0% 100%; }
+  #hero .hero__chip--1 { offset-path: ellipse(40% 64% at 78% 136%); offset-distance: 75%; offset-anchor: 50% 100%; }
+  #hero .hero__chip--2 { display: none; offset-path: ellipse(40% 64% at 78% 136%); offset-distance: 82%; offset-anchor: 0% 100%; }
+  #hero .hero__chip--3 { offset-path: ellipse(78% 96% at 52% 176%); offset-distance: 80%; offset-anchor: 0% 0%; }
+  #hero .hero__chip .m-caption, #hero .hero__chip .m-caption-2 { white-space: nowrap; }
+  #hero .hero__copy { position: relative; z-index: 2; flex: 1; display: flex; padding-top: clamp(7.5rem, 17vh, 10.5rem); padding-bottom: clamp(2.5rem, 7vh, 4.5rem); }
+  #hero .hero__intro { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 2.5rem; }
+  #hero .hero__title { max-width: 6.7em; font-size: clamp(3rem, 6.6vw, 6.25rem); }
+  #hero .hero__lower { display: grid; gap: 1.25rem; max-width: 24rem; }
+  #hero .hero__proof { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  #hero .hero__proof li { display: inline-flex; align-items: center; gap: 0.4375rem; }
+  #hero .hero__proof svg { width: 1rem; height: 1rem; flex: none; }
+  #hero .hero__star { fill: var(--color-4); }
+  #hero .hero__tick { fill: none; stroke: var(--color-7); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  #hero .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin-top: 0.5rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    #hero .hero__intro { animation: hero-rise 1s cubic-bezier(0.16, 0.84, 0.3, 1) backwards; }
+    #hero .hero__media img { animation: hero-settle 1.2s cubic-bezier(0.16, 0.84, 0.3, 1) backwards; }
+    #hero .hero__arc { stroke-dasharray: 1; animation: hero-draw 1.2s cubic-bezier(0.5, 0, 0.2, 1) backwards; }
+    #hero .hero__flow { animation: hero-flow 7s linear infinite; }
+    #hero .hero__chip { animation: hero-ride var(--hero-ride, 10s) ease-in-out infinite alternate; }
+    #hero .hero__chip--1 { --hero-from: 72%; --hero-to: 77%; --hero-ride: 8s; }
+    #hero .hero__chip--2 { --hero-from: 81%; --hero-to: 85%; --hero-ride: 11s; animation-delay: -3s; }
+    #hero .hero__chip--3 { --hero-from: 77%; --hero-to: 81%; --hero-ride: 10s; animation-delay: -4s; }
+    #hero.is-paused .hero__flow, #hero.is-paused .hero__chip { animation-play-state: paused; }
+  }
+  @media (min-width: 90rem) { #hero .hero__chip--2 { display: block; } }
+  @keyframes hero-rise { from { translate: 0 1.75rem; } }
+  @keyframes hero-settle { from { scale: 1.08; } }
+  @keyframes hero-draw { from { stroke-dashoffset: 1; } }
+  @keyframes hero-flow { to { stroke-dashoffset: -0.5; } }
+  @keyframes hero-ride { from { offset-distance: var(--hero-from); } to { offset-distance: var(--hero-to); } }
+  @media (max-width: 47.99rem) {
+    #hero .hero__media { left: -40%; right: auto; top: auto; bottom: -4rem; width: 167%; height: auto; aspect-ratio: 4 / 3; mask-image: linear-gradient(180deg, transparent, var(--color-1) 24%); }
+    #hero .hero__shade { background: linear-gradient(180deg, color-mix(in srgb, var(--color-6) 50%, transparent), transparent 20%); }
+    #hero .hero__copy { padding-top: 6.25rem; padding-bottom: 2rem; }
+    #hero .hero__intro { justify-content: flex-start; gap: 1.25rem; }
+    #hero .hero__title { font-size: clamp(2.6rem, 11.5vw, 3.5rem); }
+    #hero .hero__lower { gap: 1rem; }
+    #hero .hero__arc--a, #hero .hero__flow--a { cx: 50%; cy: 108%; rx: 80%; ry: 22%; }
+    #hero .hero__arc--b, #hero .hero__flow--b { cx: 50%; cy: 122%; rx: 110%; ry: 30%; }
+    #hero .hero__chip--1 { offset-path: ellipse(80% 22% at 50% 108%); offset-anchor: 50% 100%; --hero-from: 73%; --hero-to: 77%; }
+    #hero .hero__chip--2 { display: none; }
+    #hero .hero__chip--3 { offset-path: ellipse(110% 30% at 50% 122%); offset-anchor: 50% 0%; --hero-from: 73%; --hero-to: 77%; }
+    #hero .hero__chip .m-caption, #hero .hero__chip .m-caption-2 { font-size: 0.8125rem; }
+  }
+}
+</style>
+<style data-8b-part="section:listen">
+@layer sections {
+  #listen { position: relative; isolation: isolate; overflow-x: clip; color: var(--color-1); padding-top: var(--space-2); }
+  #listen > :not(.listen__sheet) { position: relative; z-index: 1; }
+  #listen .listen__head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1.5rem 4rem; align-items: end; }
+  #listen .listen__title { max-width: 11em; }
+  #listen .listen__lead { max-width: 30rem; color: var(--color-5); }
+  #listen .listen__hold { margin-top: clamp(2.5rem, 5vw, 4rem); }
+  #listen .listen__stage { padding-bottom: var(--space-2); }
+  #listen .listen__panels { display: grid; grid-template-columns: 1fr 1fr; height: clamp(22rem, 62vh, 38rem); }
+  #listen .listen__panel { position: relative; overflow: hidden; }
+  #listen .listen__panel--voice { border-radius: var(--radius-2) 0 0 var(--radius-2); background: var(--color-1); color: var(--color-2); }
+  #listen .listen__panel--read { border-radius: 0 var(--radius-2) var(--radius-2) 0; background: var(--color-4); color: var(--color-1); }
+  #listen .listen__label { position: absolute; z-index: 2; top: 1.5rem; left: 1.75rem; }
+  #listen .listen__panel--read .listen__label { left: auto; right: 1.75rem; }
+  #listen .listen__wave { position: absolute; left: 1.75rem; right: 1.75rem; bottom: 1.75rem; display: flex; align-items: flex-end; gap: 0.3125rem; height: 24%; }
+  #listen .listen__wave i { flex: 1; height: calc(var(--h) * 100%); border-radius: 0.1875rem; background: color-mix(in srgb, var(--color-2) 26%, transparent); transform-origin: 50% 100%; }
+  #listen .listen__track { position: absolute; top: 0; bottom: 0; width: 200%; }
+  #listen .listen__track--voice { left: 0; }
+  #listen .listen__track--read { left: -100%; }
+  #listen .listen__row { position: absolute; left: calc(50% + 2rem); max-width: calc(50% - 4rem); }
+  #listen .listen__row:nth-child(1) { top: 20%; }
+  #listen .listen__row:nth-child(2) { top: 37%; }
+  #listen .listen__row:nth-child(3) { top: 54%; }
+  #listen .listen__row .m-caption { font-size: clamp(0.9375rem, 1.25vw, 1.1875rem); }
+  #listen .listen__row--voice .m-caption { background: transparent; box-shadow: none; color: transparent; }
+  #listen .listen__word { border-radius: 0.1875rem; background: repeating-linear-gradient(90deg, var(--color-2) 0 0.1875rem, transparent 0.1875rem 0.375rem) 50% 50% / 100% calc(var(--h) * 100%) no-repeat; }
+  @media (max-width: 47.99rem) {
+    #listen .listen__head { grid-template-columns: 1fr; }
+    #listen .listen__panels { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; height: min(74vh, 36rem); }
+    #listen .listen__panel--read { grid-row: 1; border-radius: var(--radius-2) var(--radius-2) 0 0; }
+    #listen .listen__panel--voice { grid-row: 2; border-radius: 0 0 var(--radius-2) var(--radius-2); }
+    #listen .listen__label { top: auto; bottom: 1.125rem; left: 1.25rem; }
+    #listen .listen__panel--read .listen__label { top: auto; bottom: 1.125rem; left: auto; right: 1.25rem; }
+    #listen .listen__wave { left: 7rem; right: 1.25rem; bottom: 1.25rem; gap: 0.1875rem; height: 16%; }
+    #listen .listen__track { left: 0; right: 0; width: auto; top: 0; bottom: auto; height: 200%; }
+    #listen .listen__track--voice { top: -100%; }
+    #listen .listen__row { left: 1.25rem; max-width: calc(100% - 2.5rem); }
+    #listen .listen__row:nth-child(1) { top: 5%; }
+    #listen .listen__row:nth-child(2) { top: 16.5%; }
+    #listen .listen__row:nth-child(3) { top: 28%; }
+    #listen .listen__row .m-caption { font-size: 0.875rem; }
+  }
+}
+</style>
+<style data-8b-part="scene-style:listen">
+@layer scenes {
+  @media (prefers-reduced-motion: no-preference) {
+    #listen.is-staged .listen__hold { height: 250vh; }
+    #listen.is-staged .listen__stage { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; height: 100vh; padding-block: 5.5rem 2rem; }
+  }
+}
+</style>
+<style data-8b-part="section:calls">
+@layer sections {
+  #calls { position: relative; isolation: isolate; color: var(--color-2); padding-block: var(--space-2) calc(var(--space-2) + 1rem); }
+  #calls .calls__inner { position: relative; z-index: 1; }
+  #calls .calls__head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 1.5rem 4rem; align-items: end; }
+  #calls .calls__head-copy { display: grid; gap: 1.75rem; justify-items: start; background: var(--color-6); }
+  #calls .calls__lead { color: var(--color-7); }
+  #calls .calls__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 4rem; margin-top: clamp(3rem, 6vw, 5rem); }
+  #calls .calls__item { display: flex; flex-direction: column; justify-content: center; gap: 0.625rem; min-height: 44vh; padding-left: 1.5rem; border-left: 0.125rem solid color-mix(in srgb, var(--color-2) 18%, transparent); }
+  #calls .calls__item .m-text-8 { max-width: 28rem; }
+  #calls .calls__aside { position: relative; pointer-events: none; }
+  #calls .calls__sticky { position: sticky; top: calc(50vh - 17.5rem); display: flex; justify-content: center; }
+  #calls .calls__device { pointer-events: auto; }
+  #calls .calls__device { transform-origin: 50% 60%; }
+  #calls .phone { font-size: 1rem; width: 17.5em; height: 35em; padding: 0.625em; border-radius: 2.75em; background: var(--color-1); box-shadow: var(--shadow-1); }
+  #calls .phone__screen { display: flex; flex-direction: column; gap: 0.75em; height: 100%; padding: 1.25em 0.875em 0.75em; overflow: hidden; border-radius: 2.15em; background: var(--color-2); color: var(--color-1); }
+  #calls .phone__top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.25em 0.75em; }
+  #calls .phone__who { font-size: 1em; font-weight: 600; letter-spacing: -0.01em; }
+  #calls .phone__state { grid-column: 1; display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.75em; color: var(--color-5); }
+  #calls .phone__dot { width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--color-4); }
+  #calls .phone__end { grid-row: 1 / span 2; grid-column: 2; display: grid; place-items: center; width: 2.4em; height: 2.4em; border-radius: 50%; background: var(--color-4); }
+  #calls .phone__end svg { width: 1.2em; height: 1.2em; fill: none; stroke: var(--color-1); stroke-width: 2; stroke-linecap: round; }
+  #calls .phone__number { align-self: center; padding: 0.35em 0.8em; border-radius: var(--radius-3); background: var(--color-3); font-size: 0.75em; font-weight: 600; }
+  #calls .phone__log { display: flex; flex-direction: column; gap: 0.55em; flex: 1; }
+  #calls .phone__msg { display: grid; justify-items: start; gap: 0.25em; }
+  #calls .phone__msg--you { justify-items: end; }
+  #calls .phone__msg .m-caption, #calls .phone__msg .m-caption-2 { max-width: 88%; font-size: 0.8125em; box-shadow: none; }
+  #calls .phone__note, #calls .phone__cue { font-size: 0.6875em; color: var(--color-5); }
+  #calls .phone__cue { padding-left: 0.35em; }
+  #calls .phone__saved { display: flex; align-items: center; justify-content: center; gap: 0.4em; padding: 0.5em; border-radius: 0.9em; background: var(--color-3); font-size: 0.75em; font-weight: 600; }
+  #calls .phone__saved svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  #calls .phone__bar { display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 0.6em; border-top: 0.0625rem solid color-mix(in srgb, var(--color-1) 10%, transparent); }
+  #calls .phone__bar span { display: grid; justify-items: center; gap: 0.25em; font-size: 0.625em; color: var(--color-5); }
+  #calls .phone__bar span:first-child { color: var(--color-1); }
+  #calls .phone__bar svg { width: 1.6em; height: 1.6em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  @media (max-width: 47.99rem) {
+    #calls .calls__head { grid-template-columns: 1fr; }
+    #calls .calls__grid { grid-template-columns: 1fr; gap: 0; }
+    #calls .calls__aside, #calls .calls__list { grid-area: 1 / 1; }
+    #calls .calls__aside { z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; }
+    #calls .calls__sticky { top: auto; bottom: 0.5rem; }
+    #calls .phone { font-size: 0.66rem; height: 32.25em; }
+    #calls .phone__bar { display: none; }
+    #calls .phone__screen { gap: 0.45em; padding-top: 0.9em; }
+    #calls .phone__log { gap: 0.3em; }
+    #calls .phone__note { display: none; }
+    #calls .calls__list { padding-bottom: calc(32.25 * 0.66rem + 2.5rem); }
+    #calls .calls__item { min-height: 44vh; justify-content: flex-start; padding-top: 1.5rem; }
+  }
+}
+</style>
+<style data-8b-part="section:tune">
+@layer sections {
+  #tune { position: relative; isolation: isolate; color: var(--color-1); padding-block: clamp(4rem, 8vw, 7rem) var(--space-2); }
+  #tune > :not(.tune__sheet) { position: relative; z-index: 1; }
+  #tune .tune__stage { position: relative; z-index: 2; container-type: inline-size; padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1.25rem, 3.5vw, 3rem) clamp(1.75rem, 4.5vw, 3.75rem); border-radius: var(--radius-2); background: var(--color-1); color: var(--color-2); transform-origin: 50% 50%; }
+  #tune .tune__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; color: color-mix(in srgb, currentColor 72%, transparent); }
+  #tune .tune__meta span:first-child { display: inline-flex; align-items: center; gap: 0.5rem; }
+  #tune .tune__meta i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-4); }
+  #tune .tune__sample { margin-top: clamp(2rem, 7vw, 5.5rem); }
+  #tune .tune__line { display: block; width: max-content; white-space: nowrap; font-size: min(13rem, 100cqi / (var(--len) * 0.49)); line-height: 0.98; transform-origin: 0% 100%; }
+  #tune .tune__body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem 5rem; margin-top: clamp(3.5rem, 7vw, 6rem); }
+  #tune .tune__head { display: grid; gap: 1.5rem; align-content: start; }
+  #tune .tune__head .m-text-4 { color: var(--color-5); max-width: 26rem; }
+  #tune .tune__settings { border-top: 0.0625rem solid color-mix(in srgb, var(--color-1) 16%, transparent); }
+  #tune .tune__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.25rem 2rem; padding-block: 1.125rem; border-bottom: 0.0625rem solid color-mix(in srgb, var(--color-1) 16%, transparent); }
+  #tune .tune__row .m-text-8 { grid-column: 1; color: var(--color-5); }
+  #tune .tune__ctl { grid-column: 2; grid-row: 1 / span 2; }
+  #tune .tune__slider { position: relative; width: 8.5rem; height: 0.375rem; border-radius: var(--radius-3); background: color-mix(in srgb, var(--color-1) 14%, transparent); }
+  #tune .tune__fill { position: absolute; inset: 0; border-radius: inherit; background: var(--color-4); transform-origin: 0% 50%; }
+  #tune .tune__thumb { position: absolute; top: 50%; width: 1.25rem; height: 1.25rem; margin: -0.625rem 0 0 -0.625rem; border-radius: 50%; background: var(--color-1); box-shadow: var(--shadow-1); }
+  #tune [data-ctl="size"] .tune__fill { transform: scaleX(0.75); }
+  #tune [data-ctl="size"] .tune__thumb { left: 75%; }
+  #tune [data-ctl="weight"] .tune__fill { transform: scaleX(0.6); }
+  #tune [data-ctl="weight"] .tune__thumb { left: 60%; }
+  #tune .tune__seg { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 0.25rem; border-radius: var(--radius-3); background: color-mix(in srgb, var(--color-1) 10%, transparent); font-size: 0.8125rem; font-weight: 600; }
+  #tune .tune__seg span { position: relative; z-index: 1; padding: 0.375rem 0.875rem; text-align: center; }
+  #tune .tune__seg span:last-child { color: var(--color-2); }
+  #tune .tune__pill { position: absolute; top: 0.25rem; bottom: 0.25rem; left: 50%; width: calc(50% - 0.25rem); border-radius: var(--radius-3); background: var(--color-1); }
+  #tune .tune__toggle { position: relative; width: 2.75rem; height: 1.5rem; border-radius: var(--radius-3); background: var(--color-4); }
+  #tune .tune__toggle::after { content: ""; position: absolute; top: 0.1875rem; right: 0.1875rem; width: 1.125rem; height: 1.125rem; border-radius: 50%; background: var(--color-1); }
+  #tune .tune__tag { padding: 0.375rem 0.75rem; border-radius: var(--radius-3); background: var(--color-2); font-size: 0.8125rem; font-weight: 600; }
+  @media (max-width: 47.99rem) {
+    #tune .tune__body { grid-template-columns: 1fr; }
+    #tune .tune__slider { width: 6rem; }
+    #tune .tune__row { gap: 0.25rem 1.25rem; }
+  }
+}
+</style>
+<style data-8b-part="section:rooms">
+@layer sections {
+  #rooms { position: relative; isolation: isolate; overflow-x: clip; color: var(--color-2); padding-top: var(--space-2); }
+  #rooms > :not(.rooms__sheet) { position: relative; z-index: 1; }
+  #rooms .rooms__head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 1.5rem 4rem; align-items: end; }
+  #rooms .rooms__lead { max-width: 30rem; color: var(--color-9); }
+  #rooms .rooms__hold { margin-top: clamp(2.5rem, 5vw, 4rem); padding-bottom: var(--space-2); }
+  #rooms .rooms__now { display: flex; align-items: center; gap: 0.5rem; width: fit-content; margin: 0 auto 1.5rem; padding: 0.4375rem 0.875rem; border-radius: var(--radius-3); background: var(--color-8); color: var(--color-9); }
+  #rooms .rooms__now i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-4); }
+  #rooms .rooms__track { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; max-width: 88rem; margin-inline: auto; padding-inline: var(--space-1); }
+  #rooms .rooms__place { position: relative; overflow: hidden; aspect-ratio: 3 / 4.3; border-radius: var(--radius-2); background: var(--color-8); }
+  #rooms .rooms__place img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+  #rooms .rooms__place::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-1) 35%, transparent), transparent 26%, transparent 46%, color-mix(in srgb, var(--color-1) 78%, transparent)); pointer-events: none; }
+  #rooms .rooms__label { position: absolute; z-index: 2; top: 0.875rem; left: 0.875rem; padding: 0.375rem 0.75rem; border-radius: var(--radius-3); background: color-mix(in srgb, var(--color-1) 78%, transparent); }
+  #rooms .rooms__talk { position: absolute; z-index: 3; left: 0.875rem; right: 0.875rem; bottom: 0.875rem; display: grid; gap: 0.5rem; justify-items: start; }
+  #rooms .rooms__talk .m-caption-2 { justify-self: end; }
+  #rooms .rooms__talk .m-caption, #rooms .rooms__talk .m-caption-2 { font-size: 0.8125rem; }
+  #rooms .rooms__lines { position: absolute; z-index: 2; left: 0; top: 50%; width: 100%; height: clamp(4rem, 22%, 7.5rem); overflow: visible; pointer-events: none; }
+  #rooms .rooms__line { fill: none; stroke-width: 2.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+  #rooms .rooms__line--a { stroke: var(--color-4); }
+  #rooms .rooms__line--b { stroke: var(--color-2); }
+  @media (max-width: 63.99rem) {
+    #rooms .rooms__track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #rooms .rooms__place:last-child { grid-column: 1 / -1; aspect-ratio: 3 / 2.2; }
+  }
+  @media (max-width: 47.99rem) {
+    #rooms .rooms__head { grid-template-columns: 1fr; }
+    #rooms .rooms__track { grid-template-columns: 1fr; }
+    #rooms .rooms__place, #rooms .rooms__place:last-child { aspect-ratio: 4 / 3.6; }
+  }
+}
+</style>
+<style data-8b-part="scene-style:rooms">
+@layer scenes {
+  @media (prefers-reduced-motion: no-preference) {
+    #rooms.is-track .rooms__hold { height: calc(100vh + var(--rooms-travel, 0px) * 1.5); padding-bottom: 0; }
+    #rooms.is-track .rooms__stage { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; height: 100vh; padding-top: 4.5rem; overflow: hidden; }
+    #rooms.is-track .rooms__track { display: flex; width: max-content; max-width: none; margin: 0; gap: clamp(1rem, 2.4vw, 2.25rem); padding-inline: var(--space-1); }
+    #rooms.is-track .rooms__place { flex: none; width: clamp(16rem, 34vw, 30rem); height: min(66vh, 40rem); aspect-ratio: auto; }
+    #rooms.is-track .rooms__place:last-child { grid-column: auto; }
+    #rooms.is-track .rooms__place img { left: -8%; width: 116%; }
+    @media (max-width: 47.99rem) {
+      #rooms.is-track .rooms__place { width: 78vw; height: min(62vh, 34rem); }
+    }
+  }
+}
+</style>
+<style data-8b-part="section:voices">
+@layer sections {
+  #voices { position: relative; isolation: isolate; overflow-x: clip; color: var(--color-1); padding-block: var(--space-2); }
+  #voices > :not(.voices__sheet) { position: relative; z-index: 1; }
+  #voices .voices__title { max-width: 16em; text-wrap: balance; }
+  #voices .voices__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem 4rem; align-items: start; margin-top: clamp(3rem, 6vw, 5rem); }
+  #voices .voices__expert { display: grid; gap: 1.75rem; }
+  #voices .voices__photo { overflow: hidden; aspect-ratio: 4 / 4.6; border-radius: var(--radius-2); background: var(--color-3); }
+  #voices .voices__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; }
+  #voices .voices__quote { font-size: clamp(1.375rem, 2vw, 1.75rem); line-height: 1.3; }
+  #voices .voices__who { display: flex; align-items: center; gap: 0.75rem; }
+  #voices .voices__who span { color: var(--color-5); font-weight: 400; }
+  #voices .voices__badge { display: grid; flex: none; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--color-4); }
+  #voices .voices__badge svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: var(--color-1); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  #voices .voices__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  #voices .voices__col { display: grid; gap: 1rem; align-content: start; }
+  #voices .voices__col + .voices__col { margin-top: 4.5rem; }
+  #voices .voices__stars { display: flex; gap: 0.1875rem; }
+  #voices .voices__stars svg { width: 0.875rem; height: 0.875rem; fill: var(--color-4); }
+  @media (max-width: 63.99rem) {
+    #voices .voices__grid { grid-template-columns: 1fr; }
+    #voices .voices__photo { aspect-ratio: 4 / 3.4; }
+  }
+  @media (max-width: 47.99rem) {
+    #voices .voices__cols { grid-template-columns: 1fr; }
+    #voices .voices__col + .voices__col { margin-top: 0; }
+  }
+}
+</style>
+<style data-8b-part="section:setup">
+@layer sections {
+  #setup { position: relative; isolation: isolate; color: var(--color-1); padding-block: var(--space-2); }
+  #setup > :not(.setup__sheet) { position: relative; z-index: 1; }
+  #setup .setup__head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 1.5rem 4rem; align-items: end; }
+  #setup .setup__head .m-text-4 { max-width: 28rem; color: var(--color-5); }
+  #setup .setup__steps { display: grid; gap: 1.25rem; margin-top: clamp(3rem, 6vw, 5rem); }
+  #setup .setup__card { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 5fr) minmax(0, 5fr); gap: 1.5rem 3rem; align-items: center; min-height: clamp(19rem, 50vh, 28rem); padding: clamp(1.5rem, 4vw, 3.5rem); border-radius: var(--radius-2); transform-origin: 50% 0%; }
+  #setup .setup__card:nth-child(1) { background: var(--color-2); }
+  #setup .setup__card:nth-child(2) { background: var(--color-4); }
+  #setup .setup__card:nth-child(3) { background: var(--color-1); color: var(--color-2); }
+  #setup .setup__num { font-size: clamp(5rem, 11vw, 9.5rem); line-height: 0.8; }
+  #setup .setup__copy { display: grid; gap: 0.75rem; max-width: 26rem; }
+  #setup .setup__ui { display: grid; gap: 0.625rem; justify-items: start; padding: 1.25rem; border-radius: var(--radius-4); background: color-mix(in srgb, currentColor 7%, transparent); }
+  #setup .setup__check { display: flex; align-items: center; gap: 0.625rem; }
+  #setup .setup__check svg { width: 1.375rem; height: 1.375rem; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  #setup .setup__option { display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; padding: 0.75rem 1rem; border-radius: 0.875rem; border: 0.0625rem solid color-mix(in srgb, currentColor 25%, transparent); }
+  #setup .setup__option--on { background: var(--color-1); color: var(--color-2); border-color: var(--color-1); }
+  #setup .setup__ui .m-caption-2 { justify-self: end; }
+  @media (max-width: 63.99rem) {
+    #setup .setup__card { grid-template-columns: auto minmax(0, 1fr); }
+    #setup .setup__ui { grid-column: 1 / -1; }
+  }
+  @media (max-width: 47.99rem) {
+    #setup .setup__head { grid-template-columns: 1fr; }
+    #setup .setup__card { grid-template-columns: 1fr; gap: 1.25rem; min-height: 0; }
+    #setup .setup__num { font-size: 4.5rem; }
+  }
+}
+</style>
+<style data-8b-part="scene-style:setup">
+@layer scenes {
+  @media (prefers-reduced-motion: no-preference) {
+    #setup.is-stacked .setup__card { position: sticky; top: calc(var(--page-nav-h, 5.5rem) + var(--setup-i) * 1.25rem); }
+    @media (max-width: 47.99rem) {
+      #setup.is-stacked .setup__card { top: calc(var(--page-nav-h, 5.25rem) + var(--setup-i) * 0.75rem); }
+    }
+  }
+}
+</style>
+<style data-8b-part="section:faq">
+@layer sections {
+  #faq { position: relative; isolation: isolate; color: var(--color-1); padding-block: var(--space-2); }
+  #faq > :not(.faq__sheet) { position: relative; z-index: 1; }
+  #faq .faq__inner { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem 4rem; align-items: start; }
+  #faq .faq__head { display: grid; gap: 1.5rem; }
+  #faq .faq__head .m-text-8 { max-width: 22rem; }
+  #faq .faq__list { border-top: 0.0625rem solid color-mix(in srgb, var(--color-1) 16%, transparent); }
+  #faq .faq__item { border-bottom: 0.0625rem solid color-mix(in srgb, var(--color-1) 16%, transparent); }
+  #faq .faq__item summary { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding-block: 1.375rem; cursor: pointer; list-style: none; }
+  #faq .faq__item summary::-webkit-details-marker { display: none; }
+  #faq .faq__icon { position: relative; flex: none; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--color-3); }
+  #faq .faq__icon::before, #faq .faq__icon::after { content: ""; position: absolute; top: 50%; left: 50%; width: 0.875rem; height: 0.125rem; margin: -0.0625rem 0 0 -0.4375rem; border-radius: 0.125rem; background: var(--color-1); transition: rotate 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  #faq .faq__icon::after { rotate: 90deg; }
+  #faq .faq__item[open] .faq__icon { background: var(--color-4); }
+  #faq .faq__item[open] .faq__icon::after { rotate: 0deg; }
+  #faq .faq__item p { max-width: 38rem; padding-bottom: 1.5rem; color: var(--color-5); }
+  @media (hover: hover) { #faq .faq__item summary:hover .faq__icon { background: var(--color-4); } }
+  @media (max-width: 47.99rem) { #faq .faq__inner { grid-template-columns: 1fr; } }
+}
+</style>
+<style data-8b-part="section:start">
+@layer sections {
+  #start { position: relative; isolation: isolate; color: var(--color-2); padding-block: clamp(3.5rem, 7vw, 6rem); }
+  #start > :not(.start__sheet) { position: relative; z-index: 1; }
+  #start .start__inner { display: grid; }
+  #start .start__window, #start .start__copy { grid-area: 1 / 1; }
+  #start .start__window { position: relative; overflow: hidden; height: min(86vh, 50rem); min-height: 34rem; background: var(--color-8); clip-path: inset(0% 0% 0% 0% round var(--radius-2)); }
+  #start .start__window img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 30%; }
+  #start .start__window::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--color-1) 72%, transparent), color-mix(in srgb, var(--color-1) 20%, transparent) 55%, transparent 75%); }
+  #start .start__copy { position: relative; z-index: 2; align-self: end; display: grid; gap: 1.5rem; justify-items: start; max-width: 34rem; padding: clamp(1.75rem, 4.5vw, 4rem); }
+  #start .start__copy .m-text-4 { max-width: 26rem; }
+  #start .start__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; }
+  @media (max-width: 47.99rem) {
+    #start .start__window { height: min(88vh, 42rem); }
+    #start .start__window img { object-position: 68% 30%; }
+    #start .start__window::after { background: linear-gradient(0deg, color-mix(in srgb, var(--color-1) 85%, transparent), color-mix(in srgb, var(--color-1) 30%, transparent) 60%, transparent); }
+  }
+}
+</style>
+<style data-8b-part="scene-style:start">
+@layer scenes {
+  @media (prefers-reduced-motion: no-preference) {
+    #start.is-transcribing .start__word { position: relative; color: color-mix(in srgb, currentColor calc(100% - var(--bar, 0) * 100%), transparent); }
+    #start.is-transcribing .start__word::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 56%; translate: 0 -50%; border-radius: 0.25rem; background: repeating-linear-gradient(90deg, var(--color-4) 0 0.25rem, transparent 0.25rem 0.5rem); opacity: var(--bar, 0); scale: 1 var(--bar, 0); }
+  }
+}
+</style>
+<style data-8b-part="section:contact">
+@layer sections {
+  #contact { position: relative; isolation: isolate; color: var(--color-1); padding-block: var(--space-2) calc(var(--space-2) + 1rem); }
+  #contact > :not(.contact__sheet) { position: relative; z-index: 1; }
+  #contact .contact__inner { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 3rem 5rem; align-items: start; }
+  #contact .contact__info { display: grid; gap: 1.75rem; }
+  #contact .contact__info > .m-text-4 { max-width: 30rem; color: var(--color-5); }
+  #contact .contact__photo { overflow: hidden; aspect-ratio: 16 / 9; border-radius: var(--radius-2); }
+  #contact .contact__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 72% 40%; }
+  #contact .contact__ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  #contact .contact__ways li { display: grid; gap: 0.375rem; align-content: start; }
+  #contact .contact__ways .m-text-6 { color: var(--color-5); }
+  #contact .contact__form { display: grid; gap: 1.25rem; padding: clamp(1.5rem, 3.5vw, 2.75rem); border-radius: var(--radius-2); background: var(--color-2); }
+  #contact .contact__form .m-btn-2 { justify-self: start; }
+  #contact .contact__status:empty { display: none; }
+  @media (max-width: 63.99rem) {
+    #contact .contact__inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 47.99rem) {
+    #contact .contact__ways { grid-template-columns: 1fr; }
+  }
+}
+</style>
+<style data-8b-part="section:footer">
+@layer sections {
+  #footer { position: relative; isolation: isolate; color: var(--color-2); padding-top: var(--space-2); }
+  #footer > :not(.footer__sheet) { position: relative; z-index: 1; }
+  #footer .footer__inner { background: var(--color-1); }
+  #footer .footer__top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem; }
+  #footer .footer__pitch { display: grid; gap: 1.5rem; justify-items: start; max-width: 26rem; }
+  #footer .footer__pitch .m-text-4 { color: var(--color-9); }
+  #footer .footer__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+  #footer .footer__col { display: grid; gap: 0.875rem; align-content: start; }
+  #footer .footer__col h2 { color: var(--color-9); }
+  #footer .footer__col ul { display: grid; gap: 0.625rem; }
+  #footer .footer__brand { display: flex; align-items: flex-end; gap: clamp(1rem, 3vw, 3rem); margin-top: clamp(4rem, 9vw, 8rem); overflow: clip; }
+  #footer .footer__logo { flex: none; width: clamp(5rem, 17vw, 15rem); height: auto; aspect-ratio: 40 / 28; fill: none; stroke-width: 3.2; stroke-linecap: round; margin-bottom: 0.08em; }
+  #footer .footer__logo-a { stroke: var(--color-4); }
+  #footer .footer__logo-b { stroke: var(--color-2); }
+  #footer .footer__word { font-size: min(28rem, (100vw - 2 * var(--space-1) - clamp(5rem, 17vw, 15rem) - clamp(1rem, 3vw, 3rem)) / (var(--len) * 0.46)); line-height: 0.8; padding-bottom: 0.06em; }
+  #footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; margin-top: clamp(2rem, 4vw, 3rem); padding-block: 1.5rem 2rem; border-top: 0.0625rem solid color-mix(in srgb, var(--color-2) 14%, transparent); }
+  #footer .footer__legal ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+  #footer .footer__note { max-width: 46rem; margin-top: 0; padding-bottom: 2.5rem; }
+  @media (max-width: 47.99rem) {
+    #footer .footer__top { grid-template-columns: 1fr; }
+    #footer .footer__cols { grid-template-columns: 1fr 1fr; }
+  }
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Free HTML app landing page template with GSAP scroll animations — Linea","description":"Free HTML app landing page template with GSAP scroll animations, for a mobile app or SaaS product with a free plan. One file, no build step, MIT. By 8B.","url":"https://8bsite.github.io/app-landing-page-template/","codeRepository":"https://github.com/8bsite/app-landing-page-template","license":"https://opensource.org/licenses/MIT","programmingLanguage":["HTML","CSS","JavaScript"],"isAccessibleForFree":true,"image":"https://8bsite.github.io/app-landing-page-template/previews/desktop.png","author":{"@type":"Organization","name":"8B","url":"https://8b.com/"}}</script>
+</head>
+<body class="m-text">
+<a class="skip-link m-text-6" href="#main">Skip to content</a>
+
+<!-- navigation: top bar: logo, section links, Get-the-app button; phone menu overlay -->
+<header class="nav on-dark" id="nav" data-8b-section="navigation">
+  <nav class="nav__bar" aria-label="Main">
+    <a class="nav__brand" href="#hero" aria-label="Linea, back to top">
+      <svg class="nav__mark" viewBox="0 0 40 28" aria-hidden="true"><path class="nav__mark-a" d="M3 19C10 5 17 5 21 14s11 9 16-6"/><path class="nav__mark-b" d="M3 10c7 13 14 13 18 4s11-10 16 5"/></svg>
+      <span class="nav__word m-text-5">Linea</span>
+    </a>
+    <ul class="nav__links m-text-6">
+      <li><a class="m-link-2" href="#listen">How it works</a></li>
+      <li><a class="m-link-2" href="#calls">On calls</a></li>
+      <li><a class="m-link-2" href="#rooms">In person</a></li>
+      <li><a class="m-link-2" href="#voices">Stories</a></li>
+      <li><a class="m-link-2" href="#faq">Questions</a></li>
+      <li><a class="m-link-2" href="#contact">Contact</a></li>
+    </ul>
+    <a class="m-btn-3 nav__cta" href="#start"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+    <button class="m-icon-btn nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </nav>
+  <div class="menu" id="menu" data-lenis-prevent hidden role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="m-icon-btn menu__close" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <ul class="menu__links m-text-5">
+      <li><a class="m-link-2" href="#listen">How it works</a></li>
+      <li><a class="m-link-2" href="#calls">On calls</a></li>
+      <li><a class="m-link-2" href="#rooms">In person</a></li>
+      <li><a class="m-link-2" href="#voices">Stories</a></li>
+      <li><a class="m-link-2" href="#faq">Questions</a></li>
+      <li><a class="m-link-2" href="#contact">Contact</a></li>
+    </ul>
+    <a class="m-btn" href="#start"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+  </div>
+</header>
+
+<main id="main">
+<!-- hero: first screen: headline over a full-bleed photo, lead, proof line, button; caption chips ride curved lines across the photo (animation: scene:hero) -->
+<section class="hero on-dark" id="hero" data-8b-section="hero" aria-labelledby="hero-title">
+  <div class="hero__media">
+    <img srcset="https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1160&amp;q=80 1160w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" sizes="(max-width: 767px) 167vw, 90vw" style="background:#59c0f3 url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAYHBwkLCQwNDQwQERAREBgWFBQWGCMZGxkbGSM1ISchISchNS85LysvOS9UQjs7QlRhUk5SYXZpaXaUjZTBwf8BBgcHCQsJDA0NDBAREBEQGBYUFBYYIxkbGRsZIzUhJyEhJyE1LzkvKy85L1RCOztCVGFSTlJhdmlpdpSNlMHB///AABEIABgAIAMBIgACEQEDEQH/xABuAAACAwEBAAAAAAAAAAAAAAAABwMFBgIEEAACAgEEAQMFAAAAAAAAAAABAgMEAAUREiEGMUFhEyI0cZEBAQADAAAAAAAAAAAAAAAAAAUEBgcRAQACAgMBAQEAAAAAAAAAAAECEQADBAUSIROB/9oADAMBAAIRAxEAPwDsU/jI3pgAkjNgaoVSzdADcnINOlr24/q125BXK+mxDKfcHLu7w+CXXwzNZcZfqPmwXFDY1utBYMViKSH7SQWGXwrB0V12KsNwRlD59BIk6SSIFdy4D77s/wAnNh4lXSXRKrD147Nu3LsdYX1XY79jKO0LMZ7rqONpjCehaf6VWM9NV0oj8qL+4l7PkUWlX78dNkZ5Q7ks3Q9k2wwwrksrhL02ONcLy/pFiIhni0XWI7NK3DdnSWWRzxMhBPQxYWb70b7PTmCEN0Yz1+jhhkKJTKQtqLiN2kEPMRAz/9k=) 50% 28% / cover no-repeat" src="https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1200" alt="A woman smiles as she reads a message on her phone under a clear blue sky" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="hero__talk" aria-hidden="true">
+    <div class="hero__draw">
+      <svg class="hero__lines">
+        <ellipse class="hero__arc hero__arc--a" pathLength="1"/>
+        <ellipse class="hero__arc hero__arc--b" pathLength="1"/>
+        <ellipse class="hero__flow hero__flow--a" pathLength="1"/>
+        <ellipse class="hero__flow hero__flow--b" pathLength="1"/>
+      </svg>
+      <div class="hero__chip hero__chip--1"><p class="m-caption"><span class="m-caption__wave"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Hi Mom! Are we still on for Sunday?</span></p></div>
+      <div class="hero__chip hero__chip--2"><p class="m-caption"><span class="m-caption__wave"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Noon works. Meet you by the lake?</span></p></div>
+      <div class="hero__chip hero__chip--3"><p class="m-caption-2"><span class="m-caption__wave"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Perfect. I’ll bring the good bread.</span></p></div>
+    </div>
+  </div>
+  <div class="hero__copy l-wrap">
+    <div class="hero__intro">
+      <h1 class="m-text-2 hero__title" id="hero-title">Every call, written as it’s spoken.</h1>
+      <div class="hero__lower">
+        <p class="m-text-4 hero__lead">Linea turns the voice on the other end of the line — and the people around you — into clear live captions. Free for anyone with hearing loss.</p>
+        <ul class="hero__proof m-text-6">
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path class="hero__star" d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>4.8 from 9,400 reviews</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path class="hero__tick" d="M3 8.5l3 3 7-7"/></svg>Free if you qualify</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path class="hero__tick" d="M3 8.5l3 3 7-7"/></svg>Private on your phone</li>
+        </ul>
+        <div class="hero__actions">
+          <a class="m-btn" href="#start"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+          <a class="m-link m-text-6" href="#listen">See how it works</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- voice-to-text: two-panel stage: speech on one side, readable captions on the other (demo: They speak / You read) (animation: scene:listen) -->
+<section class="listen" id="listen" data-8b-section="voice-to-text" aria-labelledby="listen-title">
+  <div class="listen__sheet m-band" aria-hidden="true"></div>
+  <div class="listen__head l-wrap">
+    <h2 class="m-text-3 listen__title" id="listen-title">Nothing lost between a voice and a word.</h2>
+    <p class="m-text-4 listen__lead" data-8b-motion="readAlong">No gaps, no guessing, no asking twice. Linea exists so people who are deaf or hard of hearing can follow every conversation in full — with family, with doctors, with the world.</p>
+  </div>
+  <div class="listen__hold">
+    <div class="listen__stage l-wrap">
+      <div class="listen__panels">
+        <div class="listen__panel listen__panel--voice">
+          <p class="m-text-6 listen__label">They speak</p>
+          <div class="listen__wave" aria-hidden="true"><i style="--h:.32"></i><i style="--h:.5"></i><i style="--h:.74"></i><i style="--h:.58"></i><i style="--h:.9"></i><i style="--h:.66"></i><i style="--h:.42"></i><i style="--h:.3"></i><i style="--h:.54"></i><i style="--h:.82"></i><i style="--h:1"></i><i style="--h:.7"></i><i style="--h:.46"></i><i style="--h:.36"></i><i style="--h:.6"></i><i style="--h:.86"></i><i style="--h:.64"></i><i style="--h:.4"></i><i style="--h:.28"></i><i style="--h:.48"></i><i style="--h:.72"></i><i style="--h:.94"></i><i style="--h:.62"></i><i style="--h:.38"></i><i style="--h:.52"></i><i style="--h:.78"></i><i style="--h:.56"></i><i style="--h:.34"></i></div>
+          <div class="listen__track listen__track--voice" aria-hidden="true"></div>
+        </div>
+        <div class="listen__panel listen__panel--read">
+          <p class="m-text-6 listen__label">You read</p>
+          <div class="listen__track listen__track--read">
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Hey love — what time are we meeting today?</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Around six? The table is booked under Ada.</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">I’ll be the one in the orange coat.</span></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- calls: feature list beside a sticky phone whose screen builds one step per feature (animation: scene:calls) -->
+<section class="calls on-dark" id="calls" data-8b-section="calls" aria-labelledby="calls-title">
+  <div class="calls__sheet m-band-3" aria-hidden="true" data-8b-motion="bandRise"></div>
+  <div class="calls__inner l-wrap">
+    <div class="calls__head">
+      <h2 class="m-text-3" id="calls-title" data-8b-motion="captionIn">Calls that feel easy again.</h2>
+      <div class="calls__head-copy">
+        <p class="m-text-4 calls__lead">Phone calls should be simple, not stressful. With Linea you see every word as it’s said, so you can follow along and answer in your own way.</p>
+        <a class="m-btn" href="#start"><span class="m-btn__label">Download the app</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+      </div>
+    </div>
+    <div class="calls__grid">
+      <ul class="calls__list">
+        <li class="calls__item"><h3 class="m-text-5">Live captions, word for word</h3><p class="m-text-8">Every word the caller says appears on your screen within a beat — accurate enough for fast talkers, soft voices and bad lines.</p></li>
+        <li class="calls__item"><h3 class="m-text-5">Keep the number you have</h3><p class="m-text-8">Use your existing number for calls and texts, or pick a new one just for Linea. Your contacts don’t change a thing.</p></li>
+        <li class="calls__item"><h3 class="m-text-5">Answer by voice or by keyboard</h3><p class="m-text-8">Speak back like any call, or type and let Linea read your words aloud in a voice you choose.</p></li>
+        <li class="calls__item"><h3 class="m-text-5">See who’s talking, and how</h3><p class="m-text-8">Speaker names, pauses and laughter show up in the transcript, so tone never gets lost on the way.</p></li>
+        <li class="calls__item"><h3 class="m-text-5">Transcripts that stay yours</h3><p class="m-text-8">Every call is saved privately on your phone. Search it later, share it if you want, delete it any time.</p></li>
+      </ul>
+      <div class="calls__aside">
+        <div class="calls__sticky">
+          <div class="calls__device">
+            <figure class="phone" aria-label="Example of a captioned call on Linea">
+              <div class="phone__screen">
+                <div class="phone__top">
+                  <p class="phone__who">Dr. Park’s office</p>
+                  <p class="phone__state"><span class="phone__dot" aria-hidden="true"></span>Captioning live · 02:14</p>
+                  <span class="phone__end" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14c4-4 12-4 16 0l-2 3-3-1v-2c-2-1-4-1-6 0v2l-3 1z"/></svg></span>
+                </div>
+                <p class="phone__number" data-step="2">Your number · (415) 000-0000</p>
+                <ol class="phone__log">
+                  <li class="phone__msg" data-step="1"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Hello, you’ve reached Dr. Park’s office. How can I help?</span></p></li>
+                  <li class="phone__msg phone__msg--you" data-step="3"><p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Hi! I’d like to move my Thursday visit.</span></p><p class="phone__note">Typed · read aloud in Voice 2</p></li>
+                  <li class="phone__cue" data-step="4">Receptionist · pauses to check the calendar</li>
+                  <li class="phone__msg" data-step="4"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Of course. Does Friday at ten work?</span></p></li>
+                  <li class="phone__msg phone__msg--you" data-step="5"><p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Friday at ten works for me.</span></p></li>
+                </ol>
+                <p class="phone__saved" data-step="5"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Transcript saved on this phone</p>
+                <div class="phone__bar" aria-hidden="true">
+                  <span><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10zM16 9a4 4 0 0 1 0 6"/></svg>Speaker</span>
+                  <span><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Mute</span>
+                  <span><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h1M11 10h1M15 10h1M8 14h8"/></svg>Type</span>
+                  <span><svg viewBox="0 0 24 24"><path d="M6 6h.01M12 6h.01M18 6h.01M6 12h.01M12 12h.01M18 12h.01M6 18h.01M12 18h.01M18 18h.01"/></svg>Keypad</span>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- caption-styles: a wall-sized sample sentence over a list of eight settings with drawn controls (animation: scene:tune) -->
+<section class="tune" id="tune" data-8b-section="caption-styles" aria-labelledby="tune-title">
+  <div class="tune__sheet m-band-2" aria-hidden="true"></div>
+  <div class="tune__inner l-wrap">
+    <div class="tune__stage">
+      <p class="tune__meta m-text-6"><span><i aria-hidden="true"></i>Live preview</span><span>Size L · Weight 600 · Dark</span></p>
+      <p class="tune__sample m-text-2"><span class="tune__line" style="--len:13">Friday at ten</span> <span class="tune__line" style="--len:13">works for me.</span></p>
+    </div>
+    <div class="tune__body">
+      <div class="tune__head">
+        <h2 class="m-text-3" id="tune-title" data-8b-motion="captionIn">Captions, set your way.</h2>
+        <p class="m-text-4">Big or small, light or bold, dark on light or light on dark. Linea learns how you read best and keeps every call that way.</p>
+      </div>
+      <ul class="tune__settings">
+        <li class="tune__row"><h3 class="m-text-5">Text size</h3><p class="m-text-8">From pocket print to wall-sized words.</p><span class="tune__ctl tune__slider" data-ctl="size" aria-hidden="true"><span class="tune__fill"></span><span class="tune__thumb"></span></span></li>
+        <li class="tune__row"><h3 class="m-text-5">Weight</h3><p class="m-text-8">Lighter or bolder strokes for tired eyes.</p><span class="tune__ctl tune__slider" data-ctl="weight" aria-hidden="true"><span class="tune__fill"></span><span class="tune__thumb"></span></span></li>
+        <li class="tune__row"><h3 class="m-text-5">Contrast</h3><p class="m-text-8">Dark on light, light on dark, or a pair of your own.</p><span class="tune__ctl tune__seg" data-ctl="contrast" aria-hidden="true"><b class="tune__pill"></b><span>Light</span><span>Dark</span></span></li>
+        <li class="tune__row"><h3 class="m-text-5">Your typed voice</h3><p class="m-text-8">Pick the tone and pace your typed words are read aloud in.</p><span class="tune__ctl tune__tag" aria-hidden="true">Voice 2</span></li>
+        <li class="tune__row"><h3 class="m-text-5">One-tap replies</h3><p class="m-text-8">Short answers suggested from the conversation itself.</p><span class="tune__ctl tune__toggle" aria-hidden="true"></span></li>
+        <li class="tune__row"><h3 class="m-text-5">Forty-plus languages</h3><p class="m-text-8">Switches on its own when the speaker does.</p><span class="tune__ctl tune__tag" aria-hidden="true">Auto</span></li>
+        <li class="tune__row"><h3 class="m-text-5">Quiet the spam</h3><p class="m-text-8">Screen out robocalls and words you’d rather not see.</p><span class="tune__ctl tune__toggle" aria-hidden="true"></span></li>
+        <li class="tune__row"><h3 class="m-text-5">Pairs with your hearing aids</h3><p class="m-text-8">Bluetooth hearing aids, implants and headsets.</p><span class="tune__ctl tune__toggle" aria-hidden="true"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- in-person: horizontal track of five places with photos and caption pairs, two curved lines run through all of them (animation: scene:rooms) -->
+<section class="rooms on-dark" id="rooms" data-8b-section="in-person" aria-labelledby="rooms-title">
+  <div class="rooms__sheet m-band-4" aria-hidden="true"></div>
+  <div class="rooms__head l-wrap">
+    <h2 class="m-text-3" id="rooms-title" data-8b-motion="captionIn">Captions for the room, too.</h2>
+    <p class="m-text-4 rooms__lead" data-8b-motion="readAlong">Switch on Room mode and Linea listens to the people around you — at the counter, around the table, in the waiting room — and keeps every voice on its own line.</p>
+  </div>
+  <div class="rooms__hold">
+    <div class="rooms__stage">
+      <p class="rooms__now m-text-6"><i aria-hidden="true"></i>Room mode · two voices</p>
+      <div class="rooms__track">
+        <svg class="rooms__lines" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="rooms__line rooms__line--a" pathLength="1" d="M0 60C40 10 80 10 120 50S200 95 240 55 320 5 360 45 440 95 480 55 560 5 600 45 680 95 720 55 800 5 840 45 920 95 1000 50"/>
+          <path class="rooms__line rooms__line--b" pathLength="1" d="M0 40C40 90 80 90 120 50S200 5 240 45 320 95 360 55 440 5 480 45 560 95 600 55 680 5 720 45 800 95 840 55 920 5 1000 50"/>
+        </svg>
+        <figure class="rooms__place">
+          <img srcset="https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=230&amp;q=80 230w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=450&amp;q=80 450w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 17vw" style="background:#40260c" src="https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2400" alt="A woman with a backpack orders at a café counter" loading="lazy" decoding="async">
+          <figcaption class="rooms__label m-text-6">At the counter</figcaption>
+          <div class="rooms__talk">
+            <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Oat milk, and anything else?</span></p>
+            <p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Just a cinnamon bun, thanks.</span></p>
+          </div>
+        </figure>
+        <figure class="rooms__place">
+          <img srcset="https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=290&amp;q=80 290w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=570&amp;q=80 570w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 22vw" style="background:#c0c0c0" src="https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1803" alt="A family laughs together over lunch at a home table" loading="lazy" decoding="async">
+          <figcaption class="rooms__label m-text-6">Around the table</figcaption>
+          <div class="rooms__talk">
+            <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Who wants the last one?</span></p>
+            <p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Split it — half each!</span></p>
+          </div>
+        </figure>
+        <figure class="rooms__place">
+          <img srcset="https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=230&amp;q=80 230w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=450&amp;q=80 450w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 17vw" style="background:#8c8ca6" src="https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2400" alt="A smiling clinician in a white coat talks with an older patient" loading="lazy" decoding="async">
+          <figcaption class="rooms__label m-text-6">At the clinic</figcaption>
+          <div class="rooms__talk">
+            <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Any ringing since your last visit?</span></p>
+            <p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Less than before, honestly.</span></p>
+          </div>
+        </figure>
+        <figure class="rooms__place">
+          <img srcset="https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=230&amp;q=80 230w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=450&amp;q=80 450w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 17vw" style="background:#c0c0c0" src="https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2397" alt="An audience listens to a talk in a bright hall" loading="lazy" decoding="async">
+          <figcaption class="rooms__label m-text-6">At the talk</figcaption>
+          <div class="rooms__talk">
+            <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Questions from the back row?</span></p>
+            <p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Will the slides be shared?</span></p>
+          </div>
+        </figure>
+        <figure class="rooms__place">
+          <img srcset="https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=250&amp;q=80 250w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=490&amp;q=80 490w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 19vw" style="background:#404040" src="https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2092" alt="Neighbours sit and chat outside a shop on a cobbled street" loading="lazy" decoding="async">
+          <figcaption class="rooms__label m-text-6">On the corner</figcaption>
+          <div class="rooms__talk">
+            <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Same time tomorrow?</span></p>
+            <p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Only if you’re buying.</span></p>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- testimonials: expert quote with portrait beside two columns of short reviews (animation: scene:voices) -->
+<section class="voices" id="voices" data-8b-section="testimonials" aria-labelledby="voices-title">
+  <div class="voices__sheet m-band" aria-hidden="true" data-8b-motion="bandRise"></div>
+  <div class="voices__inner l-wrap">
+    <h2 class="m-text-3 voices__title" id="voices-title" data-8b-motion="captionIn">Recommended by clinicians. Loved by the people who use it.</h2>
+    <div class="voices__grid">
+      <figure class="voices__expert">
+        <div class="voices__photo"><img srcset="https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=360&amp;q=80 360w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=660&amp;q=80 660w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=720&amp;q=80 720w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" sizes="(max-width: 767px) 95vw, 51vw" style="background:#a6c0c0" src="https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1290" alt="A smiling clinician with a stethoscope stands outdoors by the water" loading="lazy" decoding="async"></div>
+        <blockquote class="voices__quote m-text-4" data-8b-motion="readAlong"><p>“I’ve watched patients stop dreading the phone. Within weeks they’re making the calls they used to hand to someone else.”</p></blockquote>
+        <figcaption class="voices__who m-text-6"><span class="voices__badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><p>Dr. Amara Osei<br><span>Audiologist</span></p></figcaption>
+      </figure>
+      <div class="voices__cols">
+        <ul class="voices__col">
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Set up in five minutes and I haven’t missed a word since.</p><p class="m-text-6">Marguerite L.</p></li>
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">I called my bank on my own for the first time in years. Small thing, huge feeling.</p><p class="m-text-6">Tomás R.</p></li>
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Room mode at the pharmacy counter is a quiet little miracle.</p><p class="m-text-6">Daniel K.</p></li>
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">No lag, no fuss, and the transcript is there when I need to check a time.</p><p class="m-text-6">Hannah W.</p></li>
+        </ul>
+        <ul class="voices__col">
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">The captions keep up with my granddaughter, and she talks fast.</p><p class="m-text-6">Evelyn C.</p></li>
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Forty years with hearing aids. This is the best tool I’ve had for the phone.</p><p class="m-text-6">Ruth A.</p></li>
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Typing my replies and hearing them read aloud feels natural now.</p><p class="m-text-6">Samuel O.</p></li>
+          <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">My dad uses it every day. He’s more confident and so much less tired.</p><p class="m-text-6">Priya N.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- how-it-works: three numbered step cards that stack on top of each other (animation: scene:setup) -->
+<section class="setup" id="setup" data-8b-section="how-it-works" aria-labelledby="setup-title">
+  <div class="setup__sheet m-band-2" aria-hidden="true"></div>
+  <div class="setup__inner l-wrap">
+    <div class="setup__head">
+      <h2 class="m-text-3" id="setup-title" data-8b-motion="captionIn">Three steps, then just talk.</h2>
+      <p class="m-text-4">No installer visit and no special handset. If you can use a smartphone, you can use Linea.</p>
+    </div>
+    <ol class="setup__steps">
+      <li class="setup__card" style="--setup-i:0">
+        <p class="setup__num m-text-2" aria-hidden="true">1</p>
+        <div class="setup__copy"><h3 class="m-text-5">Download and confirm</h3><p class="m-text-8">Install Linea and confirm your hearing loss once. Eligible people pay nothing — captioning is covered by a public accessibility fund.</p></div>
+        <div class="setup__ui m-text-6" aria-hidden="true">
+          <p class="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Hearing loss confirmed</p>
+          <p class="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Free plan active</p>
+          <p class="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Captions on by default</p>
+        </div>
+      </li>
+      <li class="setup__card" style="--setup-i:1">
+        <p class="setup__num m-text-2" aria-hidden="true">2</p>
+        <div class="setup__copy"><h3 class="m-text-5">Choose your number</h3><p class="m-text-8">Bring the number you already have, or take a new one in seconds. The people you call won’t notice a thing.</p></div>
+        <div class="setup__ui m-text-6" aria-hidden="true">
+          <p class="setup__option setup__option--on">Keep (415) 000-0000<span>Selected</span></p>
+          <p class="setup__option">Get a new number<span>Free</span></p>
+        </div>
+      </li>
+      <li class="setup__card on-dark" style="--setup-i:2">
+        <p class="setup__num m-text-2" aria-hidden="true">3</p>
+        <div class="setup__copy"><h3 class="m-text-5">Call. Read. Reply.</h3><p class="m-text-8">Dial anyone. Their words appear as they speak, and you answer out loud or by typing — whatever feels easier today.</p></div>
+        <div class="setup__ui" aria-hidden="true">
+          <p class="m-caption"><span class="m-caption__wave"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Is this still a good time?</span></p>
+          <p class="m-caption-2"><span class="m-caption__wave"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Perfect timing. Go ahead.</span></p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- faq: questions and answers (native <details>) -->
+<section class="faq" id="faq" data-8b-section="faq" aria-labelledby="faq-title">
+  <div class="faq__sheet m-band" aria-hidden="true"></div>
+  <div class="faq__inner l-wrap">
+    <div class="faq__head">
+      <h2 class="m-text-3" id="faq-title" data-8b-motion="captionIn">Questions, answered plainly.</h2>
+      <p class="m-text-8">Still wondering about something? <a class="m-link" href="#contact">Ask a person</a> — we reply within a day.</p>
+    </div>
+    <div class="faq__list">
+      <details class="faq__item"><summary class="m-text-5">Who can use Linea for free?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Anyone whose hearing loss makes phone calls hard. You confirm it once in the app; captioning is paid for by a public accessibility fund, so there is nothing to buy and no subscription.</p></details>
+      <details class="faq__item"><summary class="m-text-5">Does it work with my current number?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Yes. Keep your mobile number for calls and texts, or take a free new number just for captioned calls. The people you call won’t notice a difference.</p></details>
+      <details class="faq__item"><summary class="m-text-5">How accurate are the captions?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Linea pairs speech recognition tuned for phone audio with corrections as each sentence completes, so names, numbers and addresses come through reliably. Flag any line to help it learn.</p></details>
+      <details class="faq__item"><summary class="m-text-5">Can it caption people in the same room?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Yes. Room mode uses your phone’s microphone to caption the people around you and labels each voice, so you always know who said what.</p></details>
+      <details class="faq__item"><summary class="m-text-5">Are my calls and transcripts private?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Transcripts are stored on your phone, not on our servers. Audio is processed only for the length of the call and is never used for advertising.</p></details>
+      <details class="faq__item"><summary class="m-text-5">Which languages does it support?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">More than forty, including Spanish, French, Mandarin, Arabic and Hindi. Linea notices when a speaker switches language and follows along.</p></details>
+      <details class="faq__item"><summary class="m-text-5">Do I need an internet connection?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Calls need mobile data or Wi-Fi, like any app-based call. Saved transcripts stay readable offline.</p></details>
+      <details class="faq__item"><summary class="m-text-5">Will it work with my hearing aids?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Linea pairs with Bluetooth hearing aids, cochlear implant processors and headsets, so you can listen and read at the same time.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- call-to-action: closing call to action over a photo that opens from a small window to the full band (animation: scene:start) -->
+<section class="start on-dark" id="start" data-8b-section="call-to-action" aria-labelledby="start-title">
+  <div class="start__sheet m-band-4" aria-hidden="true"></div>
+  <div class="start__inner l-wrap">
+    <div class="start__window">
+      <img srcset="https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1010&amp;q=80 1010w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1180&amp;q=80 1180w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" sizes="(max-width: 767px) 269vw, 92vw" style="background:#26260c" src="https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1067" alt="A young woman smiles as she talks on the phone in a leafy garden" loading="lazy" decoding="async">
+    </div>
+    <div class="start__copy">
+      <h2 class="m-text-3" id="start-title">Your next call can be the easy one.</h2>
+      <p class="m-text-4">Free for people with hearing loss. Ready in five minutes on the phone you already own.</p>
+      <div class="start__actions">
+        <a class="m-btn" href="#hero"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+        <a class="m-link m-text-6" href="#contact">Talk to our team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contact: support hours, a photo, three ways to reach the team and a contact form (placeholders) -->
+<section class="contact" id="contact" data-8b-section="contact" aria-labelledby="contact-title">
+  <div class="contact__sheet m-band-2" aria-hidden="true" data-8b-motion="bandRise"></div>
+  <div class="contact__inner l-wrap">
+    <div class="contact__info">
+      <h2 class="m-text-3" id="contact-title" data-8b-motion="captionIn">Talk to a person, any way you like.</h2>
+      <p class="m-text-4">Our support team answers by text, email or captioned video call — every day from 7 am to 11 pm Eastern.</p>
+      <figure class="contact__photo"><img srcset="https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=680&amp;q=80 680w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w" sizes="(max-width: 767px) 90vw, 47vw" style="background:#260c0c" src="https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1067" alt="A smiling support specialist wearing a headset at her desk" loading="lazy" decoding="async"></figure>
+      <ul class="contact__ways">
+        <li><p class="m-text-6">Text us</p><a data-8b-placeholder="phone" class="m-link m-text-5" href="sms:+14150000000">(415) 000-0000</a></li>
+        <li><p class="m-text-6">Email</p><a data-8b-placeholder="email" class="m-link m-text-5" href="mailto:help@linea.example">help@linea.example</a></li>
+        <li><p class="m-text-6">Video call</p><a class="m-link m-text-5" href="#contact-form">Book a captioned call</a></li>
+      </ul>
+    </div>
+    <form data-8b-placeholder="form" class="contact__form" id="contact-form" novalidate data-msg-ok="Thanks — a person from our team will write back within a day." data-msg-error="Please add your name, a valid email and a short message.">
+      <h3 class="m-text-5">Send us a note</h3>
+      <div class="m-field"><label class="m-field__label" for="contact-name">Your name</label><input class="m-field__input" id="contact-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="m-field"><label class="m-field__label" for="contact-email">Email</label><input class="m-field__input" id="contact-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="m-field"><label class="m-field__label" for="contact-message">How can we help?</label><textarea class="m-field__input" id="contact-message" name="message" rows="4" required></textarea></div>
+      <button class="m-btn-2" type="submit"><span class="m-btn__label">Send message</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <p class="contact__status m-text-8" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- footer: tagline, link columns, giant wordmark, copyright with the Design: 8B credit and a legal note (animation: scene:footer) -->
+<footer class="footer on-dark" id="footer" data-8b-section="footer" aria-labelledby="footer-title">
+  <div class="footer__sheet m-band-4" aria-hidden="true"></div>
+  <div class="footer__inner l-wrap">
+    <div class="footer__top">
+      <div class="footer__pitch">
+        <h2 class="m-text-5" id="footer-title">Live captions for every call and conversation.</h2>
+        <p class="m-text-4">Made for people with hearing loss, by people who live with it.</p>
+        <a class="m-link m-text-6" href="#hero">Back to the top</a>
+      </div>
+      <div class="footer__cols m-text-6">
+        <div class="footer__col"><h2 class="m-text-6">Product</h2><ul><li><a class="m-link-2" href="#listen">How it works</a></li><li><a class="m-link-2" href="#calls">On calls</a></li><li><a class="m-link-2" href="#rooms">In person</a></li><li><a class="m-link-2" href="#tune">Your captions</a></li></ul></div>
+        <div class="footer__col"><h2 class="m-text-6">Support</h2><ul><li><a data-8b-placeholder="email" class="m-link-2" href="mailto:help@linea.example">help@linea.example</a></li><li><a data-8b-placeholder="phone" class="m-link-2" href="sms:+14150000000">Text (415) 000-0000</a></li><li><a class="m-link-2" href="#contact">Contact us</a></li><li><a class="m-link-2" href="#faq">Questions</a></li></ul></div>
+        <div class="footer__col"><h2 class="m-text-6">Company</h2><ul><li><a class="m-link-2" href="#voices">Stories</a></li><li><a class="m-link-2" href="#setup">Getting started</a></li><li><a class="m-link-2" href="#start">Get the app</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer__brand" aria-hidden="true">
+      <svg class="footer__logo" viewBox="0 0 40 28"><path class="footer__logo-a" pathLength="1" d="M3 19C10 5 17 5 21 14s11 9 16-6"/><path class="footer__logo-b" pathLength="1" d="M3 10c7 13 14 13 18 4s11-10 16 5"/></svg>
+      <p class="footer__word m-text-2" style="--len:5">Linea</p>
+    </div>
+    <div class="footer__legal m-text-7">
+      <p>© 2026 Linea Inc. All rights reserved. · Design: <a href="https://8b.com/" style="color:inherit" data-8b-credit>8B</a></p>
+      <ul><li><a class="m-link" href="#hero">Privacy</a></li><li><a class="m-link" href="#hero">Terms</a></li><li><a class="m-link" href="#hero">Emergency calling</a></li></ul>
+    </div>
+    <p class="footer__note m-text-7">Captioned calling through Linea is intended for people with hearing loss. Emergency calls placed through Linea work differently from a landline; keep your registered address up to date.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script data-8b-part="section-script:nav">
+(() => {
+  const root = document.getElementById('nav');
+  if (!root) return;
+  const bar = root.querySelector('.nav__bar');
+  const toggle = root.querySelector('.nav__toggle');
+  const menu = root.querySelector('.menu');
+  const close = root.querySelector('.menu__close');
+  window.measureNav = () => {
+    document.documentElement.style.setProperty('--page-nav-h', `${Math.ceil(bar.getBoundingClientRect().bottom + 12)}px`);
+  };
+  window.measureNav();
+  addEventListener('resize', window.measureNav);
+  if (!toggle || !menu || !close) return;
+  const open = () => {
+    menu.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    window.lenis?.stop();
+    close.focus();
+  };
+  const shut = (focusToggle = true) => {
+    menu.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    window.lenis?.start();
+    if (focusToggle) toggle.focus();
+  };
+  toggle.addEventListener('click', open);
+  close.addEventListener('click', () => shut());
+  menu.addEventListener('click', event => { if (event.target.closest('a')) shut(false); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) shut(); });
+})();
+</script>
+<script data-8b-part="section-script:hero">
+(() => {
+  const hero = document.getElementById('hero');
+  if (!hero || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([entry]) => hero.classList.toggle('is-paused', !entry.isIntersecting)).observe(hero);
+})();
+</script>
+<script data-8b-part="motion-queue">
+(() => {
+  'use strict';
+  const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+  const parsed = document.readyState === 'loading' ? new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, { once: true })) : Promise.resolve();
+  const ready = () => Promise.all([fonts, parsed]).then(() => firsts);
+  const nextTask = () => window.scheduler?.yield?.() ?? new Promise(resolve => setTimeout(resolve));
+  const refresh = () => {
+    if (typeof window.refreshScroll === 'function') return window.refreshScroll();
+    window.ScrollTrigger?.sort(); window.ScrollTrigger?.refresh();
+  };
+  const run = (setup, name) => {
+    for (const trigger of window.ScrollTrigger?.getAll() || []) if (!trigger.end && window.ScrollTrigger.getAll().includes(trigger)) trigger.refresh(0, 1);
+    const context = window.gsap.context(() => {});
+    const log = new MutationObserver(() => {});
+    log.observe(document.documentElement, { attributes: true, attributeOldValue: true, subtree: true });
+    let failure = null, records;
+    try { context.add(() => { try { setup(); } catch (error) { failure = error; } }); }
+    finally { records = log.takeRecords(); log.disconnect(); }
+    if (!failure) return true;
+    try { context.revert(); } catch (error) { console.error(name, 'revert failed', error); }
+    for (const { target, attributeName, oldValue } of records.reverse()) {
+      const now = target.getAttribute(attributeName);
+      if (oldValue == null) { if (now != null) target.removeAttribute(attributeName); }
+      else if (now !== oldValue) target.setAttribute(attributeName, oldValue);
+    }
+    console.error(name, failure);
+    return false;
+  };
+  let firsts = Promise.resolve(), tail = null, pending = 0, lazy = null, building = 0;
+  window.queueMotion = (setup, { first = false, near, id } = {}) => {
+    if (!window.gsap || typeof setup !== 'function') return;
+    const name = id || document.currentScript?.getAttribute('data-8b-part') || 'motion';
+    if (near instanceof Element && window.IntersectionObserver) {
+      const watch = new IntersectionObserver(entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        watch.disconnect();
+        building++;
+        lazy = (lazy || ready()).then(nextTask).then(() => run(setup, name)).finally(() => { if (!--building) refresh(); });
+      }, { rootMargin: '100% 0px' });
+      watch.observe(near);
+      return;
+    }
+    if (first) firsts = firsts.then(() => fonts).then(() => { if (!run(setup, name)) refresh(); });
+    else {
+      pending++;
+      tail = (tail || ready()).then(nextTask).then(() => run(setup, name))
+        .finally(() => { if (!--pending) refresh(); });
+    }
+    window.motionReady = Promise.all([firsts, tail]);
+  };
+  window.adjacent = (a, b) => {
+    const order = [...document.querySelectorAll('[data-8b-section]')].filter(section => section.getAttribute('data-8b-section') !== 'navigation').map(section => section.id);
+    return order.indexOf(a) >= 0 && order[order.indexOf(a) + 1] === b;
+  };
+})();
+</script>
+<script data-8b-part="section-script:contact">
+(() => {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const status = form.querySelector('.contact__status');
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const valid = form.checkValidity();
+    status.textContent = valid ? form.dataset.msgOk : form.dataset.msgError;
+    if (valid) form.reset();
+    else form.querySelector(':invalid')?.focus();
+  });
+})();
+</script>
+<script data-8b-part="page-init">
+gsap.registerPlugin(ScrollTrigger, SplitText);
+function refreshScroll() {
+  window.measureNav?.();
+  ScrollTrigger.sort();
+  ScrollTrigger.refresh();
+}
+gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+  const bar = document.querySelector('#nav .nav__bar');
+  const lenis = window.lenis = new Lenis({ lerp: 0.085, anchors: { offset: -(bar ? Math.ceil(bar.getBoundingClientRect().bottom) : 0) } });
+  const tick = time => lenis.raf(time * 1000);
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(tick);
+  gsap.ticker.lagSmoothing(0);
+  return () => { gsap.ticker.remove(tick); gsap.ticker.lagSmoothing(500, 33); lenis.destroy(); window.lenis = null; };
+});
+</script>
+<script data-8b-part="motion">
+function restRadius(element) {
+  return parseFloat((getComputedStyle(element).clipPath.match(/round\s+([\d.]+)px/) || [])[1]) || 0;
+}
+function transcribe(element, wordsClass) {
+  const split = SplitText.create(element, { type: 'words', wordsClass });
+  return gsap.fromTo(split.words, { '--bar': 1 }, { '--bar': 0, ease: 'none', stagger: 0.16, duration: 0.5 });
+}
+const captionPlayed = new WeakSet();
+const effects = {
+  captionIn(element, vars = {}) {
+    const split = SplitText.create(element, { type: 'lines', mask: 'lines' });
+    return gsap.timeline({ ...vars, onComplete: () => split.revert() })
+      .from(split.lines, { yPercent: 108, duration: 1, ease: 'expo.out', stagger: 0.09 });
+  },
+  readAlong(element, vars = {}) {
+    const split = SplitText.create(element, { type: 'words' });
+    const ink = getComputedStyle(element).color;
+    const faint = ink.replace(/^rgb\((.+)\)$/, 'rgba($1, 0.22)');
+    return gsap.fromTo(split.words, { color: faint }, { color: ink, ease: 'none', stagger: 0.12, duration: 0.6, ...vars });
+  },
+  bandRise(sheet, vars = {}) {
+    const radius = restRadius(sheet);
+    const side = innerWidth < 768 ? 2.5 : 4;
+    const big = Math.round(radius * 2.6);
+    return gsap.fromTo(sheet,
+      { clipPath: `inset(0% ${side}% 0% ${side}% round ${big}px ${big}px 0px 0px)` },
+      { clipPath: `inset(0% 0% 0% 0% round ${radius}px ${radius}px 0px 0px)`, ease: 'none', ...vars });
+  }
+};
+document.querySelectorAll('[data-8b-section]').forEach(section => {
+  const first = () => section.getBoundingClientRect().top < innerHeight;
+  const timing = id => (first() ? { first: true, id } : { near: section, id });
+  const headings = section.querySelectorAll('[data-8b-motion~="captionIn"]');
+  if (headings.length) {
+    const id = `effect:captionIn:${section.id}`;
+    queueMotion(() => gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
+      headings.forEach((heading, index) => {
+        if (captionPlayed.has(heading)) return;
+        const timeline = effects.captionIn(heading, { paused: true });
+        ScrollTrigger.create({ id: `${id}:${index}`, trigger: heading, start: 'top 88%', once: true, onEnter: () => { captionPlayed.add(heading); timeline.play(); } });
+      });
+    }), timing(id));
+  }
+  const reads = section.querySelectorAll('[data-8b-motion~="readAlong"]');
+  if (reads.length) {
+    const id = `effect:readAlong:${section.id}`;
+    queueMotion(() => gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
+      reads.forEach((element, index) => ScrollTrigger.create({ id: `${id}:${index}`, trigger: element, start: 'top 88%', end: 'bottom 60%', scrub: true, animation: effects.readAlong(element) }));
+    }), timing(id));
+  }
+  const bands = section.querySelectorAll('[data-8b-motion~="bandRise"]');
+  if (bands.length) {
+    const id = `effect:bandRise:${section.id}`;
+    queueMotion(() => gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
+      bands.forEach((sheet, index) => ScrollTrigger.create({ id: `${id}:${index}`, trigger: section, start: 'top bottom', end: 'top 25%', scrub: true, animation: effects.bandRise(sheet) }));
+    }), timing(id));
+  }
+});
+</script>
+<script data-8b-part="scene:hero">
+queueMotion(() => {
+  const hero = document.getElementById('hero');
+  const copy = hero.querySelector('.hero__copy');
+  const talk = hero.querySelector('.hero__talk');
+  const media = hero.querySelector('.hero__media');
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
+    const { wide } = context.conditions;
+    if (!adjacent('hero', 'listen')) return;
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'hero:exit', trigger: hero, start: 'bottom bottom', end: 'bottom 20%', scrub: true, invalidateOnRefresh: true } })
+      .to(media, { scale: 1.1, transformOrigin: wide ? '100% 30%' : '62% 30%' }, 0)
+      .to(copy, { y: () => -innerHeight * (wide ? 0.26 : 0.16) }, 0)
+      .to(talk, { y: () => -innerHeight * (wide ? 0.14 : 0.1) }, 0);
+  });
+}, { first: true, id: 'hero' });
+</script>
+<script data-8b-part="scene:listen">
+queueMotion(() => {
+  const root = document.getElementById('listen');
+  const sheet = root.querySelector('.listen__sheet');
+  const title = root.querySelector('.listen__title');
+  const hold = root.querySelector('.listen__hold');
+  const voice = root.querySelector('.listen__panel--voice');
+  const read = root.querySelector('.listen__panel--read');
+  const voiceTrack = root.querySelector('.listen__track--voice');
+  const rows = [...root.querySelectorAll('.listen__track--read > .listen__row')];
+  const bars = [...root.querySelectorAll('.listen__wave > i')];
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
+    const { wide } = context.conditions;
+    if (adjacent('hero', 'listen')) {
+      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'listen:entry', trigger: root, start: 'top bottom', end: 'top 20%', scrub: true, invalidateOnRefresh: true } })
+        .add(effects.bandRise(sheet), 0)
+        .fromTo(title, wide ? { y: () => innerHeight * 0.22 } : { x: () => innerWidth * 0.22 }, wide ? { y: 0 } : { x: 0 }, 0);
+    }
+    root.classList.add('is-staged');
+    const clones = rows.map(row => {
+      const clone = row.cloneNode(true);
+      clone.classList.add('listen__row--voice');
+      const text = clone.querySelector('.m-caption__text');
+      const words = text.textContent.trim().split(/\s+/);
+      text.textContent = '';
+      words.forEach((word, index) => {
+        const span = document.createElement('span');
+        span.className = 'listen__word';
+        span.style.setProperty('--h', (0.45 + 0.55 * Math.abs(Math.sin(index * 1.7 + word.length))).toFixed(2));
+        span.textContent = word;
+        text.append(span, index < words.length - 1 ? ' ' : '');
+      });
+      voiceTrack.append(clone);
+      return clone;
+    });
+    const pairs = rows.map((row, index) => [row, clones[index]]);
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'listen:join', trigger: hold, start: 'top bottom', end: 'top top', scrub: true, invalidateOnRefresh: true } })
+      .fromTo(voice, { x: () => -innerWidth * (wide ? 0.08 : 0.07) }, { x: 0 }, 0)
+      .fromTo(read, { x: () => innerWidth * (wide ? 0.08 : 0.07) }, { x: 0 }, 0);
+    const setters = bars.map(bar => gsap.quickSetter(bar, 'scaleY'));
+    const cross = gsap.timeline({ defaults: { ease: 'power1.inOut' }, scrollTrigger: {
+      id: 'listen', trigger: hold, start: 'top top', end: 'bottom bottom', scrub: true, invalidateOnRefresh: true,
+      onUpdate: self => {
+        const progress = self.progress;
+        const swell = Math.sin(Math.PI * progress);
+        setters.forEach((set, index) => set(1 - swell * 0.7 * (1 - Math.abs(Math.sin(index * 0.45 + progress * 18)))));
+      }
+    } });
+    pairs.forEach((pair, index) => {
+      const row = pair[0];
+      const shift = wide
+        ? () => -(row.offsetLeft - read.offsetWidth + row.offsetWidth + 32)
+        : () => voice.offsetHeight;
+      cross.fromTo(pair, wide ? { x: shift } : { y: shift }, wide ? { x: 0, duration: 1 } : { y: 0, duration: 1 }, index * 0.8);
+    });
+    cross.to({}, { duration: 0.35 });
+    return () => {
+      root.classList.remove('is-staged');
+      clones.forEach(clone => clone.remove());
+    };
+  });
+}, { first: true, id: 'listen' });
+</script>
+<script data-8b-part="scene:calls">
+queueMotion(() => {
+  const root = document.getElementById('calls');
+  const list = root.querySelector('.calls__list');
+  const items = [...list.children];
+  const device = root.querySelector('.calls__device');
+  const steps = items.map((item, index) => [...root.querySelectorAll(`.phone [data-step="${index + 1}"]`)]);
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
+    const { wide } = context.conditions;
+    const line = wide ? '58%' : '52%';
+    const timeline = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'calls', trigger: items[0], start: `top ${line}`, endTrigger: items[items.length - 1], end: `bottom ${line}`, scrub: true } });
+    items.forEach((item, index) => {
+      if (index > 0) timeline.fromTo(item, { opacity: 0.32 }, { opacity: 1, duration: 0.25 }, index - 0.1);
+      if (index < items.length - 1) timeline.to(item, { opacity: 0.32, duration: 0.25 }, index + 0.9);
+      if (steps[index].length) timeline.from(steps[index], { opacity: 0, y: 14, scale: 0.94, transformOrigin: '50% 100%', duration: 0.3, stagger: 0.18, ease: 'power2.out' }, index + 0.05);
+    });
+    timeline.to(items.slice(0, -1), { opacity: 1, duration: 0.3 }, items.length - 0.1);
+    if (adjacent('calls', 'tune')) {
+      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'calls:exit', trigger: root, start: 'bottom bottom', end: 'bottom 30%', scrub: true, invalidateOnRefresh: true } })
+        .to(device, { scale: 0.8, rotation: -7, y: () => -innerHeight * (wide ? 0.12 : 0.08) }, 0);
+    }
+  });
+}, { near: document.getElementById('calls'), id: 'calls' });
+</script>
+<script data-8b-part="scene:tune">
+queueMotion(() => {
+  const root = document.getElementById('tune');
+  const stage = root.querySelector('.tune__stage');
+  const lines = [...root.querySelectorAll('.tune__line')];
+  const sizeFill = root.querySelector('[data-ctl="size"] .tune__fill');
+  const sizeThumb = root.querySelector('[data-ctl="size"] .tune__thumb');
+  const weightFill = root.querySelector('[data-ctl="weight"] .tune__fill');
+  const weightThumb = root.querySelector('[data-ctl="weight"] .tune__thumb');
+  const pill = root.querySelector('[data-ctl="contrast"] .tune__pill');
+  const tokens = getComputedStyle(document.documentElement);
+  const paper = tokens.getPropertyValue('--color-2').trim();
+  const ink = tokens.getPropertyValue('--color-1').trim();
+  const offset = (element, stop) => {
+    let x = 0, y = 0;
+    for (let node = element; node && node !== stop; node = node.offsetParent) { x += node.offsetLeft; y += node.offsetTop; }
+    return { x, y };
+  };
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
+    if (adjacent('calls', 'tune')) {
+      const calls = document.getElementById('calls');
+      const aside = calls.querySelector('.calls__aside');
+      const sticky = calls.querySelector('.calls__sticky');
+      const screen = calls.querySelector('.phone__screen');
+      let geometry;
+      const measure = () => {
+        const startScroll = offset(root).y - innerHeight;
+        const asideAt = offset(aside);
+        const style = getComputedStyle(sticky);
+        const released = asideAt.y + aside.offsetHeight - sticky.offsetHeight - startScroll;
+        const fromBottom = style.top === 'auto' && style.bottom !== 'auto';
+        const stickyY = fromBottom
+          ? Math.min(released, innerHeight - (parseFloat(style.bottom) || 0) - sticky.offsetHeight)
+          : Math.min(Math.max(asideAt.y - startScroll, parseFloat(style.top) || 0), released);
+        const inner = offset(screen, sticky);
+        const screenX = asideAt.x + inner.x + screen.offsetWidth / 2;
+        const screenY = stickyY + inner.y + screen.offsetHeight / 2;
+        const stageAt = offset(stage);
+        geometry = {
+          x: screenX - (stageAt.x + stage.offsetWidth / 2),
+          y: screenY - (stageAt.y - startScroll + stage.offsetHeight / 2),
+          scale: innerWidth < 768 ? 0.12 : Math.max(0.16, screen.offsetWidth / stage.offsetWidth)
+        };
+        return geometry.x;
+      };
+      gsap.timeline({ scrollTrigger: { id: 'tune:entry', trigger: root, start: 'top bottom', end: 'top 30%', scrub: true, invalidateOnRefresh: true } })
+        .fromTo(stage, { scale: 0 }, { scale: () => (measure(), geometry.scale), ease: 'none', duration: 0.02, immediateRender: false }, 0)
+        .fromTo(stage, { x: measure, y: () => geometry.y, scale: () => geometry.scale }, { x: 0, y: 0, scale: 1, ease: 'power1.inOut', duration: 0.98, immediateRender: false }, 0.02)
+        .fromTo(stage, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: 0.1, immediateRender: false }, 0);
+    }
+    const track = element => element.parentElement.offsetWidth;
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'tune', trigger: root, start: 'top 30%', end: 'top -45%', scrub: true, invalidateOnRefresh: true } })
+      .fromTo(lines, { fontVariationSettings: '"wght" 300', scale: 0.8 }, { fontVariationSettings: '"wght" 800', scale: 1, duration: 1 }, 0)
+      .fromTo(sizeFill, { scaleX: 0.3 }, { scaleX: 0.75, duration: 1 }, 0)
+      .fromTo(sizeThumb, { x: () => -0.45 * track(sizeThumb) }, { x: 0, duration: 1 }, 0)
+      .fromTo(weightFill, { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0)
+      .fromTo(weightThumb, { x: () => -0.6 * track(weightThumb) }, { x: () => 0.4 * track(weightThumb), duration: 1 }, 0)
+      .fromTo(stage, { backgroundColor: paper, color: ink }, { backgroundColor: ink, color: paper, duration: 0.3 }, 1.05)
+      .fromTo(pill, { xPercent: -100 }, { xPercent: 0, duration: 0.3 }, 1.05)
+      .to(lines, { fontVariationSettings: '"wght" 600', duration: 0.8 }, 1.45)
+      .to(weightFill, { scaleX: 0.6, duration: 0.8 }, 1.45)
+      .to(weightThumb, { x: 0, duration: 0.8 }, 1.45);
+  });
+}, { near: document.getElementById('tune'), id: 'tune' });
+</script>
+<script data-8b-part="scene:rooms">
+queueMotion(() => {
+  const root = document.getElementById('rooms');
+  const hold = root.querySelector('.rooms__hold');
+  const track = root.querySelector('.rooms__track');
+  const places = [...track.querySelectorAll('.rooms__place')];
+  const lines = root.querySelectorAll('.rooms__line');
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
+    const { wide } = context.conditions;
+    root.classList.add('is-track');
+    const travel = () => Math.max(0, track.scrollWidth - innerWidth);
+    const setTravel = () => gsap.set(root, { '--rooms-travel': `${travel()}px` });
+    setTravel();
+    ScrollTrigger.addEventListener('refreshInit', setTravel);
+    const lead = () => Math.min(0.9, (innerWidth * 0.6) / track.scrollWidth);
+    const main = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'rooms', trigger: hold, start: 'top top', end: 'bottom bottom', scrub: true, invalidateOnRefresh: true } });
+    main.fromTo(track, { x: 0 }, { x: () => -travel(), duration: 1 }, 0)
+      .fromTo(lines, { strokeDasharray: 1, strokeDashoffset: () => 1 - lead() }, { strokeDashoffset: 0, duration: 1 }, 0);
+    places.forEach((place, index) => {
+      const image = place.querySelector('img');
+      const talk = place.querySelectorAll('.rooms__talk > *');
+      gsap.fromTo(image, { xPercent: 7 }, { xPercent: 0, ease: 'none', scrollTrigger: { id: `rooms:photo-${index}`, trigger: place, containerAnimation: main, start: 'left right', end: wide ? 'left 66%' : 'left 40%', scrub: true } });
+      gsap.fromTo(talk, { y: 36, opacity: 0 }, { y: 0, opacity: 1, ease: 'power2.out', stagger: 0.3, scrollTrigger: { id: `rooms:talk-${index}`, trigger: place, containerAnimation: main, start: wide ? 'left 100%' : 'left 100%', end: wide ? 'left 66%' : 'left 40%', scrub: true } });
+    });
+    return () => {
+      ScrollTrigger.removeEventListener('refreshInit', setTravel);
+      root.classList.remove('is-track');
+    };
+  });
+}, { id: 'rooms' });
+</script>
+<script data-8b-part="scene:voices">
+queueMotion(() => {
+  const root = document.getElementById('voices');
+  const colsBox = root.querySelector('.voices__cols');
+  const cols = [...root.querySelectorAll('.voices__col')];
+  const cards = [...root.querySelectorAll('.voices__col > li')];
+  const photo = root.querySelector('.voices__photo img');
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
+    const { wide } = context.conditions;
+    if (wide) {
+      cols.forEach((col, index) => gsap.fromTo(col, { y: () => innerHeight * (index ? 0.42 : 0.14) }, { y: 0, ease: 'none', scrollTrigger: { id: `voices:col-${index}`, trigger: colsBox, start: 'top bottom', end: 'top 18%', scrub: true, invalidateOnRefresh: true } }));
+    } else {
+      cards.forEach((card, index) => gsap.fromTo(card, { y: () => innerHeight * (index % 2 ? 0.16 : 0.06), x: index % 2 ? 28 : -28 }, { y: 0, x: 0, ease: 'none', scrollTrigger: { id: `voices:card-${index}`, trigger: card, start: 'top bottom', end: 'top 58%', scrub: true, invalidateOnRefresh: true } }));
+    }
+    gsap.fromTo(photo, { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { id: 'voices:photo', trigger: photo.parentElement, start: 'top bottom', end: 'center 50%', scrub: true } });
+  });
+}, { near: document.getElementById('voices'), id: 'voices' });
+</script>
+<script data-8b-part="scene:setup">
+queueMotion(() => {
+  const root = document.getElementById('setup');
+  const steps = root.querySelector('.setup__steps');
+  const cards = [...steps.children];
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
+    root.classList.add('is-stacked');
+    const gap = () => parseFloat(getComputedStyle(steps).rowGap) || 0;
+    const natural = index => cards.slice(0, index).reduce((sum, card) => sum + card.offsetHeight + gap(), 0);
+    const stuck = index => parseFloat(getComputedStyle(cards[index]).top) || 0;
+    cards.slice(0, -1).forEach((card, index) => {
+      gsap.fromTo(card, { scale: 1, filter: 'brightness(1)' }, { scale: 0.92, filter: 'brightness(0.68)', ease: 'none', scrollTrigger: { id: `setup:${index}`, trigger: steps, start: () => `top+=${natural(index + 1)} bottom`, end: () => `top+=${natural(index + 1)} ${stuck(index + 1)}px`, scrub: true, invalidateOnRefresh: true } });
+    });
+    return () => root.classList.remove('is-stacked');
+  });
+}, { id: 'setup' });
+</script>
+<script data-8b-part="scene:start">
+queueMotion(() => {
+  const root = document.getElementById('start');
+  const frame = root.querySelector('.start__window');
+  const image = frame.querySelector('img');
+  const heading = root.querySelector('.start__copy h2');
+  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
+    const { wide } = context.conditions;
+    const radius = restRadius(frame);
+    const sideX = wide ? 31 : 12;
+    const sideY = wide ? 15 : 22;
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'start', trigger: frame, start: 'top 92%', end: 'top 10%', scrub: true } })
+      .fromTo(frame, { clipPath: `inset(${sideY}% ${sideX}% ${sideY}% ${sideX}% round ${radius * 3}px)` }, { clipPath: `inset(0% 0% 0% 0% round ${radius}px)` }, 0)
+      .fromTo(image, { scale: 1.32 }, { scale: 1 }, 0);
+    root.classList.add('is-transcribing');
+    ScrollTrigger.create({ id: 'start:words', trigger: heading, start: 'top 96%', end: 'bottom 64%', scrub: true, animation: transcribe(heading, 'start__word') });
+    return () => root.classList.remove('is-transcribing');
+  });
+}, { near: document.getElementById('start'), id: 'start' });
+</script>
+<script data-8b-part="scene:footer">
+queueMotion(() => {
+  const root = document.getElementById('footer');
+  const brand = root.querySelector('.footer__brand');
+  const word = root.querySelector('.footer__word');
+  const strokes = root.querySelectorAll('.footer__logo path');
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'footer', trigger: brand, start: 'top bottom', end: 'bottom bottom', scrub: true } })
+      .fromTo(word, { yPercent: 70 }, { yPercent: 0 }, 0)
+      .fromTo(strokes, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, stagger: 0.15 }, 0);
+  });
+}, { near: document.getElementById('footer'), id: 'footer' });
+</script>
+<!-- demo only: link to the template's repository -->
+<div style="position:fixed;right:16px;bottom:16px;z-index:2147483647"><a class="m-btn" href="https://github.com/8bsite/app-landing-page-template"><span class="m-btn__label">Free 8B template. Get on GitHub →</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a></div>
+</body>
+</html>
