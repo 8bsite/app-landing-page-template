@@ -31,7 +31,7 @@ In Windows PowerShell type `curl.exe`. Publish `index.html` with LICENSE and CRE
 - Animations run only when the visitor allows motion (`prefers-reduced-motion: no-preference`); the page must stay readable without them.
 - A display line with `style="--len:N"` is sized to fill its width: N is its number of characters, spaces included (`Friday at ten` → 13, `works for me.` → 13).
 - These neighbouring sections animate across their border: hero → listen, calls → tune. Keep each pair next to each other, or that transition switches off.
-- Keep the header comment and `<meta name="generator">`; the "Design: 8B" footer link is optional.
+- Keep the header comment and `<meta name="generator">`. Keep the "Design: 8B" footer link unless the site owner asks to remove it.
 
 ## Replace before publishing
 - Everything marked `data-8b-placeholder` (og-image, favicon, phone, email, form); remove the attribute once the real value is in. With no real value: no preview image — delete the `og:image` tag and set `twitter:card` to `summary`; no phone, email or address — remove that link or row.
