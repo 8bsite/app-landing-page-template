@@ -1,6 +1,6 @@
 # AGENTS.md: app landing page template
 
-Landing page for a mobile app or SaaS (demo: a live-captioning app for phone calls). One file, `index.html`, with inline CSS and scripts (GSAP, ScrollTrigger, Lenis from jsDelivr); no build step, and none is needed for copy, colour or photo edits.
+Landing page for a mobile app or SaaS (demo: a live-captioning app for phone calls). One file, `index.html`, with inline CSS and scripts, no JavaScript libraries: the scroll motion is CSS scroll-driven animations plus a small inline motion kit; no build step, and none is needed for copy, colour or photo edits. A GSAP build of the same page is `index.gsap.html` (GSAP 3.13.0, ScrollTrigger, SplitText, Lenis 1.3.27 from jsDelivr): edit one of the two, not both.
 
 ## Files
 Edit these files, not a page fetched by URL (that arrives as a summary).
@@ -14,19 +14,15 @@ Upload `index.html`, LICENSE and CREDITS.md; not this file, README.md or `previe
 
 ## Keep
 - Every `id`, `data-8b-section`, `data-8b-motion` and `data-8b-part` (`section:<id>` styles, `scene:<id>` animation).
+- The motion parts `motion-gate` (head: sets `data-8b-live` on `<html>` only with scroll-driven animation support and no reduced motion), `motion-kit` and `motion`, and every other `data-8b-*` attribute (`data-8b-items` groups, `data-8b-off`, `data-8b-enter`): the CSS and the kit read them. Items ordered by `--i` follow their group; counts the CSS fixes are listed under Known limits (`data-8b-fixed` marks such a group).
 - Selectors the scripts use:
   - `section-script:nav`: `.nav__bar` `.nav__toggle` `.menu` `.menu__close`
   - `section-script:contact`: `.contact__status` `data-msg-ok` `data-msg-error`
-  - `scene:hero`: `.hero__copy` `.hero__talk` `.hero__media`
-  - `scene:listen`: `.listen__sheet` `.listen__title` `.listen__hold` `.listen__panel--voice` `.listen__panel--read` `.listen__track--voice` `.listen__track--read` `.listen__row` `.listen__wave` `.m-caption__text`
-  - `scene:calls`: `.calls__list` `.calls__device` `.phone` `data-step`
-  - `scene:tune`: `.tune__stage` `.tune__line` `data-ctl` `.tune__fill` `.tune__thumb` `.tune__pill` `.calls__aside` `.calls__sticky` `.phone__screen`
-  - `scene:rooms`: `.rooms__hold` `.rooms__track` `.rooms__place` `.rooms__line` `.rooms__talk`
-  - `scene:voices`: `.voices__cols` `.voices__col` `.voices__photo`
-  - `scene:setup`: `.setup__steps`
-  - `scene:start`: `.start__window` `.start__copy`
-  - `scene:footer`: `.footer__brand` `.footer__word` `.footer__logo`
-- `hero` directly above `listen`, `calls` directly above `tune`: the animation crosses that border and stops if they are split.
+  - `scene-script:listen`: `.listen__panel--voice` `.listen__panel--read` `.listen__track--voice` `.listen__track--read` `.listen__row` `.m-caption__text` `.listen__wave`
+  - `scene-script:calls`: `.calls__list`
+  - `scene-script:tune`: `.tune__stage` `.tune__slider` `.tune__thumb` `data-8b-section` `.calls__aside` `.calls__sticky` `.phone__screen`
+  - `scene-script:rooms`: `.rooms__track` `.rooms__place` `.rooms__talk`
+  - `scene-script:setup`: `.setup__steps`
 - `style="--len:N"` = characters in that display line, spaces included: `Friday at ten` is 13, `works for me.` is 13, `Linea` is 5.
 - The phone, the waveform, the settings controls and the step cards are HTML and CSS, not images: change their text in place and recolour them through the CSS variables.
 - The contact form's thank-you and error texts are in data-msg-ok and data-msg-error on the <form>.
@@ -42,7 +38,7 @@ Upload `index.html`, LICENSE and CREDITS.md; not this file, README.md or `previe
 - "Get Linea free" in call-to-action: now #hero (back to the top); owner's target: your sign-up page or app store URL.
 - "Book a captioned call" in contact: now #contact-form; owner's target: your booking or calendar URL, or keep it pointing at the form.
 - Privacy, Terms and Emergency calling in the footer: now #hero; owner's target: your own legal pages.
-- The form in `#contact` (fields `name`, `email`, `message`) sends nothing; `section-script:contact` validates it and shows the thank-you text. Formspree: `action="https://formspree.io/f/<id>"` and `fetch` POST `new FormData(form)` first. Netlify: `data-netlify="true"` and a hidden `form-name`. Or delete it and the script.
+- The form in `#contact` (fields `name`, `email`, `message`) sends nothing; `section-script:contact` handles its submit in the page (read it before you connect a service). Formspree: `action="https://formspree.io/f/<id>"` and `fetch` POST `new FormData(form)` first. Netlify: `data-netlify="true"` and a hidden `form-name`. Or delete it and the script.
 - The name Linea (any letter case); the favicon letter and colours in `<link rel="icon">`.
 - Photos (9, Unsplash: hero 1, in-person 5, testimonials 1, call-to-action 1, contact 1): `src`, no `srcset`/`sizes`, `width`/`height` to the ratio, `alt`, CREDITS.md.
 - `<title>`, meta description, og tags.
@@ -65,8 +61,9 @@ All demo text, never to be invented:
 ## Known limits
 - The second hero caption chip shows only from 1440 px wide; below that there is no free area of the photo for it.
 - On phones the docked phone in calls is compact (no controls row, small caption text); the same sentence is shown large in caption-styles.
-- The voice-to-text and in-person stages and the stacked steps need JavaScript and motion allowed; with reduced motion or no scripts they fall back to plain layouts (joined panels, a grid of places, a column of steps).
+- The voice-to-text stage, the in-person track and the stacked steps move only in browsers with CSS scroll-driven animations and with motion allowed; in Firefox today, with reduced motion or without JavaScript they show their finished plain layouts (joined panels with the captions on the reading side, a grid of the five places, a column of steps).
+- Some counts are fixed in the CSS: three caption rows in voice-to-text, five features in calls (each with its own step on the phone), eight settings in caption-styles and three step cards in how-it-works. They are built for those counts: adding or removing items there needs CSS changes; the other lists number themselves.
 - Without JavaScript the phone menu button cannot open the overlay; the links stay reachable in the footer.
 
 ## Check
-375 and 1440 px, reduced motion on, console clean; `data-8b-placeholder` and Linea left only in class names.
+375 and 1440 px, reduced motion on, a browser without scroll-driven animations (Firefox: the finished static layout), console clean; `data-8b-placeholder` and Linea left only in class names.
