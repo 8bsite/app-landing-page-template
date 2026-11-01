@@ -4,18 +4,19 @@
   Source: https://github.com/8bsite/app-landing-page-template
   MIT License (code) https://8b.com/ · Photos: Unsplash License, see CREDITS.md · Fonts: Google Fonts (OFL)
   One HTML file, no build step. Notes for people and AI agents: README.md and AGENTS.md.
+  Scroll motion: CSS scroll-driven animations and an inline script, no libraries. A GSAP build of this page: index.gsap.html.
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Free HTML app landing page template with GSAP scroll animations — Linea (live demo)</title>
-<meta name="description" content="Free HTML app landing page template with GSAP scroll animations, for a mobile app or SaaS product with a free plan. One file, no build step, MIT. By 8B.">
+<title>Free HTML app landing page template with scroll animations and no libraries — Linea (live demo)</title>
+<meta name="description" content="Free HTML app landing page template with scroll animations and no libraries (GSAP build included), for a mobile app or SaaS product with a free plan. One HTML file, MIT, with AGENTS.md for Claude Code, Cursor and Codex. By 8B.">
 <meta name="generator" content="8B Templates">
 <meta name="robots" content="noindex, follow">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Free HTML app landing page template with GSAP scroll animations — Linea (live demo)">
-<meta property="og:description" content="Free HTML app landing page template with GSAP scroll animations, for a mobile app or SaaS product with a free plan. One file, no build step, MIT. By 8B.">
+<meta property="og:title" content="Free HTML app landing page template with scroll animations and no libraries — Linea (live demo)">
+<meta property="og:description" content="Free HTML app landing page template with scroll animations and no libraries (GSAP build included), for a mobile app or SaaS product with a free plan. One HTML file, MIT, with AGENTS.md for Claude Code, Cursor and Codex. By 8B.">
 <meta property="og:image" content="https://8bsite.github.io/app-landing-page-template/previews/desktop.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'14'%20fill%3D'%231b1411'%2F%3E%3Ctext%20x%3D'32'%20y%3D'45'%20font-family%3D'Arial%2CHelvetica%2Csans-serif'%20font-size%3D'38'%20font-weight%3D'700'%20text-anchor%3D'middle'%20fill%3D'%2333cc7a'%3EL%3C%2Ftext%3E%3C%2Fsvg%3E" data-8b-placeholder="favicon">
@@ -29,7 +30,7 @@
   font-weight: 300 800;
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/hostgrotesk/v5/co3BmWBnlCJ3U42vbbfdwMjZqljm0U0.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
@@ -72,9 +73,6 @@
   @font-face { font-family: "Host Grotesk Fallback"; src: local("Arial"), local("ArialMT"), local("Helvetica"); font-weight: 100 549; size-adjust: 103.3%; ascent-override: 98.8%; descent-override: 31%; line-gap-override: 0%; }
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-1); }
-  html.lenis, html.lenis body { height: auto; }
-  .lenis.lenis-stopped { overflow: clip; }
-  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
   body { margin: 0; background: var(--color-2); color: var(--color-1); }
   img, svg { display: block; max-width: 100%; }
   img { height: auto; }
@@ -289,14 +287,6 @@
   }
 }
 </style>
-<style data-8b-part="scene-style:listen">
-@layer scenes {
-  @media (prefers-reduced-motion: no-preference) {
-    #listen.is-staged .listen__hold { height: 250vh; }
-    #listen.is-staged .listen__stage { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; height: 100vh; padding-block: 5.5rem 2rem; }
-  }
-}
-</style>
 <style data-8b-part="section:calls">
 @layer sections {
   #calls { position: relative; isolation: isolate; color: var(--color-2); padding-block: var(--space-2) calc(var(--space-2) + 1rem); }
@@ -418,21 +408,6 @@
   }
 }
 </style>
-<style data-8b-part="scene-style:rooms">
-@layer scenes {
-  @media (prefers-reduced-motion: no-preference) {
-    #rooms.is-track .rooms__hold { height: calc(100vh + var(--rooms-travel, 0px) * 1.5); padding-bottom: 0; }
-    #rooms.is-track .rooms__stage { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; height: 100vh; padding-top: 4.5rem; overflow: hidden; }
-    #rooms.is-track .rooms__track { display: flex; width: max-content; max-width: none; margin: 0; gap: clamp(1rem, 2.4vw, 2.25rem); padding-inline: var(--space-1); }
-    #rooms.is-track .rooms__place { flex: none; width: clamp(16rem, 34vw, 30rem); height: min(66vh, 40rem); aspect-ratio: auto; }
-    #rooms.is-track .rooms__place:last-child { grid-column: auto; }
-    #rooms.is-track .rooms__place img { left: -8%; width: 116%; }
-    @media (max-width: 47.99rem) {
-      #rooms.is-track .rooms__place { width: 78vw; height: min(62vh, 34rem); }
-    }
-  }
-}
-</style>
 <style data-8b-part="section:voices">
 @layer sections {
   #voices { position: relative; isolation: isolate; overflow-x: clip; color: var(--color-1); padding-block: var(--space-2); }
@@ -492,16 +467,6 @@
   }
 }
 </style>
-<style data-8b-part="scene-style:setup">
-@layer scenes {
-  @media (prefers-reduced-motion: no-preference) {
-    #setup.is-stacked .setup__card { position: sticky; top: calc(var(--page-nav-h, 5.5rem) + var(--setup-i) * 1.25rem); }
-    @media (max-width: 47.99rem) {
-      #setup.is-stacked .setup__card { top: calc(var(--page-nav-h, 5.25rem) + var(--setup-i) * 0.75rem); }
-    }
-  }
-}
-</style>
 <style data-8b-part="section:faq">
 @layer sections {
   #faq { position: relative; isolation: isolate; color: var(--color-1); padding-block: var(--space-2); }
@@ -539,14 +504,6 @@
     #start .start__window { height: min(88vh, 42rem); }
     #start .start__window img { object-position: 68% 30%; }
     #start .start__window::after { background: linear-gradient(0deg, color-mix(in srgb, var(--color-1) 85%, transparent), color-mix(in srgb, var(--color-1) 30%, transparent) 60%, transparent); }
-  }
-}
-</style>
-<style data-8b-part="scene-style:start">
-@layer scenes {
-  @media (prefers-reduced-motion: no-preference) {
-    #start.is-transcribing .start__word { position: relative; color: color-mix(in srgb, currentColor calc(100% - var(--bar, 0) * 100%), transparent); }
-    #start.is-transcribing .start__word::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 56%; translate: 0 -50%; border-radius: 0.25rem; background: repeating-linear-gradient(90deg, var(--color-4) 0 0.25rem, transparent 0.25rem 0.5rem); opacity: var(--bar, 0); scale: 1 var(--bar, 0); }
   }
 }
 </style>
@@ -599,7 +556,258 @@
   }
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Free HTML app landing page template with GSAP scroll animations — Linea","description":"Free HTML app landing page template with GSAP scroll animations, for a mobile app or SaaS product with a free plan. One file, no build step, MIT. By 8B.","url":"https://8b.com/templates/linea/","codeRepository":"https://github.com/8bsite/app-landing-page-template","license":"https://opensource.org/licenses/MIT","programmingLanguage":["HTML","CSS","JavaScript"],"isAccessibleForFree":true,"image":"https://8bsite.github.io/app-landing-page-template/previews/desktop.png","author":{"@type":"Organization","name":"8B","url":"https://8b.com/"}}</script>
+<style data-8b-part="motion">
+@property --motion-ink { syntax: '<number>'; inherits: false; initial-value: 1; }
+@layer scenes {
+[data-8b-live] { --ease-expo-out: linear(0, 0.1587, 0.2915, 0.403, 0.4969, 0.576, 0.6429, 0.6996, 0.7476, 0.7883, 0.8229, 0.8523, 0.8772, 0.8983, 0.9162, 0.9312, 0.9438, 0.9544, 0.9632, 0.9705, 0.9766, 0.9815, 0.9855, 0.9887, 0.9913, 0.9933, 0.9949, 0.9962, 0.9971, 0.9979, 0.9984, 0.9989, 0.9992, 0.9994, 0.9996, 0.9997, 0.9998, 0.9999, 0.9999, 1, 1); }
+[data-8b-live] [data-8b-motion~="captionIn"] .line__in { animation-name: motion-captionin-line-in-translate; animation-duration: 1s; animation-delay: calc(0s + 0.09s * var(--i)); animation-timing-function: var(--ease-expo-out); animation-fill-mode: both; animation-play-state: paused; transform: none; }
+[data-8b-live] [data-8b-motion~="captionIn"].is-in .line__in { animation-play-state: running; }
+@keyframes motion-captionin-line-in-translate { 0% { translate: 0px 108%; } 100% { translate: 0px 0px; } }
+[data-8b-live] [data-8b-motion~="readAlong"] { view-timeline: --motion-read block; }
+[data-8b-live] [data-8b-motion~="readAlong"] .w { color: color-mix(in srgb, currentColor calc(var(--motion-ink) * 100%), transparent); animation-name: motion-read-along; animation-timeline: --motion-read; animation-timing-function: linear; animation-fill-mode: both; animation-range: cover calc(12vh + (100% - 72vh) * var(--i) * 0.12 / (0.48 + 0.12 * var(--n))) cover calc(12vh + (100% - 72vh) * (var(--i) * 0.12 + 0.6) / (0.48 + 0.12 * var(--n))); }
+@keyframes motion-read-along { 0% { --motion-ink: 0.22; } 100% { --motion-ink: 1; } }
+[data-8b-live] [data-8b-motion~="bandRise"] { --motion-band-side: 4%; animation-name: motion-band-rise; animation-timeline: view(block); animation-range: cover 0% cover 75vh; animation-timing-function: linear; animation-fill-mode: both; }
+@media (max-width: 47.99rem) {
+  [data-8b-live] [data-8b-motion~="bandRise"] { --motion-band-side: 2.5%; }
+}
+@keyframes motion-band-rise { 0% { clip-path: inset(0% var(--motion-band-side) 0% var(--motion-band-side) round round(calc(var(--radius-1) * 2.6), 1px) round(calc(var(--radius-1) * 2.6), 1px) 0px 0px); } 100% { clip-path: inset(0% 0% 0% 0% round var(--radius-1) var(--radius-1) 0px 0px); } }
+}
+</style>
+<style data-8b-part="scene:hero">
+@layer scenes {
+[data-8b-live] #hero { view-timeline: --hero-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #hero .hero__media, [data-8b-live] #hero .hero__copy, [data-8b-live] #hero .hero__talk { animation-timeline: --hero-t1; animation-range: cover calc(100% - 100vh) cover calc(100% - 20vh); animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+[data-8b-live] #hero .hero__media { animation-name: hero-div-hero-media-scale; }
+@keyframes hero-div-hero-media-scale { 0% { scale: 1; } 100% { scale: 1.1; } }
+@keyframes hero-div-hero-copy-translate-d { 0% { translate: 0px 0px; } 100% { translate: 0px -26%; } }
+@keyframes hero-div-hero-copy-translate-m { 0% { translate: 0px 0px; } 100% { translate: 0px -16%; } }
+@keyframes hero-div-hero-talk-translate-d { 0% { translate: 0px 0px; } 100% { translate: 0px -14%; } }
+@keyframes hero-div-hero-talk-translate-m { 0% { translate: 0px 0px; } 100% { translate: 0px -10%; } }
+@media (min-width: 48rem) {
+  [data-8b-live] #hero .hero__media { transform-origin: 100% 30%; }
+  [data-8b-live] #hero .hero__copy { animation-name: hero-div-hero-copy-translate-d; }
+  [data-8b-live] #hero .hero__talk { animation-name: hero-div-hero-talk-translate-d; }
+}
+@media (max-width: 47.99rem) {
+  [data-8b-live] #hero .hero__media { transform-origin: 62% 30%; }
+  [data-8b-live] #hero .hero__copy { animation-name: hero-div-hero-copy-translate-m; }
+  [data-8b-live] #hero .hero__talk { animation-name: hero-div-hero-talk-translate-m; }
+}
+}
+</style>
+<style data-8b-part="scene:listen">
+@property --listen-p { syntax: '<number>'; inherits: true; initial-value: 0; }
+@layer scenes {
+[data-8b-live] #listen { view-timeline: --listen-t1 block; view-timeline-inset: 0; }
+/* The stage: a tall hold with a sticky screen; --listen-p runs 0 → 1 while the stage is stuck (hold top at the top to its bottom at the bottom). */
+[data-8b-live] #listen .listen__hold { height: 250vh; view-timeline: --listen-hold block; view-timeline-inset: 0; animation-name: listen-p; animation-timeline: --listen-hold; animation-range: cover 100vh cover calc(100% - 100vh); animation-timing-function: linear; animation-fill-mode: both; }
+[data-8b-live] #listen .listen__stage { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; height: 100vh; padding-block: 5.5rem 2rem; }
+@keyframes listen-p { 0% { --listen-p: 0; } 100% { --listen-p: 1; } }
+/* Entry: the sheet widens and the heading arrives, from the section's top at the bottom of the view to 20%. */
+[data-8b-live] #listen .listen__sheet, [data-8b-live] #listen-title { animation-timeline: --listen-t1; animation-range: cover 0% cover 80vh; animation-timing-function: linear; animation-fill-mode: both; }
+@keyframes listen-div-listen-sheet-clippath-d { 0% { clip-path: inset(0% 4% round 146px 146px 0px 0px); } 99.998% { clip-path: inset(0% 0.0008% round 56.018px 56.018px 0px 0px); } 100% { clip-path: inset(0% round 56px 56px 0px 0px); } }
+@keyframes listen-div-listen-sheet-clippath-m { 0% { clip-path: inset(0% 2.5% round 146px 146px 0px 0px); } 99.998% { clip-path: inset(0% 0.0005% round 56.018px 56.018px 0px 0px); } 100% { clip-path: inset(0% round 56px 56px 0px 0px); } }
+@keyframes listen-listen-title-translate-d { 0% { translate: 0px 22vh; } 100% { translate: 0px 0px; } }
+@keyframes listen-listen-title-translate-m { 0% { translate: 22vw 0px; } 100% { translate: 0px 0px; } }
+/* Join: the panels slide together while the hold rises into the view. */
+[data-8b-live] #listen .listen__panel--voice, [data-8b-live] #listen .listen__panel--read { animation-timeline: --listen-hold; animation-range: cover 0% cover 100vh; animation-timing-function: linear; animation-fill-mode: both; }
+[data-8b-live] #listen .listen__panel--voice { --listen-join: -8vw; }
+[data-8b-live] #listen .listen__panel--read { --listen-join: 8vw; }
+@keyframes listen-join { 0% { translate: var(--listen-join) 0px; } 100% { translate: 0px 0px; } }
+/* Crossing: row i and its bar copy move together from the measured shift (--listen-dx / --listen-dy, the scene script) to rest, at 0.8 i of a timeline of 0.8 (n − 1) + 1.35. */
+[data-8b-live] #listen .listen__track > .listen__row { animation-name: listen-cross; animation-timeline: --listen-hold; animation-timing-function: linear(0, 0.0013, 0.005, 0.0112, 0.02, 0.0313, 0.045, 0.0612, 0.08, 0.1013, 0.125, 0.1512, 0.18, 0.2112, 0.245, 0.2813, 0.32, 0.3613, 0.405, 0.4512, 0.5, 0.5487, 0.595, 0.6388, 0.68, 0.7188, 0.755, 0.7887, 0.82, 0.8488, 0.875, 0.8988, 0.92, 0.9387, 0.955, 0.9688, 0.98, 0.9888, 0.995, 0.9988, 1); animation-fill-mode: both; animation-range: cover calc(100vh + (100% - 200vh) * 0.8 * var(--i) / (0.55 + 0.8 * var(--n))) cover calc(100vh + (100% - 200vh) * (0.8 * var(--i) + 1) / (0.55 + 0.8 * var(--n))); }
+@keyframes listen-cross { 0% { translate: var(--listen-dx, 0px) var(--listen-dy, 0px); } 100% { translate: 0px 0px; } }
+/* The voice waveform swells with the crossing: bar k scales to 1 − sin(πp) · 0.7 · (1 − |sin(0.45k + 18p)|). */
+[data-8b-live] #listen .listen__wave > i { scale: 1 calc(1 - sin(var(--listen-p) * pi) * 0.7 * (1 - max(sin(var(--listen-k, 0) * 0.45 + var(--listen-p) * 18), -1 * sin(var(--listen-k, 0) * 0.45 + var(--listen-p) * 18)))); }
+@media (min-width: 48rem) {
+  [data-8b-live] #listen .listen__sheet { animation-name: listen-div-listen-sheet-clippath-d; }
+  [data-8b-live] #listen-title { animation-name: listen-listen-title-translate-d; }
+  [data-8b-live] #listen .listen__panel--voice, [data-8b-live] #listen .listen__panel--read { animation-name: listen-join; }
+}
+@media (max-width: 47.99rem) {
+  [data-8b-live] #listen .listen__sheet { animation-name: listen-div-listen-sheet-clippath-m; }
+  [data-8b-live] #listen-title { animation-name: listen-listen-title-translate-m; }
+  [data-8b-live] #listen .listen__panel--voice, [data-8b-live] #listen .listen__panel--read { animation-name: listen-join; }
+  [data-8b-live] #listen .listen__panel--voice { --listen-join: -7vw; }
+  [data-8b-live] #listen .listen__panel--read { --listen-join: 7vw; }
+}
+}
+</style>
+<style data-8b-part="scene:calls">
+@layer scenes {
+/* One timeline of 5.2 across the list: from the first item's top at the reading line (58% of the view, phones 52%) to the last item's bottom there.
+   The scene script measures the first item's offset in the list (--calls-top) and that distance (--calls-span); time t sits at
+   cover calc(100vh - line + top + span · t / 5.2) of the list's view timeline. */
+[data-8b-live] #calls { timeline-scope: --calls-list; view-timeline: --calls-t1 block; view-timeline-inset: 0; --calls-line: 58vh; }
+[data-8b-live] #calls .calls__list { view-timeline: --calls-list block; view-timeline-inset: 0; }
+/* Item i lights from 0.32 at i − 0.1, dims at i + 0.9, and all light again at 4.9. */
+[data-8b-live] #calls .calls__list > li { animation-name: calls-item-in, calls-item-out, calls-item-lit; animation-timeline: --calls-list; animation-timing-function: linear; animation-fill-mode: both, forwards, forwards; animation-range:
+  cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px) * (var(--i) - 0.1) / 5.2) cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px) * (var(--i) + 0.15) / 5.2),
+  cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px) * (var(--i) + 0.9) / 5.2) cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px) * (var(--i) + 1.15) / 5.2),
+  cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px) * 4.9 / 5.2) cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px)); }
+[data-8b-live] #calls .calls__list > li:first-child { animation-name: none, calls-item-out, calls-item-lit; }
+[data-8b-live] #calls .calls__list > li:last-child { animation-name: calls-item-in, none, none; }
+@keyframes calls-item-in { 0% { opacity: 0.32; } 100% { opacity: 1; } }
+@keyframes calls-item-out { 0% { opacity: 1; } 100% { opacity: 0.32; } }
+@keyframes calls-item-lit { 0% { opacity: 0.32; } 100% { opacity: 1; } }
+/* The phone's proof of step k rises in at k − 1 + 0.05 (a second node of the same step 0.18 later), for 0.3. */
+[data-8b-live] #calls .phone [data-step] { animation-name: calls-step; animation-timeline: --calls-list; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); animation-fill-mode: both; transform-origin: 50% 100%; animation-range: cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px) * var(--calls-at) / 5.2) cover calc(100vh - var(--calls-line) + var(--calls-top, 0px) + var(--calls-span, 0px) * (var(--calls-at) + 0.3) / 5.2); }
+[data-8b-live] #calls .phone [data-step="1"] { --calls-at: 0.05; }
+[data-8b-live] #calls .phone [data-step="2"] { --calls-at: 1.05; }
+[data-8b-live] #calls .phone [data-step="3"] { --calls-at: 2.05; }
+[data-8b-live] #calls .phone [data-step="4"] { --calls-at: 3.05; }
+[data-8b-live] #calls .phone [data-step="4"] ~ [data-step="4"] { --calls-at: 3.23; }
+[data-8b-live] #calls .phone [data-step="5"] { --calls-at: 4.05; }
+[data-8b-live] #calls .phone .phone__saved[data-step="5"] { --calls-at: 4.23; }
+@keyframes calls-step { 0% { opacity: 0; translate: 0px 14px; scale: 0.94; } 100% { opacity: 1; translate: 0px 0px; scale: 1; } }
+/* Exit: the phone shrinks, tilts and rises from the section's bottom at the bottom of the view to 30%. */
+[data-8b-live] #calls .calls__device { --calls-rise: -12vh; animation-name: calls-device-exit; animation-timeline: --calls-t1; animation-range: cover calc(100% - 100vh) cover calc(100% - 30vh); animation-timing-function: linear; animation-fill-mode: both; }
+@keyframes calls-device-exit { 0% { translate: 0px 0px; rotate: 0deg; scale: 1; } 100% { translate: 0px var(--calls-rise); rotate: -7deg; scale: 0.8; } }
+@media (max-width: 47.99rem) {
+  [data-8b-live] #calls { --calls-line: 52vh; }
+  [data-8b-live] #calls .calls__device { --calls-rise: -8vh; }
+}
+}
+</style>
+<style data-8b-part="scene:tune">
+@layer scenes {
+[data-8b-live] #tune { view-timeline: --tune-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #tune .tune__stage, [data-8b-live] #tune .tune__line, [data-8b-live] #tune .tune__slider > .tune__fill, [data-8b-live] #tune .tune__slider > .tune__thumb, [data-8b-live] #tune .tune__pill { animation-timeline: --tune-t1; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+/* The re-set (top at 30% of the view to top at −45%, a timeline of 2.25): weight 300 → 800 → 600 and size up, the card flips dark at 1.05, sliders and the contrast pill move in step. */
+[data-8b-live] #tune .tune__stage { animation-name: tune-div-tune-stage-backgroundcolor, tune-div-tune-stage-color; animation-range: cover 105vh cover 115vh, cover 105vh cover 115vh; }
+[data-8b-live] #tune .tune__line { animation-name: tune-span-tune-line-fontvariationsettings, tune-span-tune-line-scale; animation-range: cover 70vh cover 145vh, cover 70vh cover 103.3333vh; }
+[data-8b-live] #tune [data-ctl="size"] > .tune__fill { animation-name: tune-span-tune-fill-scale; animation-range: cover 70vh cover 103.3333vh; }
+[data-8b-live] #tune [data-ctl="size"] > .tune__thumb { animation-name: tune-size-thumb; animation-range: cover 70vh cover 103.3333vh; }
+[data-8b-live] #tune [data-ctl="weight"] > .tune__fill { animation-name: tune-span-tune-fill-scale-2; animation-range: cover 70vh cover 145vh; }
+[data-8b-live] #tune [data-ctl="weight"] > .tune__thumb { animation-name: tune-weight-thumb; animation-range: cover 70vh cover 145vh; }
+[data-8b-live] #tune .tune__pill { animation-name: tune-b-tune-pill-translate; animation-range: cover 105vh cover 115vh; }
+@keyframes tune-span-tune-line-fontvariationsettings { 0% { font-variation-settings: "wght" 300; } 44.4444% { font-variation-settings: "wght" 800; } 64.4444% { font-variation-settings: "wght" 800; } 100% { font-variation-settings: "wght" 600; } }
+@keyframes tune-span-tune-line-scale { 0% { scale: 0.8; } 100% { scale: 1; } }
+@keyframes tune-span-tune-fill-scale { 0% { scale: 0.3 1; } 100% { scale: 0.75 1; } }
+@keyframes tune-span-tune-fill-scale-2 { 0% { scale: 0 1; } 44.4444% { scale: 1; } 64.4444% { scale: 1; } 100% { scale: 0.6 1; } }
+/* Thumbs travel in their slider's measured width (--tune-track, the scene script). */
+@keyframes tune-size-thumb { 0% { translate: calc(var(--tune-track, 0px) * -0.45) 0px; } 100% { translate: 0px 0px; } }
+@keyframes tune-weight-thumb { 0% { translate: calc(var(--tune-track, 0px) * -0.6) 0px; } 44.4444% { translate: calc(var(--tune-track, 0px) * 0.4) 0px; } 64.4444% { translate: calc(var(--tune-track, 0px) * 0.4) 0px; } 100% { translate: 0px 0px; } }
+@keyframes tune-div-tune-stage-backgroundcolor { 0% { background-color: var(--color-2); } 100% { background-color: var(--color-1); } }
+@keyframes tune-div-tune-stage-color { 0% { color: var(--color-1); } 100% { color: var(--color-2); } }
+@keyframes tune-b-tune-pill-translate { 0% { translate: -100% 0px; } 100% { translate: 0px 0px; } }
+/* Entry, only right after calls (the scene script sets data-handoff with the measured path): from the top of tune at the bottom of the view to 30%,
+   the card appears at the calls phone's screen (--tune-x, --tune-y, scale --tune-s) within the first 0.02 and grows along the path into place. */
+[data-8b-live] #tune[data-handoff] .tune__stage { animation-name: tune-stage-pop, tune-stage-path, tune-stage-grow, tune-stage-show, tune-div-tune-stage-backgroundcolor, tune-div-tune-stage-color; animation-timing-function: linear, linear(0, 0.0013, 0.005, 0.0112, 0.02, 0.0313, 0.045, 0.0612, 0.08, 0.1013, 0.125, 0.1512, 0.18, 0.2112, 0.245, 0.2813, 0.32, 0.3613, 0.405, 0.4512, 0.5, 0.5487, 0.595, 0.6388, 0.68, 0.7188, 0.755, 0.7887, 0.82, 0.8488, 0.875, 0.8988, 0.92, 0.9387, 0.955, 0.9688, 0.98, 0.9888, 0.995, 0.9988, 1), linear(0, 0.0013, 0.005, 0.0112, 0.02, 0.0313, 0.045, 0.0612, 0.08, 0.1013, 0.125, 0.1512, 0.18, 0.2112, 0.245, 0.2813, 0.32, 0.3613, 0.405, 0.4512, 0.5, 0.5487, 0.595, 0.6388, 0.68, 0.7188, 0.755, 0.7887, 0.82, 0.8488, 0.875, 0.8988, 0.92, 0.9387, 0.955, 0.9688, 0.98, 0.9888, 0.995, 0.9988, 1), linear, linear, linear; animation-fill-mode: both, both, forwards, both, both, both; animation-range: cover 0% cover 1.4vh, cover 1.4vh cover 70vh, cover 1.4vh cover 70vh, cover 0% cover 7vh, cover 105vh cover 115vh, cover 105vh cover 115vh; }
+@keyframes tune-stage-pop { 0% { scale: 0; } 100% { scale: var(--tune-s, 1); } }
+@keyframes tune-stage-path { 0% { translate: var(--tune-x, 0px) var(--tune-y, 0px); } 100% { translate: 0px 0px; } }
+@keyframes tune-stage-grow { 0% { scale: var(--tune-s, 1); } 100% { scale: 1; } }
+@keyframes tune-stage-show { 0% { opacity: 0; visibility: hidden; } 100% { opacity: 1; visibility: visible; } }
+}
+</style>
+<style data-8b-part="scene:rooms">
+@property --rooms-p { syntax: '<number>'; inherits: true; initial-value: 0; }
+@layer scenes {
+/* A tall hold with a sticky screen; --rooms-p runs 0 → 1 while the stage is stuck, the track moves by --rooms-travel (its measured overflow) over it. */
+[data-8b-live] #rooms .rooms__hold { height: calc(100vh + var(--rooms-travel, 0px) * 1.5); padding-bottom: 0; view-timeline: --rooms-hold block; view-timeline-inset: 0; animation-name: rooms-p; animation-timeline: --rooms-hold; animation-range: cover 100vh cover calc(100% - 100vh); animation-timing-function: linear; animation-fill-mode: both; }
+@keyframes rooms-p { 0% { --rooms-p: 0; } 100% { --rooms-p: 1; } }
+[data-8b-live] #rooms .rooms__stage { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; height: 100vh; padding-top: 4.5rem; overflow: clip; }
+[data-8b-live] #rooms .rooms__track { display: flex; width: max-content; max-width: none; margin: 0; gap: clamp(1rem, 2.4vw, 2.25rem); padding-inline: var(--space-1); translate: calc(var(--rooms-p) * var(--rooms-travel, 0px) * -1) 0px; }
+/* The two voice lines draw ahead of the track: dash offset from 1 − lead (--rooms-dash, measured) to 0 while the stage is stuck. */
+[data-8b-live] #rooms .rooms__line { stroke-dasharray: 1; animation-name: rooms-draw; animation-timeline: --rooms-hold; animation-range: cover 100vh cover calc(100% - 100vh); animation-timing-function: linear; animation-fill-mode: both; }
+@keyframes rooms-draw { 0% { stroke-dashoffset: var(--rooms-dash, 0); } 100% { stroke-dashoffset: 0; } }
+/* Each place's own progress q: p between --rooms-a (its left edge at the right of the view) and the end line, 1 / span = --rooms-k (the scene script). */
+[data-8b-live] #rooms .rooms__place { flex: none; width: clamp(16rem, 34vw, 30rem); height: min(66vh, 40rem); aspect-ratio: auto; --rooms-q: clamp(0, (var(--rooms-p) - var(--rooms-a, 0)) * var(--rooms-k, 1), 1); }
+[data-8b-live] #rooms .rooms__place:last-child { grid-column: auto; }
+[data-8b-live] #rooms .rooms__place img { left: -8%; width: 116%; translate: calc((1 - var(--rooms-q)) * 7%) 0px; }
+/* Captions rise in turn (0.5 each, 0.3 apart, power2.out = 1 − (1 − t)³): t = (q · (0.5 + 0.3 (m − 1)) − 0.3 j) / 0.5. */
+[data-8b-live] #rooms .rooms__talk > * { --rooms-u: calc(1 - clamp(0, (var(--rooms-q) * var(--rooms-span, 0.8) - var(--rooms-j, 0) * 0.3) * 2, 1)); opacity: calc(1 - var(--rooms-u) * var(--rooms-u) * var(--rooms-u)); translate: 0px calc(var(--rooms-u) * var(--rooms-u) * var(--rooms-u) * 36px); }
+@media (max-width: 47.99rem) {
+  [data-8b-live] #rooms .rooms__place { width: 78vw; height: min(62vh, 34rem); }
+}
+}
+</style>
+<style data-8b-part="scene:voices">
+@layer scenes {
+[data-8b-live] #voices .voices__photo { view-timeline-inset: 0; }
+[data-8b-live] #voices .voices__photo > img { animation-name: voices-div-voices-photo-img-scale; animation-range: cover 0% cover 50%; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+@keyframes voices-ul-voices-col-translate { 0% { translate: 0px 14vh; } 100% { translate: 0px 0px; } }
+@keyframes voices-ul-voices-col-translate-2 { 0% { translate: 0px 42vh; } 100% { translate: 0px 0px; } }
+@keyframes voices-div-voices-photo-img-scale { 0% { scale: 1.2; } 100% { scale: 1; } }
+@keyframes voices-li-m-card-translate { 0% { translate: -28px 6vh; } 100% { translate: 0px 0px; } }
+@keyframes voices-li-m-card-translate-2 { 0% { translate: 28px 16vh; } 100% { translate: 0px 0px; } }
+@media (min-width: 48rem) {
+  [data-8b-live] #voices .voices__cols { view-timeline: --voices-t1 block; view-timeline-inset: 0; }
+  [data-8b-live] #voices .voices__photo { view-timeline: --voices-t2 block; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(-n+2) { animation-timeline: --voices-t1; animation-range: cover 0% cover 82vh; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(1) { animation-name: voices-ul-voices-col-translate; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(2) { animation-name: voices-ul-voices-col-translate-2; }
+  [data-8b-live] #voices .voices__photo > img { animation-timeline: --voices-t2; }
+}
+@media (max-width: 47.99rem) {
+  [data-8b-live] #voices .voices__photo { view-timeline: --voices-t1 block; }
+  [data-8b-live] #voices .voices__photo > img { animation-timeline: --voices-t1; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(1) > li { view-timeline: --voices-item block; view-timeline-inset: 0; animation-timeline: --voices-item; animation-range: cover 0% cover 42vh; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(1) > li:nth-of-type(2n+1) { animation-name: voices-li-m-card-translate; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(1) > li:nth-of-type(2n+2) { animation-name: voices-li-m-card-translate-2; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(2) > li { view-timeline: --voices-item-2 block; view-timeline-inset: 0; animation-timeline: --voices-item-2; animation-range: cover 0% cover 42vh; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(2) > li:nth-of-type(2n+1) { animation-name: voices-li-m-card-translate; }
+  [data-8b-live] #voices .voices__cols > ul:nth-of-type(2) > li:nth-of-type(2n+2) { animation-name: voices-li-m-card-translate-2; }
+}
+}
+</style>
+<style data-8b-part="scene:setup">
+@layer scenes {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-8b-live] #setup .setup__card { position: sticky; top: calc(var(--page-nav-h, 5.5rem) + var(--setup-i) * 1.25rem); }
+    @media (max-width: 47.99rem) {
+      [data-8b-live] #setup .setup__card { top: calc(var(--page-nav-h, 5.25rem) + var(--setup-i) * 0.75rem); }
+    }
+  }
+}
+@layer scenes {
+/* Card i steps back while card i + 1 arrives: from that card's natural top (--setup-from, measured on the non-sticky list) at the bottom of the view
+   to its natural top at its own sticky top (--setup-to = natural top − sticky top). The last card never moves. */
+[data-8b-live] #setup .setup__steps { view-timeline: --setup-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #setup .setup__steps > li:not(:last-child) { animation-name: setup-li-setup-card-scale, setup-li-setup-card-filter; animation-timeline: --setup-t1; animation-timing-function: linear; animation-fill-mode: both; transform: none; animation-range: cover var(--setup-from, 0px) cover calc(100vh + var(--setup-to, 0px)); }
+@keyframes setup-li-setup-card-scale { 0% { scale: 1; } 100% { scale: 0.92; } }
+@keyframes setup-li-setup-card-filter { 0% { filter: brightness(1); } 100% { filter: brightness(0.68); } }
+}
+</style>
+<style data-8b-part="scene:start">
+@property --start-bar { syntax: '<number>'; inherits: true; initial-value: 0; }
+@layer scenes {
+[data-8b-live] #start .start__window, [data-8b-live] #start .start__window > img { animation-timeline: --start-t1; animation-range: cover 8vh cover 90vh; animation-timing-function: linear; animation-fill-mode: both; }
+[data-8b-live] #start .start__window { view-timeline: --start-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #start .start__window > img { animation-name: start-div-start-window-img-scale; transform: none; }
+@keyframes start-div-start-window-clippath-d { 0% { clip-path: inset(15% 31% round 84px); } 99.998% { clip-path: inset(0.003% 0.0062% round 28.0112px); } 100% { clip-path: inset(0% round 28px); } }
+@keyframes start-div-start-window-clippath-m { 0% { clip-path: inset(22% 12% round 84px); } 99.998% { clip-path: inset(0.0044% 0.0024% round 28.0112px); } 100% { clip-path: inset(0% round 28px); } }
+@keyframes start-div-start-window-img-scale { 0% { scale: 1.32; } 100% { scale: 1; } }
+@media (min-width: 48rem) {
+  [data-8b-live] #start .start__window { animation-name: start-div-start-window-clippath-d; }
+}
+@media (max-width: 47.99rem) {
+  [data-8b-live] #start .start__window { animation-name: start-div-start-window-clippath-m; }
+}
+/* The heading is transcribed word by word: --start-bar 1 → 0 per word, staggered 0.16 of 0.5, from its top at 96% of the view to its bottom at 64%. */
+[data-8b-live] #start-title { view-timeline: --start-title block; }
+[data-8b-live] #start-title .w { position: relative; display: inline-block; color: color-mix(in srgb, currentColor calc(100% - var(--start-bar) * 100%), transparent); animation-name: start-bar; animation-timeline: --start-title; animation-timing-function: linear; animation-fill-mode: both; animation-range: cover calc(4vh + (100% - 68vh) * var(--i) * 0.16 / (0.34 + 0.16 * var(--n))) cover calc(4vh + (100% - 68vh) * (var(--i) * 0.16 + 0.5) / (0.34 + 0.16 * var(--n))); }
+[data-8b-live] #start-title .w::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 56%; translate: 0 -50%; border-radius: 0.25rem; background: repeating-linear-gradient(90deg, var(--color-4) 0 0.25rem, transparent 0.25rem 0.5rem); opacity: var(--start-bar); scale: 1 var(--start-bar); }
+@keyframes start-bar { 0% { --start-bar: 1; } 100% { --start-bar: 0; } }
+}
+</style>
+<style data-8b-part="scene:footer">
+@layer scenes {
+[data-8b-live] #footer .footer__brand { view-timeline: --footer-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #footer .footer__word, [data-8b-live] #footer .footer__logo-a, [data-8b-live] #footer .footer__logo-b { animation-timeline: --footer-t1; animation-timing-function: linear; animation-fill-mode: both; }
+[data-8b-live] #footer .footer__word { animation-name: footer-p-footer-word-translate; animation-range: cover 0% cover calc(76.9231% - 76.9231vh); transform: none; }
+[data-8b-live] #footer .footer__logo-a, [data-8b-live] #footer .footer__logo-b { animation-name: footer-path-footer-logo-a-strokedashoffset, footer-path-footer-logo-a-strokedasharray; }
+[data-8b-live] #footer .footer__logo-a { animation-range: cover 0% cover calc(76.9231% - 76.9231vh); }
+[data-8b-live] #footer .footer__logo-b { animation-range: cover calc(23.0769% - 23.0769vh) cover calc(100% - 100vh); }
+@keyframes footer-p-footer-word-translate { 0% { translate: 0px 70%; } 100% { translate: 0px 0px; } }
+@keyframes footer-path-footer-logo-a-strokedashoffset { 0% { stroke-dashoffset: 1px; } 99.998% { stroke-dashoffset: 0.0002px; } 100% { stroke-dashoffset: 0px; } }
+@keyframes footer-path-footer-logo-a-strokedasharray { 0% { stroke-dasharray: 1px; } 100% { stroke-dasharray: 1px; } }
+}
+</style>
+<script data-8b-part="motion-gate">
+if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.supports('animation-timeline: view()')) document.documentElement.setAttribute('data-8b-live', '');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Free HTML app landing page template with scroll animations and no libraries — Linea","description":"Free HTML app landing page template with scroll animations and no libraries (GSAP build included), for a mobile app or SaaS product with a free plan. One HTML file, MIT, with AGENTS.md for Claude Code, Cursor and Codex. By 8B.","url":"https://8b.com/templates/linea/","codeRepository":"https://github.com/8bsite/app-landing-page-template","license":"https://opensource.org/licenses/MIT","programmingLanguage":["HTML","CSS","JavaScript"],"isAccessibleForFree":true,"image":"https://8bsite.github.io/app-landing-page-template/previews/desktop.png","author":{"@type":"Organization","name":"8B","url":"https://8b.com/"}}</script>
 </head>
 <body class="m-text">
 <a class="skip-link m-text-6" href="#main">Skip to content</a>
@@ -611,7 +819,7 @@
       <svg class="nav__mark" viewBox="0 0 40 28" aria-hidden="true"><path class="nav__mark-a" d="M3 19C10 5 17 5 21 14s11 9 16-6"/><path class="nav__mark-b" d="M3 10c7 13 14 13 18 4s11-10 16 5"/></svg>
       <span class="nav__word m-text-5">Linea</span>
     </a>
-    <ul class="nav__links m-text-6">
+    <ul class="nav__links m-text-6" data-8b-items=":scope > li">
       <li><a class="m-link-2" href="#listen">How it works</a></li>
       <li><a class="m-link-2" href="#calls">On calls</a></li>
       <li><a class="m-link-2" href="#rooms">In person</a></li>
@@ -622,9 +830,9 @@
     <a class="m-btn-3 nav__cta" href="#start"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
     <button class="m-icon-btn nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
   </nav>
-  <div class="menu" id="menu" data-lenis-prevent hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu" id="menu" hidden role="dialog" aria-modal="true" aria-label="Menu">
     <button class="m-icon-btn menu__close" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <ul class="menu__links m-text-5">
+    <ul class="menu__links m-text-5" data-8b-items=":scope > li">
       <li><a class="m-link-2" href="#listen">How it works</a></li>
       <li><a class="m-link-2" href="#calls">On calls</a></li>
       <li><a class="m-link-2" href="#rooms">In person</a></li>
@@ -640,7 +848,7 @@
 <!-- hero: first screen: headline over a full-bleed photo, lead, proof line, button; caption chips ride curved lines across the photo (animation: scene:hero) -->
 <section class="hero on-dark" id="hero" data-8b-section="hero" aria-labelledby="hero-title">
   <div class="hero__media">
-    <img srcset="https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1160&amp;q=80 1160w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" sizes="(max-width: 767px) 167vw, 90vw" style="background:#59c0f3 url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAYHBwkLCQwNDQwQERAREBgWFBQWGCMZGxkbGSM1ISchISchNS85LysvOS9UQjs7QlRhUk5SYXZpaXaUjZTBwf8BBgcHCQsJDA0NDBAREBEQGBYUFBYYIxkbGRsZIzUhJyEhJyE1LzkvKy85L1RCOztCVGFSTlJhdmlpdpSNlMHB///AABEIABgAIAMBIgACEQEDEQH/xABuAAACAwEBAAAAAAAAAAAAAAAABwMFBgIEEAACAgEEAQMFAAAAAAAAAAABAgMEAAUREiEGMUFhEyI0cZEBAQADAAAAAAAAAAAAAAAAAAUEBgcRAQACAgMBAQEAAAAAAAAAAAECEQADBAUSIROB/9oADAMBAAIRAxEAPwDsU/jI3pgAkjNgaoVSzdADcnINOlr24/q125BXK+mxDKfcHLu7w+CXXwzNZcZfqPmwXFDY1utBYMViKSH7SQWGXwrB0V12KsNwRlD59BIk6SSIFdy4D77s/wAnNh4lXSXRKrD147Nu3LsdYX1XY79jKO0LMZ7rqONpjCehaf6VWM9NV0oj8qL+4l7PkUWlX78dNkZ5Q7ks3Q9k2wwwrksrhL02ONcLy/pFiIhni0XWI7NK3DdnSWWRzxMhBPQxYWb70b7PTmCEN0Yz1+jhhkKJTKQtqLiN2kEPMRAz/9k=) 50% 28% / cover no-repeat" src="https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1200" alt="A woman smiles as she reads a message on her phone under a clear blue sky" fetchpriority="high" decoding="async">
+    <img src="https://images.unsplash.com/photo-1719492172750-4ca0809345b8?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8cGVyc29uJTIwcmVhZGluZyUyMG1lc3NhZ2UlMjBvbiUyMHBob25lJTIwc21pbGluZyUyMHNreXxlbnwxfDB8fHwxNzkxMjA5NTExfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1160&amp;q=60" width="1600" height="1200" alt="A woman smiles as she reads a message on her phone under a clear blue sky" fetchpriority="high" decoding="async">
   </div>
   <div class="hero__shade" aria-hidden="true"></div>
   <div class="hero__talk" aria-hidden="true">
@@ -661,7 +869,7 @@
       <h1 class="m-text-2 hero__title" id="hero-title">Every call, written as it’s spoken.</h1>
       <div class="hero__lower">
         <p class="m-text-4 hero__lead">Linea turns the voice on the other end of the line — and the people around you — into clear live captions. Free for anyone with hearing loss.</p>
-        <ul class="hero__proof m-text-6">
+        <ul class="hero__proof m-text-6" data-8b-items=":scope > li">
           <li><svg viewBox="0 0 16 16" aria-hidden="true"><path class="hero__star" d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>4.8 from 9,400 reviews</li>
           <li><svg viewBox="0 0 16 16" aria-hidden="true"><path class="hero__tick" d="M3 8.5l3 3 7-7"/></svg>Free if you qualify</li>
           <li><svg viewBox="0 0 16 16" aria-hidden="true"><path class="hero__tick" d="M3 8.5l3 3 7-7"/></svg>Private on your phone</li>
@@ -680,7 +888,7 @@
   <div class="listen__sheet m-band" aria-hidden="true"></div>
   <div class="listen__head l-wrap">
     <h2 class="m-text-3 listen__title" id="listen-title">Nothing lost between a voice and a word.</h2>
-    <p class="m-text-4 listen__lead" data-8b-motion="readAlong">No gaps, no guessing, no asking twice. Linea exists so people who are deaf or hard of hearing can follow every conversation in full — with family, with doctors, with the world.</p>
+    <p class="m-text-4 listen__lead" data-8b-motion="readAlong" data-8b-split="words">No gaps, no guessing, no asking twice. Linea exists so people who are deaf or hard of hearing can follow every conversation in full — with family, with doctors, with the world.</p>
   </div>
   <div class="listen__hold">
     <div class="listen__stage l-wrap">
@@ -692,7 +900,7 @@
         </div>
         <div class="listen__panel listen__panel--read">
           <p class="m-text-6 listen__label">You read</p>
-          <div class="listen__track listen__track--read">
+          <div class="listen__track listen__track--read" data-8b-items=":scope > .listen__row" data-8b-fixed="3">
             <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Hey love — what time are we meeting today?</span></p></div>
             <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Around six? The table is booked under Ada.</span></p></div>
             <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">I’ll be the one in the orange coat.</span></p></div>
@@ -708,14 +916,14 @@
   <div class="calls__sheet m-band-3" aria-hidden="true" data-8b-motion="bandRise"></div>
   <div class="calls__inner l-wrap">
     <div class="calls__head">
-      <h2 class="m-text-3" id="calls-title" data-8b-motion="captionIn">Calls that feel easy again.</h2>
+      <h2 class="m-text-3" id="calls-title" data-8b-motion="captionIn" data-8b-split="lines">Calls that feel easy again.</h2>
       <div class="calls__head-copy">
         <p class="m-text-4 calls__lead">Phone calls should be simple, not stressful. With Linea you see every word as it’s said, so you can follow along and answer in your own way.</p>
         <a class="m-btn" href="#start"><span class="m-btn__label">Download the app</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
       </div>
     </div>
     <div class="calls__grid">
-      <ul class="calls__list">
+      <ul class="calls__list" data-8b-items=":scope > li" data-8b-fixed="5">
         <li class="calls__item"><h3 class="m-text-5">Live captions, word for word</h3><p class="m-text-8">Every word the caller says appears on your screen within a beat — accurate enough for fast talkers, soft voices and bad lines.</p></li>
         <li class="calls__item"><h3 class="m-text-5">Keep the number you have</h3><p class="m-text-8">Use your existing number for calls and texts, or pick a new one just for Linea. Your contacts don’t change a thing.</p></li>
         <li class="calls__item"><h3 class="m-text-5">Answer by voice or by keyboard</h3><p class="m-text-8">Speak back like any call, or type and let Linea read your words aloud in a voice you choose.</p></li>
@@ -766,10 +974,10 @@
     </div>
     <div class="tune__body">
       <div class="tune__head">
-        <h2 class="m-text-3" id="tune-title" data-8b-motion="captionIn">Captions, set your way.</h2>
+        <h2 class="m-text-3" id="tune-title" data-8b-motion="captionIn" data-8b-split="lines">Captions, set your way.</h2>
         <p class="m-text-4">Big or small, light or bold, dark on light or light on dark. Linea learns how you read best and keeps every call that way.</p>
       </div>
-      <ul class="tune__settings">
+      <ul class="tune__settings" data-8b-items=":scope > li" data-8b-fixed="8">
         <li class="tune__row"><h3 class="m-text-5">Text size</h3><p class="m-text-8">From pocket print to wall-sized words.</p><span class="tune__ctl tune__slider" data-ctl="size" aria-hidden="true"><span class="tune__fill"></span><span class="tune__thumb"></span></span></li>
         <li class="tune__row"><h3 class="m-text-5">Weight</h3><p class="m-text-8">Lighter or bolder strokes for tired eyes.</p><span class="tune__ctl tune__slider" data-ctl="weight" aria-hidden="true"><span class="tune__fill"></span><span class="tune__thumb"></span></span></li>
         <li class="tune__row"><h3 class="m-text-5">Contrast</h3><p class="m-text-8">Dark on light, light on dark, or a pair of your own.</p><span class="tune__ctl tune__seg" data-ctl="contrast" aria-hidden="true"><b class="tune__pill"></b><span>Light</span><span>Dark</span></span></li>
@@ -787,19 +995,19 @@
 <section class="rooms on-dark" id="rooms" data-8b-section="in-person" aria-labelledby="rooms-title">
   <div class="rooms__sheet m-band-4" aria-hidden="true"></div>
   <div class="rooms__head l-wrap">
-    <h2 class="m-text-3" id="rooms-title" data-8b-motion="captionIn">Captions for the room, too.</h2>
-    <p class="m-text-4 rooms__lead" data-8b-motion="readAlong">Switch on Room mode and Linea listens to the people around you — at the counter, around the table, in the waiting room — and keeps every voice on its own line.</p>
+    <h2 class="m-text-3" id="rooms-title" data-8b-motion="captionIn" data-8b-split="lines">Captions for the room, too.</h2>
+    <p class="m-text-4 rooms__lead" data-8b-motion="readAlong" data-8b-split="words">Switch on Room mode and Linea listens to the people around you — at the counter, around the table, in the waiting room — and keeps every voice on its own line.</p>
   </div>
   <div class="rooms__hold">
     <div class="rooms__stage">
       <p class="rooms__now m-text-6"><i aria-hidden="true"></i>Room mode · two voices</p>
-      <div class="rooms__track">
+      <div class="rooms__track" data-8b-items=":scope > .rooms__place">
         <svg class="rooms__lines" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
           <path class="rooms__line rooms__line--a" pathLength="1" d="M0 60C40 10 80 10 120 50S200 95 240 55 320 5 360 45 440 95 480 55 560 5 600 45 680 95 720 55 800 5 840 45 920 95 1000 50"/>
           <path class="rooms__line rooms__line--b" pathLength="1" d="M0 40C40 90 80 90 120 50S200 5 240 45 320 95 360 55 440 5 480 45 560 95 600 55 680 5 720 45 800 95 840 55 920 5 1000 50"/>
         </svg>
         <figure class="rooms__place">
-          <img srcset="https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=230&amp;q=80 230w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=450&amp;q=80 450w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 17vw" style="background:#40260c" src="https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2400" alt="A woman with a backpack orders at a café counter" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1786772444593-63542e7d0618?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8cGhhcm1hY2lzdCUyMHRhbGtpbmclMjB0byUyMGN1c3RvbWVyJTIwY291bnRlcnxlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=560&amp;q=60" width="1600" height="2400" alt="A woman with a backpack orders at a café counter" loading="lazy" decoding="async">
           <figcaption class="rooms__label m-text-6">At the counter</figcaption>
           <div class="rooms__talk">
             <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Oat milk, and anything else?</span></p>
@@ -807,7 +1015,7 @@
           </div>
         </figure>
         <figure class="rooms__place">
-          <img srcset="https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=290&amp;q=80 290w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=570&amp;q=80 570w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 22vw" style="background:#c0c0c0" src="https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1803" alt="A family laughs together over lunch at a home table" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1627662166825-a860471632e4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZmFtaWx5JTIwZGlubmVyJTIwdGFibGUlMjBjb252ZXJzYXRpb24lMjBsYXVnaGluZ3xlbnwxfDF8fHwxNzkxMjA5NTc1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=740&amp;q=60" width="1600" height="1803" alt="A family laughs together over lunch at a home table" loading="lazy" decoding="async">
           <figcaption class="rooms__label m-text-6">Around the table</figcaption>
           <div class="rooms__talk">
             <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Who wants the last one?</span></p>
@@ -815,7 +1023,7 @@
           </div>
         </figure>
         <figure class="rooms__place">
-          <img srcset="https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=230&amp;q=80 230w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=450&amp;q=80 450w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 17vw" style="background:#8c8ca6" src="https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2400" alt="A smiling clinician in a white coat talks with an older patient" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1790469337210-02bde622b520?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8ZG9jdG9yJTIwdGFsa2luZyUyMHdpdGglMjBlbGRlcmx5JTIwcGF0aWVudHxlbnwxfDF8fHwxNzkxMjA5NTc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=560&amp;q=60" width="1600" height="2400" alt="A smiling clinician in a white coat talks with an older patient" loading="lazy" decoding="async">
           <figcaption class="rooms__label m-text-6">At the clinic</figcaption>
           <div class="rooms__talk">
             <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Any ringing since your last visit?</span></p>
@@ -823,7 +1031,7 @@
           </div>
         </figure>
         <figure class="rooms__place">
-          <img srcset="https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=230&amp;q=80 230w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=450&amp;q=80 450w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 17vw" style="background:#c0c0c0" src="https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2397" alt="An audience listens to a talk in a bright hall" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1638957835514-224c57ffe617?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8bGVjdHVyZSUyMGhhbGwlMjBzdHVkZW50cyUyMGxpc3RlbmluZ3xlbnwxfDF8fHwxNzkxMjA5NTc2fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=560&amp;q=60" width="1600" height="2397" alt="An audience listens to a talk in a bright hall" loading="lazy" decoding="async">
           <figcaption class="rooms__label m-text-6">At the talk</figcaption>
           <div class="rooms__talk">
             <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Questions from the back row?</span></p>
@@ -831,7 +1039,7 @@
           </div>
         </figure>
         <figure class="rooms__place">
-          <img srcset="https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=250&amp;q=80 250w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=490&amp;q=80 490w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w" sizes="(max-width: 767px) 90vw, 19vw" style="background:#404040" src="https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="2092" alt="Neighbours sit and chat outside a shop on a cobbled street" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1787767296743-b59cbed3809d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8ZnJpZW5kcyUyMHRhbGtpbmclMjBvdXRkb29ycyUyMGNhZmV8ZW58MXwxfHx8MTc5MTIwOTU3N3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=60" width="1600" height="2092" alt="Neighbours sit and chat outside a shop on a cobbled street" loading="lazy" decoding="async">
           <figcaption class="rooms__label m-text-6">On the corner</figcaption>
           <div class="rooms__talk">
             <p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Same time tomorrow?</span></p>
@@ -847,21 +1055,21 @@
 <section class="voices" id="voices" data-8b-section="testimonials" aria-labelledby="voices-title">
   <div class="voices__sheet m-band" aria-hidden="true" data-8b-motion="bandRise"></div>
   <div class="voices__inner l-wrap">
-    <h2 class="m-text-3 voices__title" id="voices-title" data-8b-motion="captionIn">Recommended by clinicians. Loved by the people who use it.</h2>
+    <h2 class="m-text-3 voices__title" id="voices-title" data-8b-motion="captionIn" data-8b-split="lines">Recommended by clinicians. Loved by the people who use it.</h2>
     <div class="voices__grid">
       <figure class="voices__expert">
-        <div class="voices__photo"><img srcset="https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=360&amp;q=80 360w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=660&amp;q=80 660w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=720&amp;q=80 720w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" sizes="(max-width: 767px) 95vw, 51vw" style="background:#a6c0c0" src="https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1290" alt="A smiling clinician with a stethoscope stands outdoors by the water" loading="lazy" decoding="async"></div>
-        <blockquote class="voices__quote m-text-4" data-8b-motion="readAlong"><p>“I’ve watched patients stop dreading the phone. Within weeks they’re making the calls they used to hand to someone else.”</p></blockquote>
+        <div class="voices__photo"><img src="https://images.unsplash.com/photo-1643297654397-97b3201abc7c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8YXVkaW9sb2dpc3QlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTYyNHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60" width="1600" height="1290" alt="A smiling clinician with a stethoscope stands outdoors by the water" loading="lazy" decoding="async"></div>
+        <blockquote class="voices__quote m-text-4" data-8b-motion="readAlong" data-8b-split="words"><p>“I’ve watched patients stop dreading the phone. Within weeks they’re making the calls they used to hand to someone else.”</p></blockquote>
         <figcaption class="voices__who m-text-6"><span class="voices__badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><p>Dr. Amara Osei<br><span>Audiologist</span></p></figcaption>
       </figure>
       <div class="voices__cols">
-        <ul class="voices__col">
+        <ul class="voices__col" data-8b-items=":scope > li">
           <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Set up in five minutes and I haven’t missed a word since.</p><p class="m-text-6">Marguerite L.</p></li>
           <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">I called my bank on my own for the first time in years. Small thing, huge feeling.</p><p class="m-text-6">Tomás R.</p></li>
           <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Room mode at the pharmacy counter is a quiet little miracle.</p><p class="m-text-6">Daniel K.</p></li>
           <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">No lag, no fuss, and the transcript is there when I need to check a time.</p><p class="m-text-6">Hannah W.</p></li>
         </ul>
-        <ul class="voices__col">
+        <ul class="voices__col" data-8b-items=":scope > li">
           <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">The captions keep up with my granddaughter, and she talks fast.</p><p class="m-text-6">Evelyn C.</p></li>
           <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Forty years with hearing aids. This is the best tool I’ve had for the phone.</p><p class="m-text-6">Ruth A.</p></li>
           <li class="m-card"><p class="voices__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg></p><p class="m-text">Typing my replies and hearing them read aloud feels natural now.</p><p class="m-text-6">Samuel O.</p></li>
@@ -877,10 +1085,10 @@
   <div class="setup__sheet m-band-2" aria-hidden="true"></div>
   <div class="setup__inner l-wrap">
     <div class="setup__head">
-      <h2 class="m-text-3" id="setup-title" data-8b-motion="captionIn">Three steps, then just talk.</h2>
+      <h2 class="m-text-3" id="setup-title" data-8b-motion="captionIn" data-8b-split="lines">Three steps, then just talk.</h2>
       <p class="m-text-4">No installer visit and no special handset. If you can use a smartphone, you can use Linea.</p>
     </div>
-    <ol class="setup__steps">
+    <ol class="setup__steps" data-8b-items=":scope > li" data-8b-fixed="3">
       <li class="setup__card" style="--setup-i:0">
         <p class="setup__num m-text-2" aria-hidden="true">1</p>
         <div class="setup__copy"><h3 class="m-text-5">Download and confirm</h3><p class="m-text-8">Install Linea and confirm your hearing loss once. Eligible people pay nothing — captioning is covered by a public accessibility fund.</p></div>
@@ -915,10 +1123,10 @@
   <div class="faq__sheet m-band" aria-hidden="true"></div>
   <div class="faq__inner l-wrap">
     <div class="faq__head">
-      <h2 class="m-text-3" id="faq-title" data-8b-motion="captionIn">Questions, answered plainly.</h2>
+      <h2 class="m-text-3" id="faq-title" data-8b-motion="captionIn" data-8b-split="lines">Questions, answered plainly.</h2>
       <p class="m-text-8">Still wondering about something? <a class="m-link" href="#contact">Ask a person</a> — we reply within a day.</p>
     </div>
-    <div class="faq__list">
+    <div class="faq__list" data-8b-items=":scope > details">
       <details class="faq__item"><summary class="m-text-5">Who can use Linea for free?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Anyone whose hearing loss makes phone calls hard. You confirm it once in the app; captioning is paid for by a public accessibility fund, so there is nothing to buy and no subscription.</p></details>
       <details class="faq__item"><summary class="m-text-5">Does it work with my current number?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Yes. Keep your mobile number for calls and texts, or take a free new number just for captioned calls. The people you call won’t notice a difference.</p></details>
       <details class="faq__item"><summary class="m-text-5">How accurate are the captions?<span class="faq__icon" aria-hidden="true"></span></summary><p class="m-text">Linea pairs speech recognition tuned for phone audio with corrections as each sentence completes, so names, numbers and addresses come through reliably. Flag any line to help it learn.</p></details>
@@ -936,10 +1144,10 @@
   <div class="start__sheet m-band-4" aria-hidden="true"></div>
   <div class="start__inner l-wrap">
     <div class="start__window">
-      <img srcset="https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=640&amp;q=80 640w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1010&amp;q=80 1010w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1180&amp;q=80 1180w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" sizes="(max-width: 767px) 269vw, 92vw" style="background:#26260c" src="https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1067" alt="A young woman smiles as she talks on the phone in a leafy garden" loading="lazy" decoding="async">
+      <img src="https://images.unsplash.com/photo-1726047336347-77803fc5f725?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8d29tYW4lMjBzbWlsaW5nJTIwYXQlMjBwaG9uZSUyMGdyZWVuJTIwbGVhdmVzJTIwYmFja2dyb3VuZHxlbnwxfDB8fHwxNzkxMjA5Njc3fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=60" width="1600" height="1067" alt="A young woman smiles as she talks on the phone in a leafy garden" loading="lazy" decoding="async">
     </div>
     <div class="start__copy">
-      <h2 class="m-text-3" id="start-title">Your next call can be the easy one.</h2>
+      <h2 class="m-text-3" id="start-title" data-8b-split="words">Your next call can be the easy one.</h2>
       <p class="m-text-4">Free for people with hearing loss. Ready in five minutes on the phone you already own.</p>
       <div class="start__actions">
         <a class="m-btn" href="#hero"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
@@ -954,10 +1162,10 @@
   <div class="contact__sheet m-band-2" aria-hidden="true" data-8b-motion="bandRise"></div>
   <div class="contact__inner l-wrap">
     <div class="contact__info">
-      <h2 class="m-text-3" id="contact-title" data-8b-motion="captionIn">Talk to a person, any way you like.</h2>
+      <h2 class="m-text-3" id="contact-title" data-8b-motion="captionIn" data-8b-split="lines">Talk to a person, any way you like.</h2>
       <p class="m-text-4">Our support team answers by text, email or captioned video call — every day from 7 am to 11 pm Eastern.</p>
-      <figure class="contact__photo"><img srcset="https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=340&amp;q=80 340w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80 400w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=680&amp;q=80 680w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w, https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w" sizes="(max-width: 767px) 90vw, 47vw" style="background:#260c0c" src="https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" width="1600" height="1067" alt="A smiling support specialist wearing a headset at her desk" loading="lazy" decoding="async"></figure>
-      <ul class="contact__ways">
+      <figure class="contact__photo"><img src="https://images.unsplash.com/photo-1766066014237-00645c74e9c6?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tZXIlMjBzdXBwb3J0JTIwd29tYW4lMjBoZWFkc2V0JTIwc21pbGluZ3xlbnwxfDB8fHwxNzkxMjA5NjI1fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=60" width="1600" height="1067" alt="A smiling support specialist wearing a headset at her desk" loading="lazy" decoding="async"></figure>
+      <ul class="contact__ways" data-8b-items=":scope > li">
         <li><p class="m-text-6">Text us</p><a data-8b-placeholder="phone" class="m-link m-text-5" href="sms:+14150000000">(415) 000-0000</a></li>
         <li><p class="m-text-6">Email</p><a data-8b-placeholder="email" class="m-link m-text-5" href="mailto:help@linea.example">help@linea.example</a></li>
         <li><p class="m-text-6">Video call</p><a class="m-link m-text-5" href="#contact-form">Book a captioned call</a></li>
@@ -985,7 +1193,7 @@
         <p class="m-text-4">Made for people with hearing loss, by people who live with it.</p>
         <a class="m-link m-text-6" href="#hero">Back to the top</a>
       </div>
-      <div class="footer__cols m-text-6">
+      <div class="footer__cols m-text-6" data-8b-items=":scope > .footer__col">
         <div class="footer__col"><h2 class="m-text-6">Product</h2><ul><li><a class="m-link-2" href="#listen">How it works</a></li><li><a class="m-link-2" href="#calls">On calls</a></li><li><a class="m-link-2" href="#rooms">In person</a></li><li><a class="m-link-2" href="#tune">Your captions</a></li></ul></div>
         <div class="footer__col"><h2 class="m-text-6">Support</h2><ul><li><a data-8b-placeholder="email" class="m-link-2" href="mailto:help@linea.example">help@linea.example</a></li><li><a data-8b-placeholder="phone" class="m-link-2" href="sms:+14150000000">Text (415) 000-0000</a></li><li><a class="m-link-2" href="#contact">Contact us</a></li><li><a class="m-link-2" href="#faq">Questions</a></li></ul></div>
         <div class="footer__col"><h2 class="m-text-6">Company</h2><ul><li><a class="m-link-2" href="#voices">Stories</a></li><li><a class="m-link-2" href="#setup">Getting started</a></li><li><a class="m-link-2" href="#start">Get the app</a></li></ul></div>
@@ -997,16 +1205,12 @@
     </div>
     <div class="footer__legal m-text-7">
       <p>© 2026 Linea Inc. All rights reserved. · Design: <a href="https://8b.com/" style="color:inherit" data-8b-credit>8B</a></p>
-      <ul><li><a class="m-link" href="#hero">Privacy</a></li><li><a class="m-link" href="#hero">Terms</a></li><li><a class="m-link" href="#hero">Emergency calling</a></li></ul>
+      <ul data-8b-items=":scope > li"><li><a class="m-link" href="#hero">Privacy</a></li><li><a class="m-link" href="#hero">Terms</a></li><li><a class="m-link" href="#hero">Emergency calling</a></li></ul>
     </div>
     <p class="footer__note m-text-7">Captioned calling through Linea is intended for people with hearing loss. Emergency calls placed through Linea work differently from a landline; keep your registered address up to date.</p>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
 <script data-8b-part="section-script:nav">
 (() => {
   const root = document.getElementById('nav');
@@ -1024,13 +1228,13 @@
   const open = () => {
     menu.hidden = false;
     toggle.setAttribute('aria-expanded', 'true');
-    window.lenis?.stop();
+    window.motionKit?.wheel?.stop();
     close.focus();
   };
   const shut = (focusToggle = true) => {
     menu.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
-    window.lenis?.start();
+    window.motionKit?.wheel?.start();
     if (focusToggle) toggle.focus();
   };
   toggle.addEventListener('click', open);
@@ -1044,63 +1248,6 @@
   const hero = document.getElementById('hero');
   if (!hero || !('IntersectionObserver' in window)) return;
   new IntersectionObserver(([entry]) => hero.classList.toggle('is-paused', !entry.isIntersecting)).observe(hero);
-})();
-</script>
-<script data-8b-part="motion-queue">
-(() => {
-  'use strict';
-  const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
-  const parsed = document.readyState === 'loading' ? new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, { once: true })) : Promise.resolve();
-  const ready = () => Promise.all([fonts, parsed]).then(() => firsts);
-  const nextTask = () => window.scheduler?.yield?.() ?? new Promise(resolve => setTimeout(resolve));
-  const refresh = () => {
-    if (typeof window.refreshScroll === 'function') return window.refreshScroll();
-    window.ScrollTrigger?.sort(); window.ScrollTrigger?.refresh();
-  };
-  const run = (setup, name) => {
-    for (const trigger of window.ScrollTrigger?.getAll() || []) if (!trigger.end && window.ScrollTrigger.getAll().includes(trigger)) trigger.refresh(0, 1);
-    const context = window.gsap.context(() => {});
-    const log = new MutationObserver(() => {});
-    log.observe(document.documentElement, { attributes: true, attributeOldValue: true, subtree: true });
-    let failure = null, records;
-    try { context.add(() => { try { setup(); } catch (error) { failure = error; } }); }
-    finally { records = log.takeRecords(); log.disconnect(); }
-    if (!failure) return true;
-    try { context.revert(); } catch (error) { console.error(name, 'revert failed', error); }
-    for (const { target, attributeName, oldValue } of records.reverse()) {
-      const now = target.getAttribute(attributeName);
-      if (oldValue == null) { if (now != null) target.removeAttribute(attributeName); }
-      else if (now !== oldValue) target.setAttribute(attributeName, oldValue);
-    }
-    console.error(name, failure);
-    return false;
-  };
-  let firsts = Promise.resolve(), tail = null, pending = 0, lazy = null, building = 0;
-  window.queueMotion = (setup, { first = false, near, id } = {}) => {
-    if (!window.gsap || typeof setup !== 'function') return;
-    const name = id || document.currentScript?.getAttribute('data-8b-part') || 'motion';
-    if (near instanceof Element && window.IntersectionObserver) {
-      const watch = new IntersectionObserver(entries => {
-        if (!entries.some(entry => entry.isIntersecting)) return;
-        watch.disconnect();
-        building++;
-        lazy = (lazy || ready()).then(nextTask).then(() => run(setup, name)).finally(() => { if (!--building) refresh(); });
-      }, { rootMargin: '100% 0px' });
-      watch.observe(near);
-      return;
-    }
-    if (first) firsts = firsts.then(() => fonts).then(() => { if (!run(setup, name)) refresh(); });
-    else {
-      pending++;
-      tail = (tail || ready()).then(nextTask).then(() => run(setup, name))
-        .finally(() => { if (!--pending) refresh(); });
-    }
-    window.motionReady = Promise.all([firsts, tail]);
-  };
-  window.adjacent = (a, b) => {
-    const order = [...document.querySelectorAll('[data-8b-section]')].filter(section => section.getAttribute('data-8b-section') !== 'navigation').map(section => section.id);
-    return order.indexOf(a) >= 0 && order[order.indexOf(a) + 1] === b;
-  };
 })();
 </script>
 <script data-8b-part="section-script:contact">
@@ -1117,349 +1264,319 @@
   });
 })();
 </script>
-<script data-8b-part="page-init">
-gsap.registerPlugin(ScrollTrigger, SplitText);
-function refreshScroll() {
-  window.measureNav?.();
-  ScrollTrigger.sort();
-  ScrollTrigger.refresh();
-}
-gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
-  const bar = document.querySelector('#nav .nav__bar');
-  const lenis = window.lenis = new Lenis({ lerp: 0.085, anchors: { offset: -(bar ? Math.ceil(bar.getBoundingClientRect().bottom) : 0) } });
-  const tick = time => lenis.raf(time * 1000);
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add(tick);
-  gsap.ticker.lagSmoothing(0);
-  return () => { gsap.ticker.remove(tick); gsap.ticker.lagSmoothing(500, 33); lenis.destroy(); window.lenis = null; };
-});
-</script>
-<script data-8b-part="motion">
-function restRadius(element) {
-  return parseFloat((getComputedStyle(element).clipPath.match(/round\s+([\d.]+)px/) || [])[1]) || 0;
-}
-function transcribe(element, wordsClass) {
-  const split = SplitText.create(element, { type: 'words', wordsClass });
-  return gsap.fromTo(split.words, { '--bar': 1 }, { '--bar': 0, ease: 'none', stagger: 0.16, duration: 0.5 });
-}
-const captionPlayed = new WeakSet();
-const effects = {
-  captionIn(element, vars = {}) {
-    const split = SplitText.create(element, { type: 'lines', mask: 'lines' });
-    return gsap.timeline({ ...vars, onComplete: () => split.revert() })
-      .from(split.lines, { yPercent: 108, duration: 1, ease: 'expo.out', stagger: 0.09 });
-  },
-  readAlong(element, vars = {}) {
-    const split = SplitText.create(element, { type: 'words' });
-    const ink = getComputedStyle(element).color;
-    const faint = ink.replace(/^rgb\((.+)\)$/, 'rgba($1, 0.22)');
-    return gsap.fromTo(split.words, { color: faint }, { color: ink, ease: 'none', stagger: 0.12, duration: 0.6, ...vars });
-  },
-  bandRise(sheet, vars = {}) {
-    const radius = restRadius(sheet);
-    const side = innerWidth < 768 ? 2.5 : 4;
-    const big = Math.round(radius * 2.6);
-    return gsap.fromTo(sheet,
-      { clipPath: `inset(0% ${side}% 0% ${side}% round ${big}px ${big}px 0px 0px)` },
-      { clipPath: `inset(0% 0% 0% 0% round ${radius}px ${radius}px 0px 0px)`, ease: 'none', ...vars });
-  }
+<script data-8b-part="motion-kit">
+(() => {
+const live = document.documentElement.hasAttribute('data-8b-live');
+const measures = new Set();
+let queued = false;
+const run = fn => { try { fn(); } catch (error) { console.error('[motion-kit] measure failed', error); } };
+const remeasure = () => {
+if (queued) return;
+queued = true;
+requestAnimationFrame(() => { queued = false; measures.forEach(run); realign(); });
 };
-document.querySelectorAll('[data-8b-section]').forEach(section => {
-  const first = () => section.getBoundingClientRect().top < innerHeight;
-  const timing = id => (first() ? { first: true, id } : { near: section, id });
-  const headings = section.querySelectorAll('[data-8b-motion~="captionIn"]');
-  if (headings.length) {
-    const id = `effect:captionIn:${section.id}`;
-    queueMotion(() => gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
-      headings.forEach((heading, index) => {
-        if (captionPlayed.has(heading)) return;
-        const timeline = effects.captionIn(heading, { paused: true });
-        ScrollTrigger.create({ id: `${id}:${index}`, trigger: heading, start: 'top 88%', once: true, onEnter: () => { captionPlayed.add(heading); timeline.play(); } });
-      });
-    }), timing(id));
-  }
-  const reads = section.querySelectorAll('[data-8b-motion~="readAlong"]');
-  if (reads.length) {
-    const id = `effect:readAlong:${section.id}`;
-    queueMotion(() => gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
-      reads.forEach((element, index) => ScrollTrigger.create({ id: `${id}:${index}`, trigger: element, start: 'top 88%', end: 'bottom 60%', scrub: true, animation: effects.readAlong(element) }));
-    }), timing(id));
-  }
-  const bands = section.querySelectorAll('[data-8b-motion~="bandRise"]');
-  if (bands.length) {
-    const id = `effect:bandRise:${section.id}`;
-    queueMotion(() => gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
-      bands.forEach((sheet, index) => ScrollTrigger.create({ id: `${id}:${index}`, trigger: section, start: 'top bottom', end: 'top 25%', scrub: true, animation: effects.bandRise(sheet) }));
-    }), timing(id));
-  }
+const realign = () => document.getAnimations().forEach(animation => {
+if (animation.timeline && animation.timeline !== document.timeline && animation.playState === 'running') { animation.pause(); animation.play(); }
 });
+window.motionKit = {
+live,
+box(element) {
+if (!(element instanceof HTMLElement)) { const r = element.getBoundingClientRect(); return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height }; }
+let x = 0, y = 0, node = element;
+while (node) { x += node.offsetLeft; y += node.offsetTop; node = node.offsetParent; }
+return { x, y, w: element.offsetWidth, h: element.offsetHeight };
+},
+set(element, vars) { for (const [name, value] of Object.entries(vars)) element.style.setProperty(name, String(value)); },
+measure(fn) { if (!live) return; measures.add(fn); run(fn); },
+scene(id, fn) {
+if (!live) return;
+try { fn(); } catch (error) {
+console.error(`[motion-kit] scene ${id} failed; its section stays static`, error);
+document.querySelector(`style[data-8b-part="scene:${id}"]`)?.setAttribute('media', 'not all');
+}
+}
+};
+if (!live) { window.motionReady = Promise.resolve(); return; }
+const number = () => document.querySelectorAll('[data-8b-items]').forEach(group => {
+let items;
+try { items = [...group.querySelectorAll(group.getAttribute('data-8b-items'))]; } catch { return; }
+items.forEach((item, index) => { item.style.setProperty('--i', index); item.style.setProperty('--n', items.length); });
+});
+number();
+measures.add(number);
+requestAnimationFrame(realign);
+new ResizeObserver(remeasure).observe(document.body);
+document.fonts?.ready.then(remeasure);
+addEventListener('load', remeasure);
+window.motionReady = (document.fonts?.ready ?? Promise.resolve()).then(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+})();
+(() => {
+const kit = window.motionKit;
+if (!kit.live || !matchMedia('(pointer: fine)').matches) return;
+let target = scrollY, current = scrollY, last = 0, running = false, paused = false;
+const inner = (node, dy) => {
+for (; node && node !== document.body && node !== document.documentElement; node = node.parentElement) {
+if (!/(auto|scroll)/.test(getComputedStyle(node).overflowY) || node.scrollHeight <= node.clientHeight) continue;
+if (dy > 0 ? node.scrollTop + node.clientHeight < node.scrollHeight - 1 : node.scrollTop > 0) return true;
+}
+return false;
+};
+const step = now => {
+current += (target - current) * (1 - Math.exp(-5.3 * Math.min(0.05, (now - last) / 1000)));
+last = now;
+if (Math.abs(target - current) < 0.5) current = target;
+scrollTo({ top: current, behavior: 'instant' });
+if (current !== target) requestAnimationFrame(step); else running = false;
+};
+addEventListener('wheel', event => {
+if (paused || event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY) || inner(event.target, event.deltaY)) return;
+event.preventDefault();
+if (!running) target = current = scrollY;
+const unit = event.deltaMode === 1 ? 40 : event.deltaMode === 2 ? innerHeight : 1;
+target = Math.max(0, Math.min(document.documentElement.scrollHeight - innerHeight, target + event.deltaY * unit * 0.95));
+if (!running) { running = true; last = performance.now(); requestAnimationFrame(step); }
+}, { passive: false });
+kit.wheel = { stop() { paused = true; }, start() { paused = false; } };
+})();
+(() => {
+const kit = window.motionKit;
+if (!kit.live) return;
+const at = element => {
+const own = /^(\d{1,3}(?:\.\d+)?)%$/.exec((element.getAttribute('data-8b-enter') || '').trim());
+return own && +own[1] <= 100 ? own[1] / 100 : 0.88;
+};
+let pending = [...document.querySelectorAll('[data-8b-motion]')].map(element => ({ element, y: 0, at: at(element) }));
+let queued = false;
+const check = () => {
+queued = false;
+pending = pending.filter(item => {
+if (item.y > scrollY + innerHeight * item.at) return true;
+item.element.classList.add('is-in');
+return false;
+});
+};
+const queue = () => { if (!queued) { queued = true; requestAnimationFrame(check); } };
+kit.measure(() => { pending.forEach(item => { item.y = kit.box(item.element).y; }); queue(); });
+addEventListener('scroll', queue, { passive: true });
+})();
+(() => {
+const kit = window.motionKit;
+if (!kit.live) return;
+const sheet = new CSSStyleSheet();
+sheet.replaceSync('.line{display:block;overflow:clip;padding-block:.12em;margin-block:-.12em}.line:not(:last-child){margin-bottom:0}.line+.line{margin-top:-.24em}.line+.line>.line__in{text-indent:0}:where(h1,h2,h3,h4,h5,h6,p,div,blockquote,figcaption,dd,dt):where([data-8b-split="lines"]:has(>.line)){display:flow-root}.line__in{display:block}.kit-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}');
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+const sources = new WeakMap(), widths = new WeakMap();
+const graphemes = typeof Intl.Segmenter === 'function'
+? text => [...new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(text)].map(part => part.segment)
+: text => [...text];
+const span = (className, text) => { const element = document.createElement('span'); element.className = className; if (text != null) element.textContent = text; return element; };
+const split = element => {
+const mode = element.getAttribute('data-8b-split');
+if (sources.has(element)) element.innerHTML = sources.get(element); else sources.set(element, element.innerHTML);
+const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT), texts = [];
+while (walker.nextNode()) texts.push(walker.currentNode);
+let index = 0;
+for (const node of texts) {
+const fragment = document.createDocumentFragment();
+for (const piece of node.data.split(/(\s+)/)) {
+if (!piece) continue;
+if (/^\s+$/.test(piece)) { fragment.append(piece); continue; }
+const word = span('w');
+if (mode === 'chars') {
+word.setAttribute('aria-hidden', 'true');
+for (const character of graphemes(piece)) { const c = span('c', character); c.style.setProperty('--i', index++); word.append(c); }
+} else {
+word.textContent = piece;
+if (mode === 'words') word.style.setProperty('--i', index++);
+}
+fragment.append(word);
+}
+node.replaceWith(fragment);
+}
+if (mode === 'chars') element.append(span('kit-sr', element.textContent.replace(/\s+/g, ' ').trim()));
+if (mode === 'lines') {
+const lines = [];
+let top = null;
+for (const child of [...element.childNodes]) {
+const probe = child.nodeType === 1 ? child : null;
+const at = probe ? probe.getBoundingClientRect().top : top;
+if (probe && (top === null || Math.abs(at - top) > 2)) { lines.push([]); top = at; }
+if (!lines.length) lines.push([]);
+lines.at(-1).push(child);
+}
+lines.forEach((nodes, i) => {
+const line = span('line'), inner = span('line__in');
+line.style.setProperty('--i', i);
+nodes[0].before(line);
+inner.append(...nodes);
+line.append(inner);
+});
+index = lines.length;
+widths.set(element, element.clientWidth);
+}
+element.style.setProperty('--n', index);
+};
+const pending = [];
+let busy = false;
+const drain = () => {
+if (busy) return;
+const element = pending.shift();
+if (!element) return;
+busy = true;
+setTimeout(() => { try { split(element); } catch (error) { console.error('[motion-kit] split failed', error); } busy = false; drain(); }, 0);
+};
+const near = new IntersectionObserver(entries => entries.forEach(entry => {
+if (!entry.isIntersecting) return;
+near.unobserve(entry.target);
+pending.push(entry.target);
+drain();
+}), { rootMargin: '100% 0px 100% 0px' });
+(document.fonts?.ready ?? Promise.resolve()).then(() => document.querySelectorAll('[data-8b-split]').forEach(element => near.observe(element)));
+kit.measure(() => document.querySelectorAll('[data-8b-split="lines"]').forEach(element => {
+if (sources.has(element) && widths.get(element) !== element.clientWidth) { pending.push(element); drain(); }
+}));
+})();
+(() => {
+if (!window.motionKit.live) return;
+const sheet = new CSSStyleSheet();
+sheet.replaceSync('[data-8b-off],[data-8b-off]::before,[data-8b-off]::after{animation-play-state:paused!important}');
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+const watch = new IntersectionObserver(entries => entries.forEach(entry => entry.target.toggleAttribute('data-8b-off', !entry.isIntersecting)));
+const watched = new WeakSet();
+const scan = () => document.getAnimations().forEach(animation => {
+const element = animation.effect?.target;
+if (!element || watched.has(element) || animation.effect.getTiming().iterations !== Infinity || animation.timeline !== document.timeline) return;
+watched.add(element);
+watch.observe(element);
+});
+scan();
+addEventListener('load', scan);
+document.addEventListener('animationstart', scan, true);
+})();
 </script>
-<script data-8b-part="scene:hero">
-queueMotion(() => {
-  const hero = document.getElementById('hero');
-  const copy = hero.querySelector('.hero__copy');
-  const talk = hero.querySelector('.hero__talk');
-  const media = hero.querySelector('.hero__media');
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
-    const { wide } = context.conditions;
-    if (!adjacent('hero', 'listen')) return;
-    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'hero:exit', trigger: hero, start: 'bottom bottom', end: 'bottom 20%', scrub: true, invalidateOnRefresh: true } })
-      .to(media, { scale: 1.1, transformOrigin: wide ? '100% 30%' : '62% 30%' }, 0)
-      .to(copy, { y: () => -innerHeight * (wide ? 0.26 : 0.16) }, 0)
-      .to(talk, { y: () => -innerHeight * (wide ? 0.14 : 0.1) }, 0);
-  });
-}, { first: true, id: 'hero' });
-</script>
-<script data-8b-part="scene:listen">
-queueMotion(() => {
+<script data-8b-part="scene-script:listen">
+motionKit.scene('listen', () => {
   const root = document.getElementById('listen');
-  const sheet = root.querySelector('.listen__sheet');
-  const title = root.querySelector('.listen__title');
-  const hold = root.querySelector('.listen__hold');
   const voice = root.querySelector('.listen__panel--voice');
   const read = root.querySelector('.listen__panel--read');
   const voiceTrack = root.querySelector('.listen__track--voice');
   const rows = [...root.querySelectorAll('.listen__track--read > .listen__row')];
-  const bars = [...root.querySelectorAll('.listen__wave > i')];
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
-    const { wide } = context.conditions;
-    if (adjacent('hero', 'listen')) {
-      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'listen:entry', trigger: root, start: 'top bottom', end: 'top 20%', scrub: true, invalidateOnRefresh: true } })
-        .add(effects.bandRise(sheet), 0)
-        .fromTo(title, wide ? { y: () => innerHeight * 0.22 } : { x: () => innerWidth * 0.22 }, wide ? { y: 0 } : { x: 0 }, 0);
-    }
-    root.classList.add('is-staged');
-    const clones = rows.map(row => {
-      const clone = row.cloneNode(true);
-      clone.classList.add('listen__row--voice');
-      const text = clone.querySelector('.m-caption__text');
-      const words = text.textContent.trim().split(/\s+/);
-      text.textContent = '';
-      words.forEach((word, index) => {
-        const span = document.createElement('span');
-        span.className = 'listen__word';
-        span.style.setProperty('--h', (0.45 + 0.55 * Math.abs(Math.sin(index * 1.7 + word.length))).toFixed(2));
-        span.textContent = word;
-        text.append(span, index < words.length - 1 ? ' ' : '');
-      });
-      voiceTrack.append(clone);
-      return clone;
+  const wide = matchMedia('(min-width: 48rem)');
+  const pairs = rows.map((row, index) => {
+    const clone = row.cloneNode(true);
+    clone.classList.add('listen__row--voice');
+    const text = clone.querySelector('.m-caption__text');
+    const words = text.textContent.trim().split(/\s+/);
+    text.textContent = '';
+    words.forEach((word, i) => {
+      const span = document.createElement('span');
+      span.className = 'listen__word';
+      span.style.setProperty('--h', (0.45 + 0.55 * Math.abs(Math.sin(i * 1.7 + word.length))).toFixed(2));
+      span.textContent = word;
+      text.append(span, i < words.length - 1 ? ' ' : '');
     });
-    const pairs = rows.map((row, index) => [row, clones[index]]);
-    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'listen:join', trigger: hold, start: 'top bottom', end: 'top top', scrub: true, invalidateOnRefresh: true } })
-      .fromTo(voice, { x: () => -innerWidth * (wide ? 0.08 : 0.07) }, { x: 0 }, 0)
-      .fromTo(read, { x: () => innerWidth * (wide ? 0.08 : 0.07) }, { x: 0 }, 0);
-    const setters = bars.map(bar => gsap.quickSetter(bar, 'scaleY'));
-    const cross = gsap.timeline({ defaults: { ease: 'power1.inOut' }, scrollTrigger: {
-      id: 'listen', trigger: hold, start: 'top top', end: 'bottom bottom', scrub: true, invalidateOnRefresh: true,
-      onUpdate: self => {
-        const progress = self.progress;
-        const swell = Math.sin(Math.PI * progress);
-        setters.forEach((set, index) => set(1 - swell * 0.7 * (1 - Math.abs(Math.sin(index * 0.45 + progress * 18)))));
-      }
-    } });
-    pairs.forEach((pair, index) => {
-      const row = pair[0];
-      const shift = wide
-        ? () => -(row.offsetLeft - read.offsetWidth + row.offsetWidth + 32)
-        : () => voice.offsetHeight;
-      cross.fromTo(pair, wide ? { x: shift } : { y: shift }, wide ? { x: 0, duration: 1 } : { y: 0, duration: 1 }, index * 0.8);
-    });
-    cross.to({}, { duration: 0.35 });
-    return () => {
-      root.classList.remove('is-staged');
-      clones.forEach(clone => clone.remove());
-    };
+    motionKit.set(clone, { '--i': index, '--n': rows.length });
+    voiceTrack.append(clone);
+    return [row, clone];
   });
-}, { first: true, id: 'listen' });
+  root.querySelectorAll('.listen__wave > i').forEach((bar, index) => motionKit.set(bar, { '--listen-k': index }));
+  motionKit.measure(() => pairs.forEach(([row, clone]) => {
+    const shift = wide.matches
+      ? { '--listen-dx': `${-(row.offsetLeft - read.offsetWidth + row.offsetWidth + 32)}px`, '--listen-dy': '0px' }
+      : { '--listen-dx': '0px', '--listen-dy': `${voice.offsetHeight}px` };
+    motionKit.set(row, shift);
+    motionKit.set(clone, shift);
+  }));
+});
 </script>
-<script data-8b-part="scene:calls">
-queueMotion(() => {
+<script data-8b-part="scene-script:calls">
+motionKit.scene('calls', () => {
   const root = document.getElementById('calls');
   const list = root.querySelector('.calls__list');
   const items = [...list.children];
-  const device = root.querySelector('.calls__device');
-  const steps = items.map((item, index) => [...root.querySelectorAll(`.phone [data-step="${index + 1}"]`)]);
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
-    const { wide } = context.conditions;
-    const line = wide ? '58%' : '52%';
-    const timeline = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'calls', trigger: items[0], start: `top ${line}`, endTrigger: items[items.length - 1], end: `bottom ${line}`, scrub: true } });
-    items.forEach((item, index) => {
-      if (index > 0) timeline.fromTo(item, { opacity: 0.32 }, { opacity: 1, duration: 0.25 }, index - 0.1);
-      if (index < items.length - 1) timeline.to(item, { opacity: 0.32, duration: 0.25 }, index + 0.9);
-      if (steps[index].length) timeline.from(steps[index], { opacity: 0, y: 14, scale: 0.94, transformOrigin: '50% 100%', duration: 0.3, stagger: 0.18, ease: 'power2.out' }, index + 0.05);
-    });
-    timeline.to(items.slice(0, -1), { opacity: 1, duration: 0.3 }, items.length - 0.1);
-    if (adjacent('calls', 'tune')) {
-      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'calls:exit', trigger: root, start: 'bottom bottom', end: 'bottom 30%', scrub: true, invalidateOnRefresh: true } })
-        .to(device, { scale: 0.8, rotation: -7, y: () => -innerHeight * (wide ? 0.12 : 0.08) }, 0);
-    }
+  const first = items[0], last = items[items.length - 1];
+  motionKit.measure(() => {
+    const at = motionKit.box(list), top = motionKit.box(first), end = motionKit.box(last);
+    motionKit.set(root, { '--calls-top': `${top.y - at.y}px`, '--calls-span': `${end.y + end.h - top.y}px` });
   });
-}, { near: document.getElementById('calls'), id: 'calls' });
+});
 </script>
-<script data-8b-part="scene:tune">
-queueMotion(() => {
+<script data-8b-part="scene-script:tune">
+motionKit.scene('tune', () => {
   const root = document.getElementById('tune');
   const stage = root.querySelector('.tune__stage');
-  const lines = [...root.querySelectorAll('.tune__line')];
-  const sizeFill = root.querySelector('[data-ctl="size"] .tune__fill');
-  const sizeThumb = root.querySelector('[data-ctl="size"] .tune__thumb');
-  const weightFill = root.querySelector('[data-ctl="weight"] .tune__fill');
-  const weightThumb = root.querySelector('[data-ctl="weight"] .tune__thumb');
-  const pill = root.querySelector('[data-ctl="contrast"] .tune__pill');
-  const tokens = getComputedStyle(document.documentElement);
-  const paper = tokens.getPropertyValue('--color-2').trim();
-  const ink = tokens.getPropertyValue('--color-1').trim();
+  const thumbs = [...root.querySelectorAll('.tune__slider > .tune__thumb')];
   const offset = (element, stop) => {
     let x = 0, y = 0;
     for (let node = element; node && node !== stop; node = node.offsetParent) { x += node.offsetLeft; y += node.offsetTop; }
     return { x, y };
   };
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
-    if (adjacent('calls', 'tune')) {
-      const calls = document.getElementById('calls');
-      const aside = calls.querySelector('.calls__aside');
-      const sticky = calls.querySelector('.calls__sticky');
-      const screen = calls.querySelector('.phone__screen');
-      let geometry;
-      const measure = () => {
-        const startScroll = offset(root).y - innerHeight;
-        const asideAt = offset(aside);
-        const style = getComputedStyle(sticky);
-        const released = asideAt.y + aside.offsetHeight - sticky.offsetHeight - startScroll;
-        const fromBottom = style.top === 'auto' && style.bottom !== 'auto';
-        const stickyY = fromBottom
-          ? Math.min(released, innerHeight - (parseFloat(style.bottom) || 0) - sticky.offsetHeight)
-          : Math.min(Math.max(asideAt.y - startScroll, parseFloat(style.top) || 0), released);
-        const inner = offset(screen, sticky);
-        const screenX = asideAt.x + inner.x + screen.offsetWidth / 2;
-        const screenY = stickyY + inner.y + screen.offsetHeight / 2;
-        const stageAt = offset(stage);
-        geometry = {
-          x: screenX - (stageAt.x + stage.offsetWidth / 2),
-          y: screenY - (stageAt.y - startScroll + stage.offsetHeight / 2),
-          scale: innerWidth < 768 ? 0.12 : Math.max(0.16, screen.offsetWidth / stage.offsetWidth)
-        };
-        return geometry.x;
-      };
-      gsap.timeline({ scrollTrigger: { id: 'tune:entry', trigger: root, start: 'top bottom', end: 'top 30%', scrub: true, invalidateOnRefresh: true } })
-        .fromTo(stage, { scale: 0 }, { scale: () => (measure(), geometry.scale), ease: 'none', duration: 0.02, immediateRender: false }, 0)
-        .fromTo(stage, { x: measure, y: () => geometry.y, scale: () => geometry.scale }, { x: 0, y: 0, scale: 1, ease: 'power1.inOut', duration: 0.98, immediateRender: false }, 0.02)
-        .fromTo(stage, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: 0.1, immediateRender: false }, 0);
-    }
-    const track = element => element.parentElement.offsetWidth;
-    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'tune', trigger: root, start: 'top 30%', end: 'top -45%', scrub: true, invalidateOnRefresh: true } })
-      .fromTo(lines, { fontVariationSettings: '"wght" 300', scale: 0.8 }, { fontVariationSettings: '"wght" 800', scale: 1, duration: 1 }, 0)
-      .fromTo(sizeFill, { scaleX: 0.3 }, { scaleX: 0.75, duration: 1 }, 0)
-      .fromTo(sizeThumb, { x: () => -0.45 * track(sizeThumb) }, { x: 0, duration: 1 }, 0)
-      .fromTo(weightFill, { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0)
-      .fromTo(weightThumb, { x: () => -0.6 * track(weightThumb) }, { x: () => 0.4 * track(weightThumb), duration: 1 }, 0)
-      .fromTo(stage, { backgroundColor: paper, color: ink }, { backgroundColor: ink, color: paper, duration: 0.3 }, 1.05)
-      .fromTo(pill, { xPercent: -100 }, { xPercent: 0, duration: 0.3 }, 1.05)
-      .to(lines, { fontVariationSettings: '"wght" 600', duration: 0.8 }, 1.45)
-      .to(weightFill, { scaleX: 0.6, duration: 0.8 }, 1.45)
-      .to(weightThumb, { x: 0, duration: 0.8 }, 1.45);
+  const order = [...document.querySelectorAll('[data-8b-section]')].filter(section => section.getAttribute('data-8b-section') !== 'navigation');
+  const calls = order[order.indexOf(root) - 1]?.id === 'calls' ? order[order.indexOf(root) - 1] : null;
+  const aside = calls?.querySelector('.calls__aside');
+  const sticky = calls?.querySelector('.calls__sticky');
+  const screen = calls?.querySelector('.phone__screen');
+  const handoff = aside && sticky && screen;
+  motionKit.measure(() => {
+    thumbs.forEach(thumb => motionKit.set(thumb, { '--tune-track': `${thumb.parentElement.offsetWidth}px` }));
+    if (!handoff) return;
+    const startScroll = offset(root).y - innerHeight;
+    const asideAt = offset(aside);
+    const style = getComputedStyle(sticky);
+    const released = asideAt.y + aside.offsetHeight - sticky.offsetHeight - startScroll;
+    const fromBottom = style.top === 'auto' && style.bottom !== 'auto';
+    const stickyY = fromBottom
+      ? Math.min(released, innerHeight - (parseFloat(style.bottom) || 0) - sticky.offsetHeight)
+      : Math.min(Math.max(asideAt.y - startScroll, parseFloat(style.top) || 0), released);
+    const inner = offset(screen, sticky);
+    const stageAt = offset(stage);
+    motionKit.set(stage, {
+      '--tune-x': `${asideAt.x + inner.x + screen.offsetWidth / 2 - (stageAt.x + stage.offsetWidth / 2)}px`,
+      '--tune-y': `${stickyY + inner.y + screen.offsetHeight / 2 - (stageAt.y - startScroll + stage.offsetHeight / 2)}px`,
+      '--tune-s': innerWidth < 768 ? 0.12 : Math.max(0.16, screen.offsetWidth / stage.offsetWidth)
+    });
   });
-}, { near: document.getElementById('tune'), id: 'tune' });
+  if (handoff) root.setAttribute('data-handoff', '');
+});
 </script>
-<script data-8b-part="scene:rooms">
-queueMotion(() => {
+<script data-8b-part="scene-script:rooms">
+motionKit.scene('rooms', () => {
   const root = document.getElementById('rooms');
-  const hold = root.querySelector('.rooms__hold');
   const track = root.querySelector('.rooms__track');
   const places = [...track.querySelectorAll('.rooms__place')];
-  const lines = root.querySelectorAll('.rooms__line');
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
-    const { wide } = context.conditions;
-    root.classList.add('is-track');
-    const travel = () => Math.max(0, track.scrollWidth - innerWidth);
-    const setTravel = () => gsap.set(root, { '--rooms-travel': `${travel()}px` });
-    setTravel();
-    ScrollTrigger.addEventListener('refreshInit', setTravel);
-    const lead = () => Math.min(0.9, (innerWidth * 0.6) / track.scrollWidth);
-    const main = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'rooms', trigger: hold, start: 'top top', end: 'bottom bottom', scrub: true, invalidateOnRefresh: true } });
-    main.fromTo(track, { x: 0 }, { x: () => -travel(), duration: 1 }, 0)
-      .fromTo(lines, { strokeDasharray: 1, strokeDashoffset: () => 1 - lead() }, { strokeDashoffset: 0, duration: 1 }, 0);
-    places.forEach((place, index) => {
-      const image = place.querySelector('img');
-      const talk = place.querySelectorAll('.rooms__talk > *');
-      gsap.fromTo(image, { xPercent: 7 }, { xPercent: 0, ease: 'none', scrollTrigger: { id: `rooms:photo-${index}`, trigger: place, containerAnimation: main, start: 'left right', end: wide ? 'left 66%' : 'left 40%', scrub: true } });
-      gsap.fromTo(talk, { y: 36, opacity: 0 }, { y: 0, opacity: 1, ease: 'power2.out', stagger: 0.3, scrollTrigger: { id: `rooms:talk-${index}`, trigger: place, containerAnimation: main, start: wide ? 'left 100%' : 'left 100%', end: wide ? 'left 66%' : 'left 40%', scrub: true } });
+  const wide = matchMedia('(min-width: 48rem)');
+  places.forEach(place => {
+    const talk = [...place.querySelectorAll('.rooms__talk > *')];
+    talk.forEach((line, j) => motionKit.set(line, { '--rooms-j': j }));
+    motionKit.set(place, { '--rooms-span': 0.5 + 0.3 * Math.max(0, talk.length - 1) });
+  });
+  motionKit.measure(() => {
+    const width = track.scrollWidth;
+    const travel = Math.max(0, width - innerWidth);
+    motionKit.set(root, { '--rooms-travel': `${travel}px`, '--rooms-dash': 1 - Math.min(0.9, (innerWidth * 0.6) / width) });
+    const end = wide.matches ? 0.66 : 0.4;
+    places.forEach(place => {
+      const left = motionKit.box(place).x;
+      const a = (left - innerWidth) / (travel || 1), b = (left - innerWidth * end) / (travel || 1);
+      motionKit.set(place, { '--rooms-a': a, '--rooms-k': 1 / (b - a) });
     });
-    return () => {
-      ScrollTrigger.removeEventListener('refreshInit', setTravel);
-      root.classList.remove('is-track');
-    };
   });
-}, { id: 'rooms' });
+});
 </script>
-<script data-8b-part="scene:voices">
-queueMotion(() => {
-  const root = document.getElementById('voices');
-  const colsBox = root.querySelector('.voices__cols');
-  const cols = [...root.querySelectorAll('.voices__col')];
-  const cards = [...root.querySelectorAll('.voices__col > li')];
-  const photo = root.querySelector('.voices__photo img');
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
-    const { wide } = context.conditions;
-    if (wide) {
-      cols.forEach((col, index) => gsap.fromTo(col, { y: () => innerHeight * (index ? 0.42 : 0.14) }, { y: 0, ease: 'none', scrollTrigger: { id: `voices:col-${index}`, trigger: colsBox, start: 'top bottom', end: 'top 18%', scrub: true, invalidateOnRefresh: true } }));
-    } else {
-      cards.forEach((card, index) => gsap.fromTo(card, { y: () => innerHeight * (index % 2 ? 0.16 : 0.06), x: index % 2 ? 28 : -28 }, { y: 0, x: 0, ease: 'none', scrollTrigger: { id: `voices:card-${index}`, trigger: card, start: 'top bottom', end: 'top 58%', scrub: true, invalidateOnRefresh: true } }));
-    }
-    gsap.fromTo(photo, { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { id: 'voices:photo', trigger: photo.parentElement, start: 'top bottom', end: 'center 50%', scrub: true } });
-  });
-}, { near: document.getElementById('voices'), id: 'voices' });
-</script>
-<script data-8b-part="scene:setup">
-queueMotion(() => {
-  const root = document.getElementById('setup');
-  const steps = root.querySelector('.setup__steps');
+<script data-8b-part="scene-script:setup">
+motionKit.scene('setup', () => {
+  const steps = document.getElementById('setup').querySelector('.setup__steps');
   const cards = [...steps.children];
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, () => {
-    root.classList.add('is-stacked');
-    const gap = () => parseFloat(getComputedStyle(steps).rowGap) || 0;
-    const natural = index => cards.slice(0, index).reduce((sum, card) => sum + card.offsetHeight + gap(), 0);
-    const stuck = index => parseFloat(getComputedStyle(cards[index]).top) || 0;
+  motionKit.measure(() => {
+    const gap = parseFloat(getComputedStyle(steps).rowGap) || 0;
+    let natural = 0;
     cards.slice(0, -1).forEach((card, index) => {
-      gsap.fromTo(card, { scale: 1, filter: 'brightness(1)' }, { scale: 0.92, filter: 'brightness(0.68)', ease: 'none', scrollTrigger: { id: `setup:${index}`, trigger: steps, start: () => `top+=${natural(index + 1)} bottom`, end: () => `top+=${natural(index + 1)} ${stuck(index + 1)}px`, scrub: true, invalidateOnRefresh: true } });
+      natural += card.offsetHeight + gap;
+      const stuck = parseFloat(getComputedStyle(cards[index + 1]).top) || 0;
+      motionKit.set(card, { '--setup-from': `${natural}px`, '--setup-to': `${natural - stuck}px` });
     });
-    return () => root.classList.remove('is-stacked');
   });
-}, { id: 'setup' });
-</script>
-<script data-8b-part="scene:start">
-queueMotion(() => {
-  const root = document.getElementById('start');
-  const frame = root.querySelector('.start__window');
-  const image = frame.querySelector('img');
-  const heading = root.querySelector('.start__copy h2');
-  gsap.matchMedia().add({ wide: '(min-width: 48rem) and (prefers-reduced-motion: no-preference)', narrow: '(max-width: 47.99rem) and (prefers-reduced-motion: no-preference)' }, context => {
-    const { wide } = context.conditions;
-    const radius = restRadius(frame);
-    const sideX = wide ? 31 : 12;
-    const sideY = wide ? 15 : 22;
-    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'start', trigger: frame, start: 'top 92%', end: 'top 10%', scrub: true } })
-      .fromTo(frame, { clipPath: `inset(${sideY}% ${sideX}% ${sideY}% ${sideX}% round ${radius * 3}px)` }, { clipPath: `inset(0% 0% 0% 0% round ${radius}px)` }, 0)
-      .fromTo(image, { scale: 1.32 }, { scale: 1 }, 0);
-    root.classList.add('is-transcribing');
-    ScrollTrigger.create({ id: 'start:words', trigger: heading, start: 'top 96%', end: 'bottom 64%', scrub: true, animation: transcribe(heading, 'start__word') });
-    return () => root.classList.remove('is-transcribing');
-  });
-}, { near: document.getElementById('start'), id: 'start' });
-</script>
-<script data-8b-part="scene:footer">
-queueMotion(() => {
-  const root = document.getElementById('footer');
-  const brand = root.querySelector('.footer__brand');
-  const word = root.querySelector('.footer__word');
-  const strokes = root.querySelectorAll('.footer__logo path');
-  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'footer', trigger: brand, start: 'top bottom', end: 'bottom bottom', scrub: true } })
-      .fromTo(word, { yPercent: 70 }, { yPercent: 0 }, 0)
-      .fromTo(strokes, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, stagger: 0.15 }, 0);
-  });
-}, { near: document.getElementById('footer'), id: 'footer' });
+});
 </script>
 <!-- demo only: link to the template's page on 8b.com -->
 <div style="position:fixed;right:16px;bottom:16px;z-index:2147483647"><a class="m-btn" href="https://8b.com/templates/linea/" target="_blank" rel="noopener"><span class="m-btn__label">Free 8B template. Get it →</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a></div>
